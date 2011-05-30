@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.jangaroo.extas.examples</groupId>
+  <artifactId>hello-world-2-as3</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>jangaroo</packaging>
+
+  <name>hello-world-2-as3</name>
+  <description>
+    Ext AS Example 2: Hello World in Object-Oriented ActionScript
+    A simple "Hello World!" example that uses only ExtJS standard components, has no server connection, and
+    is written in pure ActionScript (no EXML).
+  </description>
+
+  <build>
+    <sourceDirectory>src/main/joo</sourceDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <version>0.8.4</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>ext-as</artifactId>
+      <type>jangaroo</type>
+      <version>0.8.9-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+</project>

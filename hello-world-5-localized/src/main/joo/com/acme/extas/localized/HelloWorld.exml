@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exml:component xmlns:exml="http://net.jangaroo.com/extxml/0.1"
+                xmlns="http://extjs.com/ext3"
+                xmlns:local="hello-world-5-localized">
+
+  <local:HelloWorldBase>
+    <items>
+      <panel title="{getBundle().panel_title}">
+        <tbar>
+          <toolbar>
+            <items>
+              <button text="{getBundle().button_label}" handler="{onClick}"/>
+              <button text="Chose Language">
+                <menu>
+                  <menu>
+                    <items>
+                      <menuitem>
+                        <baseAction>
+                          <local:ChangeLocaleAction locale="en" text="English"/>
+                        </baseAction>
+                      </menuitem>
+                      <menuitem>
+                        <baseAction>
+                          <local:ChangeLocaleAction locale="en_GB" text="English (GB)"/>
+                        </baseAction>
+                      </menuitem>
+                      <menuitem>
+                        <baseAction>
+                          <local:ChangeLocaleAction locale="de" text="Deutsch"/>
+                        </baseAction>
+                      </menuitem>
+                    </items>
+                  </menu>
+                </menu>
+              </button>
+            </items>
+          </toolbar>
+        </tbar>
+      </panel>
+    </items>
+  </local:HelloWorldBase>
+</exml:component>

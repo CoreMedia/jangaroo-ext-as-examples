@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exml:component xmlns:exml="http://net.jangaroo.com/extxml/0.1"
+                xmlns="http://extjs.com/ext3">
+  <exml:import class="ext.MessageBox"/>
+  <exml:import class="ext.Button"/>
+  <exml:import class="ext.util.StringUtil"/>
+
+  <exml:cfg name="user" type="String">
+    <exml:description>
+      the name of the user to greet
+    </exml:description>
+  </exml:cfg>
+
+  <viewport>
+    <items>
+      <panel title="Hello World!">
+        <tbar>
+          <toolbar>
+            <items>
+              <button text="Click me!" handler="{function(button:Button):void {
+                    MessageBox.alert(StringUtil.format('Hello {0}!', config.user),
+                      StringUtil.format('{0} clicked on button \'{1}\'.', config.user, button.getText()));
+                  }
+                     }"/>
+            </items>
+          </toolbar>
+        </tbar>
+      </panel>
+    </items>
+  </viewport>
+</exml:component>

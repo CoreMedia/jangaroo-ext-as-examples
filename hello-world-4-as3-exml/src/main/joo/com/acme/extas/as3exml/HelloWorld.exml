@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exml:component xmlns:exml="http://net.jangaroo.com/extxml/0.1"
+                xmlns="http://extjs.com/ext3"
+                xmlns:local="hello-world-4-as3-exml">
+
+  <local:HelloWorldBase>
+    <items>
+      <panel title="Hello World">
+        <tbar>
+          <toolbar>
+            <items>
+              <button text="Click me!" handler="{onClick}"/>
+            </items>
+          </toolbar>
+        </tbar>
+      </panel>
+    </items>
+  </local:HelloWorldBase>
+</exml:component>

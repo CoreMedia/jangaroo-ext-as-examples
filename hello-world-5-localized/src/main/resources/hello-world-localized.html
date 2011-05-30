@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ext AS Localization</title>
+
+  <!-- ext styles -->
+  <link rel="stylesheet" type="text/css" href="ext-js/resources/css/reset-min.css">
+  <link rel="stylesheet" type="text/css" href="ext-js/resources/css/ext-all.css">
+
+  <!-- Jangaroo -->
+  <script type="text/javascript">
+    joo = {
+      localization: {
+        supportedLocales: ["en", "en_GB", "de"]
+      }
+    };
+  </script>
+  <script type="text/javascript" src="joo/jangaroo-application.js"></script>
+
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      joo.classLoader.run("com.acme.extas.localized.HelloWorld", {user: "Joe"});
+    });
+  </script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.jangaroo.extas.examples</groupId>
+  <artifactId>hello-world-5-localized</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>jangaroo</packaging>
+
+  <name>hello-world-5-localized</name>
+  <description>
+    Ext AS Example 5: Localization
+    A simple "Hello World!" example to show how to create localized UIs in Ext AS.
+  </description>
+
+  <build>
+    <sourceDirectory>src/main/joo</sourceDirectory>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>target/generated-resources</directory>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <version>0.8.4</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>ext-as</artifactId>
+      <type>jangaroo</type>
+      <version>0.8.9-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+</project>

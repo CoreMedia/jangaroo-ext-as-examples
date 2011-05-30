@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.jangaroo.extas.examples</groupId>
+  <artifactId>jangaroo-ext-as-examples</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>jangaroo-ext-as-examples</name>
+  <description>
+    A collection of Ext AS Examples.
+  </description>
+
+  <modules>
+    <module>hello-world-1-webapp</module>
+    <module>hello-world-2-as3</module>
+    <module>hello-world-3-exml</module>
+    <module>hello-world-4-as3-exml</module>
+    <module>hello-world-5-localized</module>
+    <module>ext-as-example-webapp</module>
+  </modules>
+
+</project>
