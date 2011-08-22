@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exml:component xmlns:exml="http://net.jangaroo.com/extxml/0.1"
-                xmlns="http://extjs.com/ext3"
-                xmlns:local="hello-world-4-as3-exml">
+<exml:component xmlns:exml="http://www.jangaroo.net/exml/0.8"
+                xmlns="exml:ext.config"
+                xmlns:local="exml:com.acme.extas.as3exml.config">
 
-  <local:HelloWorldBase>
+  <local:helloWorldBase>
     <items>
       <panel title="Hello World">
         <tbar>
@@ -15,5 +15,5 @@
         </tbar>
       </panel>
     </items>
-  </local:HelloWorldBase>
+  </local:helloWorldBase>
 </exml:component>

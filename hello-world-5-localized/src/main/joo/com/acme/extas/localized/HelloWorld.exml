@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exml:component xmlns:exml="http://net.jangaroo.com/extxml/0.1"
-                xmlns="http://extjs.com/ext3"
-                xmlns:local="hello-world-5-localized">
+<exml:component xmlns:exml="http://www.jangaroo.net/exml/0.8"
+                xmlns="exml:ext.config"
+                xmlns:local="exml:com.acme.extas.localized.config">
 
-  <local:HelloWorldBase>
+  <local:helloWorldBase>
     <items>
       <panel title="{getBundle().panel_title}">
         <tbar>
@@ -16,17 +16,17 @@
                     <items>
                       <menuitem>
                         <baseAction>
-                          <local:ChangeLocaleAction locale="en" text="English"/>
+                          <local:changeLocaleAction locale="en" text="English"/>
                         </baseAction>
                       </menuitem>
                       <menuitem>
                         <baseAction>
-                          <local:ChangeLocaleAction locale="en_GB" text="English (GB)"/>
+                          <local:changeLocaleAction locale="en_GB" text="English (GB)"/>
                         </baseAction>
                       </menuitem>
                       <menuitem>
                         <baseAction>
-                          <local:ChangeLocaleAction locale="de" text="Deutsch"/>
+                          <local:changeLocaleAction locale="de" text="Deutsch"/>
                         </baseAction>
                       </menuitem>
                     </items>
@@ -38,5 +38,5 @@
         </tbar>
       </panel>
     </items>
-  </local:HelloWorldBase>
+  </local:helloWorldBase>
 </exml:component>

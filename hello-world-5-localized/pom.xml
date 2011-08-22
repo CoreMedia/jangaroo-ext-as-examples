@@ -29,8 +29,16 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>0.8.5</version>
+      </plugin>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>exml-maven-plugin</artifactId>
+        <version>0.8.5</version>
         <extensions>true</extensions>
-        <version>0.8.4</version>
+        <configuration>
+          <configClassPackage>com.acme.extas.localized.config</configClassPackage>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -40,7 +48,7 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
       <type>jangaroo</type>
-      <version>0.8.8</version>
+      <version>0.8.9</version>
     </dependency>
   </dependencies>
 </project>
