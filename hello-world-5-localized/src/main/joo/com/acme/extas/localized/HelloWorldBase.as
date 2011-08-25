@@ -1,6 +1,7 @@
 package com.acme.extas.localized {
 
 import com.acme.extas.*;
+import com.acme.extas.localized.config.helloWorldBase;
 
 import ext.Button;
 import ext.ComponentMgr;
@@ -10,17 +11,12 @@ import ext.util.StringUtil;
 
 public class HelloWorldBase extends Viewport {
 
-  public static const xtype:String = "com.acme.extas.localized.HelloWorldBase";
-  {
-    ComponentMgr.registerType(xtype, HelloWorldBase);
-  }
-
-  public function HelloWorldBase(config:Object = null) {
+  public function HelloWorldBase(config:helloWorldBase = null) {
     super(config);
   }
 
   /**
-   * @cfg {String} user the name of the user to greet
+   * The name of the user to greet.
    */
   internal native function get user():String;
 

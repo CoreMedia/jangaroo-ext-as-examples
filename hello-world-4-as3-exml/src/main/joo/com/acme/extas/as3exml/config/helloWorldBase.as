@@ -12,7 +12,7 @@ import ext.config.viewport;
  * @see com.acme.extas.as3exml.HelloWorldBase
  */
 [ExtConfig(target="com.acme.extas.as3exml.HelloWorldBase", xtype)]
-public dynamic class helloWorldBase extends ext.config.viewport {
+public dynamic class helloWorldBase extends viewport {
 
   public static native function get xtype():String;
 

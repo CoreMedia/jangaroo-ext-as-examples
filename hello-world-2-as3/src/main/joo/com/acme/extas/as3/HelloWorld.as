@@ -2,18 +2,20 @@ package com.acme.extas.as3 {
 
 import ext.Button;
 import ext.MessageBox;
-import ext.Panel;
-import ext.Toolbar;
 import ext.Viewport;
+import ext.config.button;
+import ext.config.panel;
+import ext.config.toolbar;
+import ext.config.viewport;
 import ext.util.StringUtil;
 
 public class HelloWorld extends Viewport {
 
-  public static function main(config:Object):void {
+  public static function main(config:viewport):void {
     new HelloWorld(config);
   }
 
-  public function HelloWorld(config:Object) {
+  public function HelloWorld(config:viewport) {
     super(config);
   }
 
@@ -22,17 +24,19 @@ public class HelloWorld extends Viewport {
   override protected function initComponent():void {
     super.initComponent();
 
-    var button:Button = new Button();
-    button.setText("Click me!");
-    button.setHandler(onClick);
-    var toolbar:Toolbar = new Toolbar();
-    toolbar.addButton(button);
-    var panel:Panel = new Panel({
-        header: true,
-        tbar: toolbar
-      });
-    panel.setTitle("Hello World!");
-    add(panel);
+    var btn:button = new button();
+    btn.text = "Click me!";
+    btn.handler = onClick;
+
+    var tb:toolbar = new toolbar();
+    tb.items = [btn];
+
+    var pnl:panel = new panel();
+    pnl.header = true;
+    pnl.tbar = tb;
+    pnl.title = "Hello World!";
+
+    add(pnl);
   }
 
   private function onClick(button:Button):void {
