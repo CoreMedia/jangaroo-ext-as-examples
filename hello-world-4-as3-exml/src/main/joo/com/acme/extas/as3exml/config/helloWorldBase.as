@@ -27,7 +27,7 @@ public dynamic class helloWorldBase extends viewport {
   }
 
   /**
-   * the name of the user to greet
+   * The name of the user to greet.
    */
   public native function get user():String;
   /**
