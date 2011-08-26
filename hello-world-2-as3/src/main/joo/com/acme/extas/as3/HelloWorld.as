@@ -24,19 +24,21 @@ public class HelloWorld extends Viewport {
   override protected function initComponent():void {
     super.initComponent();
 
-    var btn:button = new button();
-    btn.text = "Click me!";
-    btn.handler = onClick;
+    var buttonConfig:button = new button();
+    buttonConfig.text = "Click me!";
+    buttonConfig.handler = onClick;
 
-    var tb:toolbar = new toolbar();
-    tb.items = [btn];
+    var toolbarConfig:toolbar = new toolbar();
+    toolbarConfig.items = [buttonConfig];
 
-    var pnl:panel = new panel();
-    pnl.header = true;
-    pnl.tbar = tb;
-    pnl.title = "Hello World!";
+    var panelConfig:panel = new panel();
+    panelConfig.header = true;
+    panelConfig.tbar = toolbarConfig;
+    panelConfig.title = "Hello World!";
 
-    add(pnl);
+    add(panelConfig); // add automatically creates the component sub-tree from the config objects!
+    // you could also explicitly build the component by using
+    //  add(new ext.Panel(panelConfig));
   }
 
   private function onClick(button:Button):void {
