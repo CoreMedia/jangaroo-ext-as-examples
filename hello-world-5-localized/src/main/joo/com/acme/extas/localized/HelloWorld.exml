@@ -10,27 +10,9 @@
           <toolbar>
             <items>
               <button text="{getBundle().button_label}" handler="{onClick}"/>
-              <button text="Chose Language">
+              <button text="{getBundle().menu_label}">
                 <menu>
-                  <menu>
-                    <items>
-                      <menuitem>
-                        <baseAction>
-                          <local:changeLocaleAction locale="en" text="English"/>
-                        </baseAction>
-                      </menuitem>
-                      <menuitem>
-                        <baseAction>
-                          <local:changeLocaleAction locale="en_GB" text="English (GB)"/>
-                        </baseAction>
-                      </menuitem>
-                      <menuitem>
-                        <baseAction>
-                          <local:changeLocaleAction locale="de" text="Deutsch"/>
-                        </baseAction>
-                      </menuitem>
-                    </items>
-                  </menu>
+                  <local:localeMenu/>
                 </menu>
               </button>
             </items>
