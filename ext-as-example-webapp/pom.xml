@@ -20,7 +20,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <version>0.8.6</version>
+        <version>0.9.1-SNAPSHOT</version>
         <executions>
           <execution>
             <goals>
