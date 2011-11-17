@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <exml:component xmlns:exml="http://www.jangaroo.net/exml/0.8"
                 xmlns="exml:ext.config"
-                xmlns:local="exml:com.acme.extas.localized.config">
+                xmlns:local="exml:com.acme.extas.localized.config"
+                baseClass="HelloWorldBase">
 
-  <local:helloWorldBase>
+  <exml:cfg name="user" type="String">
+    <exml:description>
+      The name of the user to greet.
+    </exml:description>
+  </exml:cfg>
+
+  <viewport>
     <items>
-      <panel title="{getBundle().panel_title}">
+      <panel title="{BUNDLE.panel_title}">
         <tbar>
           <toolbar>
             <items>
-              <button text="{getBundle().button_label}" handler="{onClick}"/>
-              <button text="{getBundle().menu_label}">
+              <button text="{BUNDLE.button_label}" handler="{onClick}"/>
+              <button text="{BUNDLE.menu_label}">
                 <menu>
                   <local:localeMenu/>
                 </menu>
@@ -20,5 +27,5 @@
         </tbar>
       </panel>
     </items>
-  </local:helloWorldBase>
+  </viewport>
 </exml:component>

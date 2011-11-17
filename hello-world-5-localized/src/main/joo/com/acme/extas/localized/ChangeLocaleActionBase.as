@@ -8,19 +8,18 @@ import ext.config.action;
 
 import joo.ResourceBundleAwareClassLoader;
 
-public class ChangeLocaleAction extends Action {
+public class ChangeLocaleActionBase extends Action {
+
+  internal static const CURRENT_LOCALE:String = ResourceBundleAwareClassLoader.INSTANCE.getLocale();
 
   /**
    * Change the current locale of the Jangaroo Ext AS application.
    */
-  public function ChangeLocaleAction(config:changeLocaleAction) {
-    super(action(Ext.applyIf({
-        disabled: config.locale === ResourceBundleAwareClassLoader.INSTANCE.getLocale(),
-        handler: changeLocale
-      }, config)));
+  public function ChangeLocaleActionBase(config:changeLocaleAction) {
+    super(config);
   }
 
-  private function changeLocale():void {
+  internal function changeLocale():void {
     ResourceBundleAwareClassLoader.INSTANCE.setLocale(initialConfig.locale);
     window.location.reload();
   }
