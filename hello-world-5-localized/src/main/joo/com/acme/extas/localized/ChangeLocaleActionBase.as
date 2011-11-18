@@ -3,8 +3,6 @@ package com.acme.extas.localized {
 import com.acme.extas.localized.config.changeLocaleAction;
 
 import ext.Action;
-import ext.Ext;
-import ext.config.action;
 
 import joo.ResourceBundleAwareClassLoader;
 
