@@ -30,12 +30,12 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <version>0.9.11</version>
+        <version>0.9.12</version>
       </plugin>
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>exml-maven-plugin</artifactId>
-        <version>0.9.11</version>
+        <version>0.9.12</version>
         <extensions>true</extensions>
         <configuration>
           <configClassPackage>com.acme.extas.as3exml.config</configClassPackage>
@@ -49,7 +49,7 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
       <type>jangaroo</type>
-      <version>0.9.11</version>
+      <version>0.9.12</version>
     </dependency>
   </dependencies>
 </project>

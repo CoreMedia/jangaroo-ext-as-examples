@@ -10,6 +10,7 @@ import ext.Panel;
 import ext.config.droptarget;
 import ext.dd.DragSource;
 import ext.dd.DropTarget;
+import ext.dd.IDDScrollConfig;
 import ext.dd.PanelProxy;
 import ext.dd.ScrollManager;
 
@@ -21,18 +22,16 @@ import js.HTMLElement;
  * @see com.acme.extas.portal.PortalBase
  */
 public class DropZone extends DropTarget {
-  public function DropZone(portal:PortalBase, cfg:Object) {
+  public function DropZone(portal:PortalBase, cfg:droptarget) {
     this.portal = portal;
     ScrollManager.register(portal.body);
-    super(portal.bwrap.dom, droptarget(Ext.apply(cfg, {
-      ddScrollConfig: {
-        vthresh:   50,
-        hthresh:   -1,
-        animate:   true,
-        increment: 200
-      }
-    })));
-    portal.body['ddScrollConfig'] = this['ddScrollConfig'];
+    var ddScrollConfig:IDDScrollConfig = IDDScrollConfig({});
+    ddScrollConfig.vthresh = 50;
+    ddScrollConfig.hthresh = -1;
+    ddScrollConfig.animate = true;
+    ddScrollConfig.increment = 200;
+    super(portal.bwrap.dom, droptarget(Ext.apply(cfg, { ddScrollConfig: ddScrollConfig })));
+    portal.body.ddScrollConfig = ddScrollConfig;
   }
 
   override public function notifyOver(dd:DragSource, e:IEventObject, data:Object):String {
