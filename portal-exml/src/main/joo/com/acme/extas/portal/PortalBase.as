@@ -33,11 +33,8 @@ public class PortalBase extends Panel {
 
   }
 
-  // TODO: missing in Ext AS API:
-  // override protected function initEvents():void {
-  //   super.initEvents();
-  override protected function afterRender():void {
-    super.afterRender();
+  override protected function initEvents():void {
+    super.initEvents();
     this.portalDropZone = new DropZone(this, this['dropConfig']);
   }
 

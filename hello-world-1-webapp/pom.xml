@@ -22,7 +22,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <version>0.9.12</version>
+        <version>0.9.14</version>
         <executions>
           <execution>
             <goals>
@@ -49,7 +49,7 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
       <type>jangaroo</type>
-      <version>0.9.12</version>
+      <version>0.9.14</version>
     </dependency>
   </dependencies>
 </project>

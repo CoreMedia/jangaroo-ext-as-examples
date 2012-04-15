@@ -20,7 +20,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <version>0.9.12</version>
+        <version>0.9.14</version>
         <executions>
           <execution>
             <goals>
@@ -43,8 +43,8 @@
     </plugins>
   </build>
 
-  <dependencies>
-    <dependency>
+    <dependencies>
+      <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-2-as3</artifactId>
       <type>jangaroo</type>
