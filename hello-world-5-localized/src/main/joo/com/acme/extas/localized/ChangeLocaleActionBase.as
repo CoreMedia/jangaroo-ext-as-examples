@@ -18,7 +18,7 @@ public class ChangeLocaleActionBase extends Action {
   }
 
   internal function changeLocale():void {
-    ResourceBundleAwareClassLoader.INSTANCE.setLocale(initialConfig.locale);
+    ResourceBundleAwareClassLoader.INSTANCE.setLocale(changeLocaleAction(initialConfig).locale);
     window.location.reload();
   }
 }
