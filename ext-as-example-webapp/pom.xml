@@ -2,9 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jangaroo.extas.examples</groupId>
+
+  <parent>
+    <groupId>net.jangaroo.extas.examples</groupId>
+    <artifactId>ext-as-example-parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <relativePath>../ext-as-example-parent/pom.xml</relativePath>
+  </parent>
+
   <artifactId>ext-as-example-webapp</artifactId>
-  <version>0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <name>ext-as-example-webapp</name>
@@ -20,7 +26,6 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <version>0.9.14</version>
         <executions>
           <execution>
             <goals>
@@ -43,8 +48,8 @@
     </plugins>
   </build>
 
-    <dependencies>
-      <dependency>
+  <dependencies>
+    <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-2-as3</artifactId>
       <type>jangaroo</type>

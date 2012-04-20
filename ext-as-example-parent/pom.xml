@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.jangaroo.extas.examples</groupId>
+  <artifactId>ext-as-example-parent</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>ext-as-example-parent</name>
+  <description>
+    A Maven parent POM for all Ext AS examples.
+  </description>
+
+  <properties>
+    <jangaroo-tools.version>0.9.14</jangaroo-tools.version>
+    <ext-as.version>0.9.14</ext-as.version>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>net.jangaroo</groupId>
+          <artifactId>jangaroo-maven-plugin</artifactId>
+          <version>${jangaroo-tools.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>net.jangaroo</groupId>
+          <artifactId>exml-maven-plugin</artifactId>
+          <version>${jangaroo-tools.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-runtime</artifactId>
+        <type>jangaroo</type>
+        <version>${jangaroo-tools.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>ext-as</artifactId>
+        <type>jangaroo</type>
+        <version>${ext-as.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>

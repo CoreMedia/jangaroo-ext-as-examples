@@ -12,6 +12,7 @@
   </description>
 
   <modules>
+    <module>ext-as-example-parent</module>
     <module>hello-world-1-webapp</module>
     <module>hello-world-2-as3</module>
     <module>hello-world-3-exml</module>
