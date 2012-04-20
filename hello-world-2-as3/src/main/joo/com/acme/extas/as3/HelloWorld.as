@@ -11,6 +11,7 @@ import ext.util.StringUtil;
 
 public class HelloWorld extends Viewport {
 
+  //noinspection JSUnusedGlobalSymbols
   public static function main(config:viewport):void {
     new HelloWorld(config);
   }
