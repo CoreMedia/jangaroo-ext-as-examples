@@ -13,8 +13,11 @@
   </description>
 
   <properties>
-    <jangaroo-tools.version>0.9.14</jangaroo-tools.version>
-    <ext-as.version>0.9.14</ext-as.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <jangaroo-plugin.version>2.0.0-SNAPSHOT</jangaroo-plugin.version>
+    <jangaroo-libs.version>2.0.0-SNAPSHOT</jangaroo-libs.version>
+    <jetty.plugin.version>8.1.3.v20120416</jetty.plugin.version>
   </properties>
 
   <build>
@@ -23,32 +26,39 @@
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>jangaroo-maven-plugin</artifactId>
-          <version>${jangaroo-tools.version}</version>
+          <version>${jangaroo-plugin.version}</version>
         </plugin>
 
         <plugin>
           <groupId>net.jangaroo</groupId>
           <artifactId>exml-maven-plugin</artifactId>
-          <version>${jangaroo-tools.version}</version>
+          <version>${jangaroo-plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.mortbay.jetty</groupId>
+          <artifactId>jetty-maven-plugin</artifactId>
+          <version>${jetty.plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <resources>
+      <resource>
+        <directory>src/main/web-resources</directory>
+        <targetPath>META-INF/resources</targetPath>
+      </resource>
+    </resources>
   </build>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-runtime</artifactId>
-        <type>jangaroo</type>
-        <version>${jangaroo-tools.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ext-as</artifactId>
-        <type>jangaroo</type>
-        <version>${ext-as.version}</version>
+        <artifactId>jangaroo-libs-bom</artifactId>
+        <version>${jangaroo-libs.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
