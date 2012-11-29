@@ -9,7 +9,6 @@
     <items>
       <panel title="West"
              region="west"
-             layout="accordion"
              u:split="true"
              collapsible="true"
              width="200"
