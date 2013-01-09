@@ -4,6 +4,7 @@
   <exml:import class="ext.MessageBox"/>
   <exml:import class="ext.Button"/>
   <exml:import class="ext.util.StringUtil"/>
+  <exml:import class="ext.event.ButtonClickEvent"/>
 
   <exml:cfg name="user" type="String">
     <exml:description>
@@ -17,9 +18,9 @@
         <tbar>
           <toolbar>
             <items>
-              <button text="Click me!" handler="{function(button:Button):void {
-                    MessageBox.alert(StringUtil.format('Hello {0}!', config.user),
-                      StringUtil.format('{0} clicked on button \'{1}\'.', config.user, button.getText()));
+              <button text="Click me!" handler="{function():void { var event:ButtonClickEvent = new ButtonClickEvent(arguments);
+                    MessageBox.alert(StringUtil.format('Hello {0}!', this.user),
+                      StringUtil.format('{0} clicked on button \'{1}\'.', this.user, event.source.getText()));
                   }
                      }"/>
             </items>

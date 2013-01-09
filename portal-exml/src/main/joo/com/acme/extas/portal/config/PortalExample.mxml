@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
+          xmlns="ext.config.*"
+          xmlns:u="exml:untyped"
+          xmlns:p="com.acme.extas.portal.config.*">
+  <mxml:Declarations>
+    <mxml:String id="shortBogusMarkup">
+      <![CDATA[
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh, sodales a, porta at, vulputate eget, dui.
+  Pellentesque ut nisl. Maecenas tortor turpis, interdum non, sodales non, iaculis ac, lacus. Vestibulum auctor, tortor
+  quis iaculis malesuada, libero lectus bibendum purus, sit amet tincidunt quam turpis vel lacus. In pellentesque nisl
+  non sem. Suspendisse nunc sem, pretium eget, cursus a, fringilla vel, urna.
+</p>
+      ]]>
+    </mxml:String>
+  </mxml:Declarations>
+
+  <layout>border</layout>
+  <items>
+    <panel title="West"
+           region="west"
+           u:split="true"
+           collapsible="true"
+           width="200"
+           margins="35 0 5 5"
+           u:cmargins="35 5 5 5"
+           u:minSize="175"
+           u:maxSize="400"
+           id="west">
+      <items>
+        <panel title="Navigation"
+               autoScroll="true"
+               border="false"
+               html="{shortBogusMarkup}"
+               iconCls="nav"
+               id="navigation"/>
+        <panel title="Settings"
+               autoScroll="true"
+               border="false"
+               html="{shortBogusMarkup}"
+               iconCls="settings"
+               id="settings"/>
+      </items>
+      <layout>
+        <accordionlayout animate="true"/>
+      </layout>
+    </panel>
+
+    <p:portal region="center" margins="35 5 5 0" id="center">
+      <p:items>
+
+        <p:portalColumn id="portalColumn1"
+                        u:columnWidth=".33"
+                        style="padding:10px 0 10px 10px">
+          <p:items>
+            <p:portlet title="Form in a Portlet" layout="form" id="form_panel">
+              <p:items>
+                <textfield fieldLabel="Your Name" id="name"/>
+                <datefield fieldLabel="Date of birth" id="birthdate"/>
+                <textarea fieldLabel="Description"  />
+              </p:items>
+            </p:portlet>
+            <p:portlet title="Another Panel 1" html="{shortBogusMarkup}" id="other_panel"/>
+          </p:items>
+        </p:portalColumn>
+
+        <p:portalColumn id="portalColumn2"
+                        u:columnWidth=".33"
+                        style="padding:10px 0 10px 10px">
+          <p:items>
+            <p:portlet title="Panel 2" html="{shortBogusMarkup}"/>
+            <p:portlet title="Another Panel 2" html="{shortBogusMarkup}"/>
+          </p:items>
+        </p:portalColumn>
+
+        <p:portalColumn id="portalColumn3"
+                        u:columnWidth=".33"
+                        style="padding:10px 0 10px 10px">
+          <p:items>
+            <p:portlet id="somePortlet" title="Panel 3" html="{shortBogusMarkup}"/>
+            <p:portlet title="Another Panel 3" html="{shortBogusMarkup}"/>
+          </p:items>
+        </p:portalColumn>
+
+      </p:items>
+    </p:portal>
+  </items>
+</viewport>

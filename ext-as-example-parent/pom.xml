@@ -15,8 +15,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo-plugin.version>2.0.0-SNAPSHOT</jangaroo-plugin.version>
-    <jangaroo-libs.version>2.0.0-SNAPSHOT</jangaroo-libs.version>
+    <jangaroo-plugin.version>2.0.4-SNAPSHOT</jangaroo-plugin.version>
+    <jangaroo-libs.version>2.0.4-SNAPSHOT</jangaroo-libs.version>
     <jetty.plugin.version>8.1.3.v20120416</jetty.plugin.version>
   </properties>
 
@@ -45,6 +45,9 @@
 
     <resources>
       <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
         <directory>src/main/web-resources</directory>
         <targetPath>META-INF/resources</targetPath>
       </resource>
@@ -53,6 +56,12 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-runtime</artifactId>
+        <version>${jangaroo-plugin.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-libs-bom</artifactId>

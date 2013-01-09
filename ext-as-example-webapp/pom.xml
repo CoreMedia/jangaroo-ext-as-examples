@@ -54,7 +54,10 @@
           <webAppConfig>
             <contextPath>/</contextPath>
             <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-              <resourcesAsCSV>target/jangaroo-output,src/main/webapp</resourcesAsCSV>
+              <resourcesAsCSV>
+                ../portal-exml/target/classes/META-INF/resources,
+                target/jangaroo-output,
+                src/main/webapp</resourcesAsCSV>
             </baseResource>
           </webAppConfig>
         </configuration>

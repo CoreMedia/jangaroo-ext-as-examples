@@ -26,14 +26,7 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>exml-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <configuration>
-          <configClassPackage>com.acme.extas.portal.config</configClassPackage>
-        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -42,6 +35,12 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>joounit</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
