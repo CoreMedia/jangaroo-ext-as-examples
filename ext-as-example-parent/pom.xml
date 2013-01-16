@@ -13,8 +13,8 @@
   </description>
 
   <properties>
-    <jangaroo-tools.version>0.9.14</jangaroo-tools.version>
-    <ext-as.version>0.9.14</ext-as.version>
+    <jangaroo-tools.version>3.0.0-SNAPSHOT</jangaroo-tools.version>
+    <ext-as.version>3.0.0-SNAPSHOT</ext-as.version>
   </properties>
 
   <build>

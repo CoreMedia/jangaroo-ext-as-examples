@@ -70,12 +70,12 @@
       <version>${project.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>hello-world-5-localized</artifactId>
-      <type>jangaroo</type>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>net.jangaroo.extas.examples</groupId>-->
+      <!--<artifactId>hello-world-5-localized</artifactId>-->
+      <!--<type>jangaroo</type>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>

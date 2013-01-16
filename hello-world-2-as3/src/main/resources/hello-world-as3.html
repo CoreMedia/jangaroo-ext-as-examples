@@ -5,9 +5,21 @@
   <link rel="stylesheet" type="text/css" href="ext-js/resources/css/reset-min.css">
   <link rel="stylesheet" type="text/css" href="ext-js/resources/css/ext-all.css">
 
-  <script type="text/javascript" src="joo/jangaroo-application.js"></script>
+  <script type="text/javascript" src="ext-js/adapter/ext/ext-base-debug.js"></script>
+  <script type="text/javascript" src="ext-js/ext-all-debug.js"></script>
+
+  <script type="text/javascript" src="joo/net.jangaroo.ext-as-aliases.js"></script>
+
   <script type="text/javascript">
-    joo.classLoader.run("com.acme.extas.as3.HelloWorld", {user: "Joe"});
+    requirejs = {
+      baseUrl: "joo"
+    };
+  </script>
+  <script type="text/javascript" src="requirejs/require.js"></script>
+  <script type="text/javascript">
+    require(["classes/com/acme/extas/as3/HelloWorld"], function(HelloWorld) {
+      HelloWorld._.main({user: "Joe"});
+    });
   </script>
 </head>
 <body>

@@ -13,6 +13,7 @@ public class HelloWorld extends Viewport {
 
   //noinspection JSUnusedGlobalSymbols
   public static function main(config:viewport):void {
+    //noinspection ObjectAllocationIgnored
     new HelloWorld(config);
   }
 
