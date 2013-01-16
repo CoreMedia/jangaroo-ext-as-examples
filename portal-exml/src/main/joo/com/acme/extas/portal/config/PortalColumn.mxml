@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!---
+  A portal column is placed in a portal and contains portlets.
+-->
+<ext:container xmlns:mxml="http://ns.adobe.com/mxml/2009"
+               xmlns:ext="ext.config.*"
+               layout="anchor"
+               defaultType="{portlet.xtype}"
+               cls="x-portal-column">
+  <mxml:Script>
+    public static native function get xtype():String;
+  </mxml:Script>
+</ext:container>

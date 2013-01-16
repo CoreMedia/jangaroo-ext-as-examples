@@ -8,7 +8,11 @@
 
   <script type="text/javascript" src="joo/jangaroo-application.js"></script>
   <script type="text/javascript">
-    joo.classLoader.run("com.acme.extas.portal.PortalExample");
+    //joo.classLoader.run("com.acme.extas.portal.PortalExample");
+    joo.classLoader.import_("com.acme.extas.portal.config.portalExample");
+    joo.classLoader.complete(function($) {
+      Ext.create(new $.portalExample());
+    });
   </script>
 </head>
 <body>

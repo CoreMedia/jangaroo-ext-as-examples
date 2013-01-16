@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
+          xmlns="ext.config.*">
+  <mxml:Script>
+    import ext.MessageBox;
+    import ext.util.StringUtil;
+  </mxml:Script>
+
+  <mxml:Declarations>
+    <!---
+     the name of the user to greet
+    -->
+    <mxml:String id="user"/>
+  </mxml:Declarations>
+
+  <items>
+    <panel title="Hello World!">
+      <tbar>
+        <toolbar>
+          <items>
+            <button text="Click me!" click="
+                  MessageBox.alert(StringUtil.format('Hello {0}!', this.user),
+                          StringUtil.format('{0} clicked on button \'{1}\'.', this.user, event.source.getText()));
+                "/>
+          </items>
+        </toolbar>
+      </tbar>
+    </panel>
+  </items>
+</viewport>

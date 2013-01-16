@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Hello World in MXML</title>
+
+  <link rel="stylesheet" type="text/css" href="ext-js/resources/css/reset-min.css">
+  <link rel="stylesheet" type="text/css" href="ext-js/resources/css/ext-all.css">
+
+  <script type="text/javascript" src="joo/jangaroo-application.js"></script>
+  <script type="text/javascript">
+    // joo.classLoader.run("com.acme.extas.exml.HelloWorld", {user: "Joe"});
+    joo.classLoader.import_("com.acme.extas.mxml.helloWorld");
+    joo.classLoader.complete(function($) {
+      var helloWorld = new $.helloWorld();
+      helloWorld.user = "Joe";
+      Ext.create(helloWorld);
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
