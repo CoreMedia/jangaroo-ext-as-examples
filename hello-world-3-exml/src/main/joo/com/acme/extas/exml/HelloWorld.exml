@@ -22,7 +22,7 @@
                     MessageBox.alert(StringUtil.format('Hello {0}!', this.user),
                       StringUtil.format('{0} clicked on button \'{1}\'.', this.user, event.source.getText()));
                   }
-                     }"/>
+                     }" scope="{config}"/>
             </items>
           </toolbar>
         </tbar>

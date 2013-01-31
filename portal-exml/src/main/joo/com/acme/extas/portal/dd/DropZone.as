@@ -54,10 +54,10 @@ public class DropZone extends DropTarget {
     }
 
     // determine column
-    var col:int = 0;
     var xs:Array = grid.columnX;
     var cmatch:Boolean = false;
-    for (var len:int = xs.length; col < len; col++) {
+    var len:int = xs.length;
+    for (var col:int = 0; col < len; col++) {
       if (xy[0] < (xs[col].x + xs[col].w)) {
         cmatch = true;
         break;
@@ -98,7 +98,7 @@ public class DropZone extends DropTarget {
       px.getProxy().setWidth('auto');
 
       if (p) {
-        px.moveProxy(p.getEl().dom.parentNode as HTMLElement, match ? p.getEl().dom : null);
+        px.moveProxy(HTMLElement(p.getEl().dom.parentNode), match ? p.getEl().dom : null);
       } else {
         px.moveProxy(c.getEl().dom, null);
       }

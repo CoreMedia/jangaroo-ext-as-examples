@@ -4,11 +4,8 @@
            layout="column"
            autoScroll="true"
            cls="x-portal"
-           defaultType="{portalColumn.xtype}">
-  <mxml:Metadata>
-    [ExtCfg(target="com.acme.extas.portal.PortalBase", xtype)]
-  </mxml:Metadata>
+           targetClass="{PortalBase}">
   <mxml:Script>
-    public static native function get xtype():String;
+    import net.jangaroo.ext.Exml;
   </mxml:Script>
 </ext:panel>

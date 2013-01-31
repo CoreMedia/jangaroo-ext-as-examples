@@ -49,7 +49,6 @@
       </resource>
       <resource>
         <directory>src/main/web-resources</directory>
-        <targetPath>META-INF/resources</targetPath>
       </resource>
     </resources>
   </build>

@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Hello World in EXML</title>
+  <title>Hello World in AS3 and EXML</title>
 
   <link rel="stylesheet" type="text/css" href="ext-js/resources/css/reset-min.css">
   <link rel="stylesheet" type="text/css" href="ext-js/resources/css/ext-all.css">
@@ -10,17 +10,7 @@
 
   <script type="text/javascript" src="joo/net.jangaroo.ext-as-aliases.js"></script>
 
-  <script type="text/javascript">
-    requirejs = {
-      baseUrl: "joo"
-    };
-  </script>
-  <script type="text/javascript" src="requirejs/require.js"></script>
-  <script type="text/javascript">
-    require(["classes/com/acme/extas/as3exml/HelloWorld"], function(HelloWorld) {
-      HelloWorld._.main({user: "Joe"});
-    });
-  </script>
+  <script type="text/javascript" data-main="joo/hello-world-as3-exml" src="requirejs/require.js"></script>
 </head>
 <body>
 </body>

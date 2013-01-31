@@ -2,7 +2,7 @@
 <viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
           xmlns="ext.config.*"
           xmlns:u="exml:untyped"
-          xmlns:p="com.acme.extas.portal.config.*">
+          xmlns:portal="com.acme.extas.portal.*">
   <mxml:Declarations>
     <mxml:String id="shortBogusMarkup">
       <![CDATA[
@@ -47,43 +47,43 @@
       </layout>
     </panel>
 
-    <p:portal region="center" margins="35 5 5 0" id="center">
-      <p:items>
+    <portal:portal region="center" margins="35 5 5 0" id="center">
+      <portal:items>
 
-        <p:portalColumn id="portalColumn1"
+        <portal:portalColumn id="portalColumn1"
                         u:columnWidth=".33"
                         style="padding:10px 0 10px 10px">
-          <p:items>
-            <p:portlet title="Form in a Portlet" layout="form" id="form_panel">
-              <p:items>
+          <portal:items>
+            <portal:portlet title="Form in a Portlet" layout="form" id="form_panel">
+              <portal:items>
                 <textfield fieldLabel="Your Name" id="name"/>
                 <datefield fieldLabel="Date of birth" id="birthdate"/>
-                <textarea fieldLabel="Description"  />
-              </p:items>
-            </p:portlet>
-            <p:portlet title="Another Panel 1" html="{shortBogusMarkup}" id="other_panel"/>
-          </p:items>
-        </p:portalColumn>
+                <textarea fieldLabel="Description"/>
+              </portal:items>
+            </portal:portlet>
+            <portal:portlet title="Another Panel 1" html="{shortBogusMarkup}" id="other_panel"/>
+          </portal:items>
+        </portal:portalColumn>
 
-        <p:portalColumn id="portalColumn2"
+        <portal:portalColumn id="portalColumn2"
                         u:columnWidth=".33"
                         style="padding:10px 0 10px 10px">
-          <p:items>
-            <p:portlet title="Panel 2" html="{shortBogusMarkup}"/>
-            <p:portlet title="Another Panel 2" html="{shortBogusMarkup}"/>
-          </p:items>
-        </p:portalColumn>
+          <portal:items>
+            <portal:portlet title="Panel 2" html="{shortBogusMarkup}"/>
+            <portal:portlet title="Another Panel 2" html="{shortBogusMarkup}"/>
+          </portal:items>
+        </portal:portalColumn>
 
-        <p:portalColumn id="portalColumn3"
+        <portal:portalColumn id="portalColumn3"
                         u:columnWidth=".33"
                         style="padding:10px 0 10px 10px">
-          <p:items>
-            <p:portlet id="somePortlet" title="Panel 3" html="{shortBogusMarkup}"/>
-            <p:portlet title="Another Panel 3" html="{shortBogusMarkup}"/>
-          </p:items>
-        </p:portalColumn>
+          <portal:items>
+            <portal:portlet id="somePortlet" title="Panel 3" html="{shortBogusMarkup}"/>
+            <portal:portlet title="Another Panel 3" html="{shortBogusMarkup}"/>
+          </portal:items>
+        </portal:portalColumn>
 
-      </p:items>
-    </p:portal>
+      </portal:items>
+    </portal:portal>
   </items>
 </viewport>

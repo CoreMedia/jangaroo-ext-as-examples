@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<menu xmlns:mxml="http://ns.adobe.com/mxml/2009"
+      xmlns="ext.config.*"
+      xmlns:local="com.acme.extas.localized.*">
+  <items>
+    <menuitem>
+      <baseAction>
+        <local:ChangeLocaleAction locale="en" text="English"/>
+      </baseAction>
+    </menuitem>
+    <menuitem>
+      <baseAction>
+        <local:ChangeLocaleAction locale="en_GB" text="English (GB)"/>
+      </baseAction>
+    </menuitem>
+    <menuitem>
+      <baseAction>
+        <local:ChangeLocaleAction locale="de" text="Deutsch"/>
+      </baseAction>
+    </menuitem>
+  </items>
+</menu>

@@ -15,7 +15,7 @@
   <name>hello-world-5-localized</name>
   <description>
     Ext AS Example 5: Localization
-    A simple "Hello World!" example to show how to create localized UIs in Ext AS.
+    A simple "Hello World!" example to show how to create localized UIs in Ext AS/MXML.
   </description>
 
   <build>
@@ -25,14 +25,7 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>exml-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <configuration>
-          <configClassPackage>com.acme.extas.localized.config</configClassPackage>
-        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -41,6 +34,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+      <type>jangaroo</type>
     </dependency>
   </dependencies>
 </project>

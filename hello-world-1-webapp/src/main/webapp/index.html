@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Hello World</title>
@@ -10,17 +11,7 @@
 
   <script type="text/javascript" src="joo/net.jangaroo.ext-as-aliases.js"></script>
 
-  <script type="text/javascript">
-    requirejs = {
-      baseUrl: "joo"
-    };
-  </script>
-  <script type="text/javascript" src="requirejs/require.js"></script>
-  <script type="text/javascript">
-    require(["classes/com/acme/extas/json/HelloWorld"], function(HelloWorld) {
-      HelloWorld._.main({user: "Joe"});
-    });
-  </script>
+  <script type="text/javascript" data-main="joo/application" src="requirejs/require.js"></script>
 </head>
 <body>
 </body>

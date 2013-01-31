@@ -15,8 +15,6 @@
   <mxml:Script>
     import ext.MessageBox;
     import ext.Panel;
-
-    public static native function get xtype():String;
   </mxml:Script>
   <tools>
     <mxml:Object id="gear"

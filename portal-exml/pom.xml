@@ -14,7 +14,7 @@
 
   <name>portal-exml</name>
   <description>
-    Ext AS Example 6: The Ext JS portal demo implemented with EXML.
+    Ext AS Example 6: The Ext JS portal demo implemented with MXML.
     Based on the original JavaScript code from
     http://dev.sencha.com/deploy/ext-3.4.0/examples/portal/portal.html
   </description>
@@ -35,12 +35,14 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>joounit</artifactId>
       <scope>test</scope>
+      <type>jangaroo</type>
     </dependency>
   </dependencies>
 </project>

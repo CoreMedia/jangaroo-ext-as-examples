@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
   <title>Ext AS Localization</title>
 
@@ -7,21 +7,21 @@
   <link rel="stylesheet" type="text/css" href="ext-js/resources/css/reset-min.css">
   <link rel="stylesheet" type="text/css" href="ext-js/resources/css/ext-all.css">
 
-  <!-- Jangaroo -->
+  <script type="text/javascript" src="ext-js/adapter/ext/ext-base-debug.js"></script>
+  <script type="text/javascript" src="ext-js/ext-all-debug.js"></script>
+
+  <script type="text/javascript" src="joo/net.jangaroo.ext-as-aliases.js"></script>
+
   <script type="text/javascript">
-    joo = {
-      localization: {
-        supportedLocales: ["en", "en_GB", "de"]
+    var require = {
+      localeChain: [(navigator.language || navigator.userLanguage).replace(/-/g, "_"), 'en'],
+      config: {
+        user: "Joe"
       }
     };
   </script>
-  <script type="text/javascript" src="joo/jangaroo-application.js"></script>
-
-  <script type="text/javascript">
-    Ext.onReady(function() {
-      joo.classLoader.run("com.acme.extas.localized.HelloWorld", {user: "Joe"});
-    });
-  </script>
+  <script type="text/javascript" data-main="joo/new!com.acme.extas.localized.Main" src="requirejs/require.js"></script>
 </head>
-<body></body>
+<body>
+</body>
 </html>

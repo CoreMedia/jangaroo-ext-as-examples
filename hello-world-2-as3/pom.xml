@@ -35,6 +35,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+      <type>jangaroo</type>
     </dependency>
   </dependencies>
 </project>

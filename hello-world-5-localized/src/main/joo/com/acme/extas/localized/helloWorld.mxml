@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
+          xmlns="ext.config.*"
+          xmlns:local="com.acme.extas.localized.*">
+  <mxml:Declarations>
+    <!---
+     The name of the user to greet.
+    -->
+    <mxml:String id="user"/>
+  </mxml:Declarations>
+
+  <items>
+    <panel title="@Resource(bundle='HelloWorld', key='panel_title')">
+      <tbar>
+        <toolbar>
+          <items>
+            <button text="@Resource(bundle='HelloWorld', key='button_label')">
+              <click><![CDATA[
+                  var BUNDLE:IResourceManager = ResourceManager.getInstance();
+                  MessageBox.alert(StringUtil.format(BUNDLE.getString("HelloWorld", "dialog_title"), user),
+                          StringUtil.format(BUNDLE.getString("HelloWorld", "dialog_message"), user,
+                                  event.source.getText()));
+                ]]></click>
+            </button>
+            <button text="@Resource(bundle='HelloWorld', key='menu_label')">
+              <menu>
+                <local:localeMenu/>
+              </menu>
+            </button>
+          </items>
+        </toolbar>
+      </tbar>
+    </panel>
+  </items>
+  <mxml:Script><![CDATA[
+    import ext.MessageBox;
+    import ext.util.StringUtil;
+
+    import mx.resources.IResourceManager;
+
+    import mx.resources.ResourceManager;
+    ]]></mxml:Script>
+</viewport>
