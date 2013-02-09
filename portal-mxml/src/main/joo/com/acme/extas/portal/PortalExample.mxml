@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Viewport xmlns:flex="http://ns.adobe.com/mxml/2009"
+          xmlns:panel="ext4.panel.*"
+          xmlns:p="com.acme.extas.portal.*"
+          xmlns="ext4.container.*"
+          xmlns:layout="ext4.layout.container.*"
+          xmlns:field="ext4.form.field.*"
+          xmlns:button="ext4.button.*"
+          layout="border">
+  <flex:Declarations>
+    <flex:String id="shortBogusMarkup">
+      <![CDATA[
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh, sodales a, porta at, vulputate eget, dui.
+  Pellentesque ut nisl. Maecenas tortor turpis, interdum non, sodales non, iaculis ac, lacus. Vestibulum auctor, tortor
+  quis iaculis malesuada, libero lectus bibendum purus, sit amet tincidunt quam turpis vel lacus. In pellentesque nisl
+  non sem. Suspendisse nunc sem, pretium eget, cursus a, fringilla vel, urna.
+</p>
+      ]]>
+    </flex:String>
+  </flex:Declarations>
+
+  <items>
+    <panel:Panel title="West"
+                 collapsible="true"
+                 width="200"
+                 id="west">
+      <panel:layoutConfig>
+        <flex:Object region="west"
+                     split="true"
+                     margins="35 0 5 5"
+                     cmargins="35 5 5 5"
+                     minSize="175"
+                     maxSize="400"/>
+      </panel:layoutConfig>
+      <panel:items>
+        <panel:Panel title="Navigation"
+                     autoScroll="true"
+                     border="false"
+                     html="{shortBogusMarkup}"
+                     iconCls="nav"
+                     id="navigation"/>
+        <panel:Panel title="Settings"
+                     autoScroll="true"
+                     border="false"
+                     html="{shortBogusMarkup}"
+                     iconCls="settings"
+                     id="settings"/>
+      </panel:items>
+      <panel:layout>
+        <layout:Accordion animate="true"/>
+      </panel:layout>
+    </panel:Panel>
+
+    <p:Portal id="center">
+      <p:layoutConfig>
+        <flex:Object region="center" margins="35 5 5 0"/>
+      </p:layoutConfig>
+      <p:items>
+
+        <p:PortalColumn id="portalColumn1"
+                        style="padding:10px 0 10px 10px">
+          <p:layoutConfig>
+            <flex:Object columnWidth=".33"/>
+          </p:layoutConfig>
+          <p:items>
+            <p:Portlet title="Form in a Portlet" layout="form" id="form_panel">
+              <p:items>
+                <field:Text fieldLabel="Your Name" id="name"/>
+                <field:DateField fieldLabel="Date of birth" id="birthdate"/>
+                <field:TextArea fieldLabel="Description" />
+                <button:Button text="Click me" click="MessageBox.alert('Clicked', 'Button' + event.source.text)"/>
+              </p:items>
+            </p:Portlet>
+            <p:Portlet title="Another Panel 1" html="{shortBogusMarkup}" id="other_panel"/>
+          </p:items>
+        </p:PortalColumn>
+
+        <p:PortalColumn id="portalColumn2"
+                        style="padding:10px 0 10px 10px">
+          <p:layoutConfig>
+            <flex:Object columnWidth=".33"/>
+          </p:layoutConfig>
+          <p:items>
+            <p:Portlet title="Panel 2" html="{shortBogusMarkup}"/>
+            <p:Portlet title="Another Panel 2" html="{shortBogusMarkup}"/>
+          </p:items>
+        </p:PortalColumn>
+
+        <p:PortalColumn id="portalColumn3"
+                        style="padding:10px 0 10px 10px">
+          <p:layoutConfig>
+            <flex:Object columnWidth=".33"/>
+          </p:layoutConfig>
+          <p:items>
+            <p:Portlet id="somePortlet" title="Panel 3" html="{shortBogusMarkup}"/>
+            <p:Portlet title="Another Panel 3" html="{shortBogusMarkup}"/>
+          </p:items>
+        </p:PortalColumn>
+
+      </p:items>
+    </p:Portal>
+  </items>
+  <flex:Script><![CDATA[
+    import ext4.MessageBox;
+    ]]></flex:Script>
+</Viewport>

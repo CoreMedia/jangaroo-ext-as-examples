@@ -50,7 +50,7 @@
         <configuration>
           <!-- path to optimizer json config file -->
           <configFile>
-            ${basedir}/build-linked.js
+            ${basedir}/build-min.js
           </configFile>
           <!-- whether or not to process config with maven filters -->
           <filterConfig>
@@ -107,6 +107,13 @@
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-3-exml</artifactId>
+      <type>jangaroo</type>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo.extas.examples</groupId>
+      <artifactId>hello-world-3-mxml</artifactId>
       <type>jangaroo</type>
       <version>${project.version}</version>
     </dependency>

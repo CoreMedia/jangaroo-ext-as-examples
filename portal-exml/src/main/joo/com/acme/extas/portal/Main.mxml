@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Application xmlns:mx="http://ns.adobe.com/mxml/2009"
+             xmlns="net.jangaroo.ext.*"
+             xmlns:portal="com.acme.extas.portal.*"
+             title="Ext JS Portal Demo in MXML"
+             styleSheets="{ExtDefaultTheme.CSS_URLS.concat(['portal.css'])}">
+  <mainView>
+    <portal:portalExample/>
+  </mainView>
+  <mx:Script>
+    import net.jangaroo.ext.ExtDefaultTheme;
+  </mx:Script>
+</Application>

@@ -1,9 +1,15 @@
 ({
-  baseUrl: "target/ext-as-example-webapp-0.1-SNAPSHOT/joo",
-  optimize: "uglify2",
-  generateSourceMaps: true,
+  baseUrl: "${project.build.directory}/${project.artifactId}-${project.version}/joo",
+  optimize: "closure",
+  closure: {
+    CompilerOptions: {
+    },
+    CompilationLevel: 'SIMPLE_OPTIMIZATIONS',
+    loggingLevel: 'WARNING'
+  },
   preserveLicenseComments: false,
-  out: "target/ext-as-example-webapp-0.1-SNAPSHOT/joo/hello-world-localized-all.js",
-  name: "hello-world-localized",
-  locale: 'en'
+  out: "${project.build.directory}/${project.artifactId}-${project.version}/joo/application-min.js",
+  name: "classes/com/acme/extas/portal/Main"
+//  ,include: ["classes/com/acme/extas/localized/Main"],
+//  localeChain: ['en_GB', 'en']
 })

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!---
+ A portlet is placed in a portlet column, has some controls ("tools"), and can show
+ arbitrary content. By default, a portlet is collapsible, has a setting tool ("gear")
+ and a close tool.
+-->
+<panel:Panel xmlns:flex="http://ns.adobe.com/mxml/2009"
+             xmlns:panel="ext4.panel.*"
+             frame="true"
+             collapsible="true"
+             draggable="true"
+             cls="x-portlet">
+  <panel:layoutConfig>
+    <flex:Object anchor="100%"/>
+  </panel:layoutConfig>
+  <panel:tools>
+    <flex:Object id="gear"
+                 handler="{function():void {
+                               MessageBox.alert('Message', 'The Settings tool was clicked.');
+                             }}"/>
+    <flex:Object id="close"
+                 handler="{function(e:*, target:*, panel:Panel):void {
+                               panel.ownerCt.remove(panel, true);
+                             }}"/>
+  </panel:tools>
+  <flex:Script><![CDATA[
+    import ext4.MessageBox;
+    ]]></flex:Script>
+</panel:Panel>

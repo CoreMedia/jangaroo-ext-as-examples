@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.jangaroo.extas.examples</groupId>
+    <artifactId>ext-as-example-parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <relativePath>../ext-as-example-parent/pom.xml</relativePath>
+  </parent>
+
+  <artifactId>hello-world-3-mxml</artifactId>
+  <packaging>jangaroo</packaging>
+
+  <name>hello-world-3-mxml</name>
+  <description>
+    Ext AS Example 3: Hello World in MXML
+    A simple "Hello, World!" example that uses only ExtJS standard components, has no server connection, is
+    defined with the declarative XML UI description language MXML.
+  </description>
+
+  <build>
+    <sourceDirectory>src/main/joo</sourceDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>ext-as</artifactId>
+      <type>jangaroo</type>
+    </dependency>
+  </dependencies>
+</project>

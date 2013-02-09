@@ -2,17 +2,15 @@ package com.acme.extas.portal.dd {
 
 import com.acme.extas.portal.PortalBase;
 
-import ext.Component;
-import ext.Container;
-import ext.Ext;
-import ext.IEventObject;
-import ext.Panel;
-import ext.config.droptarget;
-import ext.dd.DragSource;
-import ext.dd.DropTarget;
-import ext.dd.IDDScrollConfig;
-import ext.dd.PanelProxy;
-import ext.dd.ScrollManager;
+import ext4.Component;
+import ext4.container.Container;
+import ext4.Ext;
+import ext4.SEventObject;
+import ext4.panel.Panel;
+import ext4.dd.DragSource;
+import ext4.dd.DropTarget;
+import ext4.panel.Proxy;
+import ext4.dd.ScrollManager;
 
 import js.HTMLElement;
 
@@ -22,21 +20,21 @@ import js.HTMLElement;
  * @see com.acme.extas.portal.PortalBase
  */
 public class DropZone extends DropTarget {
-  public function DropZone(portal:PortalBase, cfg:droptarget) {
+  public function DropZone(portal:PortalBase, cfg:Object) {
     this.portal = portal;
-    ScrollManager.register(portal.getLayoutTarget());
-    var ddScrollConfig:IDDScrollConfig = IDDScrollConfig({});
+    ScrollManager.register(portal.getLayout());
+    var ddScrollConfig:Object = {};
     ddScrollConfig.vthresh = 50;
     ddScrollConfig.hthresh = -1;
     ddScrollConfig.animate = true;
     ddScrollConfig.increment = 200;
-    super(portal.bwrap.dom, droptarget(Ext.apply(cfg, { ddScrollConfig: ddScrollConfig })));
-    portal.getLayoutTarget().ddScrollConfig = ddScrollConfig;
+    super(portal['bwrap'].dom, Ext.apply(cfg, { ddScrollConfig:ddScrollConfig }));
+    portal.getLayout()['ddScrollConfig'] = ddScrollConfig;
   }
 
-  override public function notifyOver(dd:DragSource, e:IEventObject, data:Object):String {
+  override public function notifyOver(dd:DragSource, e:SEventObject, data:Object):String {
     var xy:Object = e.getXY();
-    var px:PanelProxy = PanelProxy(dd.getProxy());
+    var px:Proxy = Proxy(dd.getProxy());
 
     // case column widths
     if (!grid) {
@@ -44,7 +42,7 @@ public class DropZone extends DropTarget {
     }
 
     // handle case scroll where scrollbars appear during drag
-    var cw:Number = portal.getLayoutTarget().dom.clientWidth;
+    var cw:Number = portal.getLayout()['dom'].clientWidth;
     if (!lastCW) {
       lastCW = cw;
     } else if (lastCW != cw) {
@@ -54,10 +52,10 @@ public class DropZone extends DropTarget {
     }
 
     // determine column
+    var col:int = 0;
     var xs:Array = grid.columnX;
     var cmatch:Boolean = false;
-    var len:int = xs.length;
-    for (var col:int = 0; col < len; col++) {
+    for (var len:int = xs.length; col < len; col++) {
       if (xy[0] < (xs[col].x + xs[col].w)) {
         cmatch = true;
         break;
@@ -82,7 +80,7 @@ public class DropZone extends DropTarget {
       if (h === 0) {
         overSelf = true;
       }
-      else if ((p.getEl().getY() + (h / 2)) > xy[1]) {
+      else if ((p.getEl().getY(null) + (h / 2)) > xy[1]) {
         match = true;
         break;
       }
@@ -98,13 +96,13 @@ public class DropZone extends DropTarget {
       px.getProxy().setWidth('auto');
 
       if (p) {
-        px.moveProxy(p.getEl().dom.parentNode as HTMLElement, match ? p.getEl().dom : null);
+        px.moveProxy(HTMLElement(p.getEl().dom['parentNode']), match ? p.getEl().dom : null);
       } else {
         px.moveProxy(c.getEl().dom, null);
       }
 
       this.lastPos = {c: c, col: col, p: overSelf || (match && p) ? pos : false};
-      this.scrollPos = portal.getLayoutTarget().getScroll();
+      this.scrollPos = portal.getLayout()['getScroll']();
 
       portal.fireEvent('dragover', overEvent);
 
@@ -115,11 +113,11 @@ public class DropZone extends DropTarget {
 
   }
 
-  override public function notifyOut(source:DragSource, e:IEventObject, data:Object):void {
+  override public function notifyOut(source:DragSource, e:SEventObject, data:Object):void {
     this.grid = null;
   }
 
-  override public function notifyDrop(dd:DragSource, e:IEventObject, data:Object):Boolean {
+  override public function notifyDrop(dd:DragSource, e:SEventObject, data:Object):Boolean {
     this.grid = null;
     if (!this.lastPos) {
       return false;
@@ -132,7 +130,7 @@ public class DropZone extends DropTarget {
     if (this.portal.fireEvent('validatedrop', dropEvent) !== false &&
             this.portal.fireEvent('beforedrop', dropEvent) !== false) {
 
-      PanelProxy(dd.getProxy()).getProxy().remove();
+      Proxy(dd.getProxy()).getProxy().remove();
       var panel:Panel = dd['panel'];
       panel.getEl().dom.parentNode.removeChild(panel.getEl().dom);
 
@@ -152,7 +150,7 @@ public class DropZone extends DropTarget {
       // scroll position is lost on drop, fix it
       var st:int = this.scrollPos.top;
       if (st) {
-        var d:HTMLElement = this.portal.getLayoutTarget().dom;
+        var d:HTMLElement = this.portal.getLayout()['dom'];
         window.setTimeout(function():void {
           d.scrollTop = st;
         }, 10);
@@ -168,7 +166,7 @@ public class DropZone extends DropTarget {
     var box:Object = this.portal.getEl().getBox();
     box.columnX = [];
     this.portal.items.each(function (c:Component):void {
-      box.columnX.push({x: c.getEl().getX(), w: c.getEl().getWidth()});
+      box.columnX.push({x: c.getEl().getX(null), w: c.getEl().getWidth()});
     });
     return box;
   }

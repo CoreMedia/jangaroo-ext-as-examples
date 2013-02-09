@@ -16,6 +16,7 @@
     <module>hello-world-1-webapp</module>
     <module>hello-world-2-as3</module>
     <module>hello-world-3-exml</module>
+    <module>hello-world-3-mxml</module>
     <module>hello-world-4-as3-exml</module>
     <module>hello-world-5-localized</module>
     <module>portal-exml</module>

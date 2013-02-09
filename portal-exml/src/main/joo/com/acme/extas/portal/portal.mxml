@@ -3,9 +3,8 @@
            xmlns:ext="ext.config.*"
            layout="column"
            autoScroll="true"
-           cls="x-portal"
-           targetClass="{PortalBase}">
-  <mxml:Script>
-    import net.jangaroo.ext.Exml;
-  </mxml:Script>
+           cls="x-portal">
+  <mxml:Metadata>
+    [ExtConfig(target="com.acme.extas.portal.PortalBase", xtype)]
+  </mxml:Metadata>
 </ext:panel>

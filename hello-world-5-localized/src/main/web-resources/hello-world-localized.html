@@ -7,11 +7,6 @@
   <link rel="stylesheet" type="text/css" href="ext-js/resources/css/reset-min.css">
   <link rel="stylesheet" type="text/css" href="ext-js/resources/css/ext-all.css">
 
-  <script type="text/javascript" src="ext-js/adapter/ext/ext-base-debug.js"></script>
-  <script type="text/javascript" src="ext-js/ext-all-debug.js"></script>
-
-  <script type="text/javascript" src="joo/net.jangaroo.ext-as-aliases.js"></script>
-
   <script type="text/javascript">
     var require = {
       localeChain: [(navigator.language || navigator.userLanguage).replace(/-/g, "_"), 'en'],
@@ -20,7 +15,8 @@
       }
     };
   </script>
-  <script type="text/javascript" data-main="joo/new!com.acme.extas.localized.Main" src="requirejs/require.js"></script>
+  <script type="text/javascript" src="requirejs/require.js"
+          data-main="joo/new!com.acme.extas.localized.Main"></script>
 </head>
 <body>
 </body>

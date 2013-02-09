@@ -1,17 +1,14 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <title>Hello World in AS3 and EXML</title>
-
-  <link rel="stylesheet" type="text/css" href="ext-js/resources/css/reset-min.css">
-  <link rel="stylesheet" type="text/css" href="ext-js/resources/css/ext-all.css">
-
-  <script type="text/javascript" src="ext-js/adapter/ext/ext-base-debug.js"></script>
-  <script type="text/javascript" src="ext-js/ext-all-debug.js"></script>
-
-  <script type="text/javascript" src="joo/net.jangaroo.ext-as-aliases.js"></script>
-
-  <script type="text/javascript" data-main="joo/hello-world-as3-exml" src="requirejs/require.js"></script>
-</head>
 <body>
+<script type="text/javascript">
+  var requirejs = {
+    config: {
+      user: "Joe"
+    }
+  };
+</script>
+<script type="text/javascript" src="requirejs/require.js"
+        data-main="joo/new!com.acme.extas.as3exml.Main"></script>
 </body>
 </html>

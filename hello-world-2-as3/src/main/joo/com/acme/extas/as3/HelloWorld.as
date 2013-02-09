@@ -1,30 +1,29 @@
 package com.acme.extas.as3 {
 
 import ext.Button;
+import ext.ComponentMgr;
 import ext.MessageBox;
-import ext.Viewport;
 import ext.config.button;
 import ext.config.panel;
 import ext.config.toolbar;
 import ext.config.viewport;
 import ext.util.StringUtil;
 
-public class HelloWorld extends Viewport {
+import net.jangaroo.ext.ExtDefaultTheme;
+
+//noinspection JSUnusedGlobalSymbols
+public class HelloWorld {
+
+  private var user:String;
 
   //noinspection JSUnusedGlobalSymbols
-  public static function main(config:viewport):void {
-    //noinspection ObjectAllocationIgnored
-    new HelloWorld(config);
+  public function HelloWorld(config:Object = null):void {
+    user = config.user;
+    window.document.title = "Hello World in Object-Oriented ActionScript";
+    ExtDefaultTheme.load(buildUI);
   }
 
-  public function HelloWorld(config:viewport) {
-    super(config);
-  }
-
-  public native function get user():String;
-
-  override protected function initComponent():void {
-    super.initComponent();
+  private function buildUI():void {
 
     var buttonConfig:button = new button();
     buttonConfig.text = "Click me!";
@@ -38,9 +37,10 @@ public class HelloWorld extends Viewport {
     panelConfig.tbar = toolbarConfig;
     panelConfig.title = "Hello World!";
 
-    add(panelConfig); // add automatically creates the component sub-tree from the config objects!
-    // you could also explicitly build the component by using
-    //  add(new ext.Panel(panelConfig));
+    var viewportConfig:viewport = new viewport();
+    viewportConfig.items = [ panelConfig ];
+    
+    ComponentMgr.create(viewportConfig);
   }
 
   private function onClick(button:Button):void {
