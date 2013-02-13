@@ -35,14 +35,12 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
-      <type>jangaroo</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>joounit</artifactId>
       <scope>test</scope>
-      <type>jangaroo</type>
     </dependency>
   </dependencies>
 </project>

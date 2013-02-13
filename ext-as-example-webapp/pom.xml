@@ -25,12 +25,11 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-        <extensions>true</extensions>
         <executions>
           <execution>
-            <phase>generate-resources</phase>
             <goals>
-              <goal>war-package</goal>
+              <!-- only needed for deploying web app on a static web server (no Java Application Server) -->
+              <goal>unpack-jar-resources</goal>
             </goals>
           </execution>
         </executions>
@@ -42,6 +41,7 @@
         <version>1.0.4</version>
         <executions>
           <execution>
+            <phase>prepare-package</phase>
             <goals>
               <goal>optimize</goal>
             </goals>
@@ -58,7 +58,7 @@
           </filterConfig>
           <!-- Skip requirejs optimization if true -->
           <skip>
-            true
+            false
           </skip>
         </configuration>
       </plugin>
@@ -77,7 +77,7 @@
               <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}</outputDirectory>
               <jswarn>false</jswarn>
               <includes>
-                <include>joo/application.js</include>
+                <include>amd/application.js</include>
               </includes>
             </configuration>
           </execution>
@@ -100,42 +100,36 @@
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-2-as3</artifactId>
-      <type>jangaroo</type>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-3-exml</artifactId>
-      <type>jangaroo</type>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-3-mxml</artifactId>
-      <type>jangaroo</type>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-4-as3-exml</artifactId>
-      <type>jangaroo</type>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-5-localized</artifactId>
-      <type>jangaroo</type>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>portal-exml</artifactId>
-      <type>jangaroo</type>
       <version>${project.version}</version>
     </dependency>
   </dependencies>
