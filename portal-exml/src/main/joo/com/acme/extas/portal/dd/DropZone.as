@@ -24,14 +24,14 @@ import js.HTMLElement;
 public class DropZone extends DropTarget {
   public function DropZone(portal:PortalBase, cfg:droptarget) {
     this.portal = portal;
-    ScrollManager.register(portal.getLayoutTarget());
+    ScrollManager.register(portal.body);
     var ddScrollConfig:IDDScrollConfig = IDDScrollConfig({});
     ddScrollConfig.vthresh = 50;
     ddScrollConfig.hthresh = -1;
     ddScrollConfig.animate = true;
     ddScrollConfig.increment = 200;
     super(portal.bwrap.dom, droptarget(Ext.apply(cfg, { ddScrollConfig: ddScrollConfig })));
-    portal.getLayoutTarget().ddScrollConfig = ddScrollConfig;
+    portal.body.ddScrollConfig = ddScrollConfig;
   }
 
   override public function notifyOver(dd:DragSource, e:IEventObject, data:Object):String {
@@ -44,7 +44,7 @@ public class DropZone extends DropTarget {
     }
 
     // handle case scroll where scrollbars appear during drag
-    var cw:Number = portal.getLayoutTarget().dom.clientWidth;
+    var cw:Number = portal.body.dom.clientWidth;
     if (!lastCW) {
       lastCW = cw;
     } else if (lastCW != cw) {
@@ -104,7 +104,7 @@ public class DropZone extends DropTarget {
       }
 
       this.lastPos = {c: c, col: col, p: overSelf || (match && p) ? pos : false};
-      this.scrollPos = portal.getLayoutTarget().getScroll();
+      this.scrollPos = portal.body.getScroll();
 
       portal.fireEvent('dragover', overEvent);
 
@@ -152,7 +152,7 @@ public class DropZone extends DropTarget {
       // scroll position is lost on drop, fix it
       var st:int = this.scrollPos.top;
       if (st) {
-        var d:HTMLElement = this.portal.getLayoutTarget().dom;
+        var d:HTMLElement = this.portal.body.dom;
         window.setTimeout(function():void {
           d.scrollTop = st;
         }, 10);
