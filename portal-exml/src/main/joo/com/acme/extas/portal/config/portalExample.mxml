@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
           xmlns="ext.config.*"
-          xmlns:u="exml:untyped"
-          xmlns:portal="com.acme.extas.portal.*">
+          xmlns:u="mxml:untyped"
+          xmlns:p="com.acme.extas.portal.config.*"
+          layout="border">
   <mxml:Declarations>
     <mxml:String id="shortBogusMarkup">
       <![CDATA[
@@ -16,7 +17,6 @@
     </mxml:String>
   </mxml:Declarations>
 
-  <layout>border</layout>
   <items>
     <panel title="West"
            region="west"
@@ -27,63 +27,63 @@
            u:cmargins="35 5 5 5"
            u:minSize="175"
            u:maxSize="400"
-           id="west">
+           u:id="west">
       <items>
         <panel title="Navigation"
                autoScroll="true"
                border="false"
                html="{shortBogusMarkup}"
                iconCls="nav"
-               id="navigation"/>
+               u:id="navigation"/>
         <panel title="Settings"
                autoScroll="true"
                border="false"
                html="{shortBogusMarkup}"
                iconCls="settings"
-               id="settings"/>
+               u:id="settings"/>
       </items>
       <layout>
         <accordionlayout animate="true"/>
       </layout>
     </panel>
 
-    <portal:portal region="center" margins="35 5 5 0" id="center">
-      <portal:items>
+    <p:portal region="center" margins="35 5 5 0" u:id="center">
+      <p:items>
 
-        <portal:portalColumn id="portalColumn1"
+        <p:portalColumn u:id="portalColumn1"
                         u:columnWidth=".33"
                         style="padding:10px 0 10px 10px">
-          <portal:items>
-            <portal:portlet title="Form in a Portlet" layout="form" id="form_panel">
-              <portal:items>
-                <textfield fieldLabel="Your Name" id="name"/>
-                <datefield fieldLabel="Date of birth" id="birthdate"/>
+          <p:items>
+            <p:portlet title="Form in a Portlet" layout="form" u:id="form-panel">
+              <p:items>
+                <textfield fieldLabel="Your Name" u:id="name"/>
+                <datefield fieldLabel="Date of birth" u:id="birthdate"/>
                 <textarea fieldLabel="Description"/>
-              </portal:items>
-            </portal:portlet>
-            <portal:portlet title="Another Panel 1" html="{shortBogusMarkup}" id="other_panel"/>
-          </portal:items>
-        </portal:portalColumn>
+              </p:items>
+            </p:portlet>
+            <p:portlet title="Another Panel 1" html="{shortBogusMarkup}" u:id="other-panel"/>
+          </p:items>
+        </p:portalColumn>
 
-        <portal:portalColumn id="portalColumn2"
+        <p:portalColumn u:id="portalColumn2"
                         u:columnWidth=".33"
                         style="padding:10px 0 10px 10px">
-          <portal:items>
-            <portal:portlet title="Panel 2" html="{shortBogusMarkup}"/>
-            <portal:portlet title="Another Panel 2" html="{shortBogusMarkup}"/>
-          </portal:items>
-        </portal:portalColumn>
+          <p:items>
+            <p:portlet title="Panel 2" html="{shortBogusMarkup}"/>
+            <p:portlet title="Another Panel 2" html="{shortBogusMarkup}"/>
+          </p:items>
+        </p:portalColumn>
 
-        <portal:portalColumn id="portalColumn3"
+        <p:portalColumn u:id="portalColumn3"
                         u:columnWidth=".33"
                         style="padding:10px 0 10px 10px">
-          <portal:items>
-            <portal:portlet id="somePortlet" title="Panel 3" html="{shortBogusMarkup}"/>
-            <portal:portlet title="Another Panel 3" html="{shortBogusMarkup}"/>
-          </portal:items>
-        </portal:portalColumn>
+          <p:items>
+            <p:portlet u:id="somePortlet" title="Panel 3" html="{shortBogusMarkup}"/>
+            <p:portlet title="Another Panel 3" html="{shortBogusMarkup}"/>
+          </p:items>
+        </p:portalColumn>
 
-      </portal:items>
-    </portal:portal>
+      </p:items>
+    </p:portal>
   </items>
 </viewport>

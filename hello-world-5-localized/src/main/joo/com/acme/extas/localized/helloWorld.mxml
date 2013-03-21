@@ -15,12 +15,12 @@
         <toolbar>
           <items>
             <button text="@Resource(bundle='HelloWorld', key='button_label')">
-              <click><![CDATA[
+              <onclick><![CDATA[
                   var BUNDLE:IResourceManager = ResourceManager.getInstance();
                   MessageBox.alert(StringUtil.format(BUNDLE.getString("HelloWorld", "dialog_title"), user),
                           StringUtil.format(BUNDLE.getString("HelloWorld", "dialog_message"), user,
                                   event.source.getText()));
-                ]]></click>
+                ]]></onclick>
             </button>
             <button text="@Resource(bundle='HelloWorld', key='menu_label')">
               <menu>

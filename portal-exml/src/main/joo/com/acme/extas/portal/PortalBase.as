@@ -1,5 +1,6 @@
 package com.acme.extas.portal {
 
+import com.acme.extas.portal.config.portal;
 import com.acme.extas.portal.dd.DropZone;
 
 import ext.Panel;

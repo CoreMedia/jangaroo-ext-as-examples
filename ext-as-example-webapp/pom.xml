@@ -24,12 +24,13 @@
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-maven-plugin</artifactId>
+        <artifactId>webjars-maven-plugin</artifactId>
+        <version>2.0.4</version>
         <executions>
           <execution>
             <goals>
               <!-- only needed for deploying web app on a static web server (no Java Application Server) -->
-              <goal>unpack-jar-resources</goal>
+              <goal>unpack</goal>
             </goals>
           </execution>
         </executions>
@@ -62,27 +63,7 @@
           </skip>
         </configuration>
       </plugin>
-      <!--plugin>
-        <groupId>net.alchim31.maven</groupId>
-        <artifactId>yuicompressor-maven-plugin</artifactId>
-        <version>1.3.2</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>compress</goal>
-            </goals>
-            <configuration>
-              <sourceDirectory>${project.build.directory}/${project.artifactId}-${project.version}</sourceDirectory>
-              <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}</outputDirectory>
-              <jswarn>false</jswarn>
-              <includes>
-                <include>amd/application.js</include>
-              </includes>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin-->
+
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>

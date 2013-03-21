@@ -6,8 +6,8 @@
 -->
 <panel xmlns:mxml="http://ns.adobe.com/mxml/2009"
              xmlns="ext.config.*"
-             xmlns:u="exml:untyped"
-             u:anchor="100%"
+             xmlns:u="mxml:untyped"
+             anchor="100%"
              frame="true"
              collapsible="true"
              draggable="true"
@@ -17,11 +17,11 @@
     import ext.Panel;
   </mxml:Script>
   <tools>
-    <mxml:Object id="gear"
+    <mxml:Object u:id="gear"
                  handler="{function():void {
                                MessageBox.alert('Message', 'The Settings tool was clicked.');
                              }}"/>
-    <mxml:Object id="close"
+    <mxml:Object u:id="close"
                  handler="{function(e:*, target:*, panel:Panel):void {
                                panel.ownerCt.remove(panel, true);
                              }}"/>

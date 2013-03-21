@@ -18,7 +18,7 @@
       <tbar>
         <toolbar>
           <items>
-            <button text="Click me!" click="
+            <button text="Click me!" onclick="
                   MessageBox.alert(StringUtil.format('Hello {0}!', this.user),
                           StringUtil.format('{0} clicked on button \'{1}\'.', this.user, event.source.getText()));
                 "/>
