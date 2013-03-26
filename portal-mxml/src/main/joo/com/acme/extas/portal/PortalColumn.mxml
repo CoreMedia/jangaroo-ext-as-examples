@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!---
-  A portal column is placed in a portal and contains portlets.
--->
-<container:Container xmlns:flex="http://ns.adobe.com/mxml/2009"
-                     xmlns:container="ext4.container.*"
-                     layout="anchor"
-                     defaultType="Portlet"
-                     cls="x-portal-column"/>

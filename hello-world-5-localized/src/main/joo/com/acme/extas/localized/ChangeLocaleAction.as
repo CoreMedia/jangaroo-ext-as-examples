@@ -9,7 +9,7 @@ import ext.config.action;
 public class ChangeLocaleAction extends Action {
 
   public function ChangeLocaleAction() {
-    super(action(this));
+    this.handler = doIt;
     // TODO: disabling!
   }
 
@@ -18,10 +18,8 @@ public class ChangeLocaleAction extends Action {
    */
   public var locale:String;
 
-  public var text:String;
-
   //noinspection JSUnusedGlobalSymbols,JSMethodCanBeStatic
-  public function handler():void {
+  public function doIt():void {
     // TODO.setLocale(locale);
     window.location.reload();
   }

@@ -9,8 +9,6 @@ import ext.config.toolbar;
 import ext.config.viewport;
 import ext.util.StringUtil;
 
-import net.jangaroo.ext.ExtDefaultTheme;
-
 //noinspection JSUnusedGlobalSymbols
 public class HelloWorld {
 
@@ -20,7 +18,7 @@ public class HelloWorld {
   public function HelloWorld(config:Object = null):void {
     user = config.user;
     window.document.title = "Hello World in Object-Oriented ActionScript";
-    ExtDefaultTheme.load(buildUI);
+    buildUI();
   }
 
   private function buildUI():void {

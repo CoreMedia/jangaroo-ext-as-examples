@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<portal:PortalBase xmlns:flex="http://ns.adobe.com/mxml/2009"
-                   xmlns:portal="com.acme.extas.portal.*"
-                   layout="column"
-                   autoScroll="true"
-                   cls="x-portal"
-                   defaultType="PortalColumn"/>

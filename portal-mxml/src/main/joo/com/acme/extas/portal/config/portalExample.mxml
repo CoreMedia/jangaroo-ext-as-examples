@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
+          xmlns="ext.config.*"
+          xmlns:u="mxml:untyped"
+          xmlns:p="com.acme.extas.portal.config.*"
+          u:id="app-viewport">
+  <mxml:Declarations>
+    <mxml:String id="shortBogusMarkup">
+      <![CDATA[
+<div class="portlet-content">
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh, sodales a, porta at, vulputate eget, dui.
+  Pellentesque ut nisl. Maecenas tortor turpis, interdum non, sodales non, iaculis ac, lacus. Vestibulum auctor, tortor
+  quis iaculis malesuada, libero lectus bibendum purus, sit amet tincidunt quam turpis vel lacus. In pellentesque nisl
+  non sem. Suspendisse nunc sem, pretium eget, cursus a, fringilla.
+</p>
+</div>
+      ]]>
+    </mxml:String>
+    <mxml:String id="bogusMarkup">
+      <![CDATA[
+<div class="portlet-content">
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh, sodales a,
+  porta at, vulputate eget, dui. Pellentesque ut nisl. Maecenas tortor turpis, interdum non, sodales non, iaculis ac,
+  lacus. Vestibulum auctor, tortor quis iaculis malesuada, libero lectus bibendum purus, sit amet tincidunt quam turpis
+  vel lacus. In pellentesque nisl non sem. Suspendisse nunc sem, pretium eget, cursus a, fringilla vel, urna.<br/><br/>
+  Aliquam commodo ullamcorper erat. Nullam vel justo in neque porttitor laoreet. Aenean lacus dui, consequat eu, adipiscing
+  eget, nonummy non, nisi. Morbi nunc est, dignissim non, ornare sed, luctus eu, massa. Vivamus eget quam. Vivamus tincidunt
+  diam nec urna. Curabitur velit. Lorem ipsum dolor sit amet.
+</p>
+</div>
+      ]]>
+    </mxml:String>
+  </mxml:Declarations>
+
+  <layout>
+    <borderlayout padding="0 5 5 5"/>  <!-- pad the layout from the window edges -->
+  </layout>
+  <items>
+    <component u:id="app-header"
+               region="north"
+               height="40"
+               html="Ext Portal"/>
+    <container region="center"
+               layout="border">
+      <items>
+        <panel u:id="app-options"
+               title="Options"
+               region="west"
+               animCollapse="true"
+               width="200"
+               minWidth="150"
+               maxWidth="400"
+               u:split="true"
+               collapsible="true">
+          <layout>
+            <accordionlayout animate="true"/>
+          </layout>
+          <items>
+            <panel html="{shortBogusMarkup}"
+                   title="Navigation"
+                   autoScroll="true"
+                   border="false"
+                   iconCls="nav"/>
+            <panel title="Settings"
+                   html="{shortBogusMarkup}"
+                   border="false"
+                   autoScroll="true"
+                   iconCls="settings"/>
+          </items>
+        </panel>
+
+        <p:portalpanel u:id="app-portal"
+                       region="center">
+          <p:items>
+            <p:portalColumn u:id="col-1">
+              <p:items>
+                <p:portlet u:id="portlet-1"
+                           title="Grid Portlet">
+                  <p:items>
+                    <p:gridPortlet/>
+                  </p:items>
+                </p:portlet>
+                <p:portlet u:id="portlet-2"
+                           title="Portlet 2"
+                           html="{shortBogusMarkup}"/>
+              </p:items>
+            </p:portalColumn>
+
+            <p:portalColumn u:id="col-2">
+              <p:items>
+                <p:portlet u:id="portlet-3"
+                           title="Portlet 3"
+                           html="{bogusMarkup}"/>
+              </p:items>
+            </p:portalColumn>
+
+            <p:portalColumn u:id="col-3">
+              <p:items>
+                <p:portlet u:id="portlet-4"
+                           title="Stock Portlet">
+                  <p:items>
+                  <p:chartPortlet/>
+                  </p:items>
+                </p:portlet>
+              </p:items>
+            </p:portalColumn>
+
+          </p:items>
+        </p:portalpanel>
+      </items>
+    </container>
+  </items>
+</viewport>

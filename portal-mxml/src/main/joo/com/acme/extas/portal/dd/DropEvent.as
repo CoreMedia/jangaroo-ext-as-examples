@@ -1,22 +1,21 @@
 package com.acme.extas.portal.dd {
-import com.acme.extas.portal.PortalBase;
+import com.acme.extas.portal.PortalPanel;
 
-import ext4.SEventObject;
-import ext4.container.Container;
-
-import ext4.dd.DragSource;
-import ext4.panel.Panel;
+import ext.Container;
+import ext.IEventObject;
+import ext.Panel;
+import ext.dd.DragSource;
 
 import joo.JavaScriptObject;
 
 /**
  * A DropEvent sent by the Portal through a DropZone.
- * @see com.acme.extas.portal.PortalBase
+ * @see com.acme.extas.portal.PortalPanel
  * @see DropZone
  */
 public class DropEvent extends JavaScriptObject {
 
-  public function DropEvent(dropZone:DropZone, source:DragSource, rawEvent:SEventObject, data:Object, columnIndex:int, column:Container, position:Number) {
+  public function DropEvent(dropZone:DropZone, source:DragSource, rawEvent:IEventObject, data:Object, columnIndex:int, column:Container, position:Number) {
     this['portal'] = dropZone.portal;
     this['panel'] = data.panel;
     this['status'] = dropZone.dropAllowed;
@@ -28,7 +27,7 @@ public class DropEvent extends JavaScriptObject {
     this['position'] = position;
   }
 
-  public native function get portal():PortalBase;
+  public native function get portal():PortalPanel;
 
   public native function get panel():Panel;
 
@@ -36,7 +35,7 @@ public class DropEvent extends JavaScriptObject {
 
   public native function get source():DragSource;
 
-  public native function get rawEvent():SEventObject;
+  public native function get rawEvent():IEventObject;
 
   public native function get data():Object;
 

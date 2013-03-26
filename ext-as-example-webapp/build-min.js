@@ -1,7 +1,7 @@
 ({
   baseUrl: "${project.build.directory}/${project.artifactId}-${project.version}/amd",
   optimize: "closure",
-  mainConfigFile: "${project.build.directory}/${project.artifactId}-${project.version}/amd/ext-as.module.js",
+  mainConfigFile: "${project.build.directory}/${project.artifactId}-${project.version}/amd/ext-js-4.module.js",
   closure: {
     CompilerOptions: {
     },
@@ -11,7 +11,7 @@
   linkNative: false,
   preserveLicenseComments: false,
   out: "${project.build.directory}/${project.artifactId}-${project.version}/amd/application-min.js",
-  name: "as3/com/acme/extas/portal/Main",
-  include: ["as3/com/acme/extas/localized/Main"],
-  localeChain: ['en_GB', 'en']
+  name: "as3/com/acme/extas/portal/config/main"
+  //include: ["as3/com/acme/extas/localized/Main"],
+  //localeChain: ['en_GB', 'en']
 })

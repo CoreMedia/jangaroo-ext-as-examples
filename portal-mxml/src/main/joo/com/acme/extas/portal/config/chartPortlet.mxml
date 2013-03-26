@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<panel xmlns:mxml="http://ns.adobe.com/mxml/2009"
+       xmlns="ext.config.*"
+       xmlns:u="mxml:untyped"
+       xmlns:data="ext.data.*"
+       layout="fit"
+       height="300">
+
+  <mxml:Script><![CDATA[
+    private static function generateData():Array {
+      var data:Array = [{
+        name: 0,
+        djia: 10000,
+        sp500: 1100
+      }];
+      for (var i:int = 1; i < 50; i++) {
+        data.push({
+          name: i,
+          sp500: data[i - 1].sp500 + ((Math.floor(Math.random() * 2) % 2) ? -1 : 1) * Math.floor(Math.random() * 7),
+          djia: data[i - 1].djia + ((Math.floor(Math.random() * 2) % 2) ? -1 : 1) * Math.floor(Math.random() * 7)
+        });
+      }
+      return data;
+    }
+    ]]></mxml:Script>
+
+  <items>
+    <chart animate="false"
+           shadow="false">
+      <store>
+        <data:JsonStore fields="{['name', 'sp500', 'djia']}"
+                        data="{generateData()}"/>
+      </store>
+      <legend>
+        <mxml:Object position="bottom"/>
+      </legend>
+      <axes>
+        <numericaxis
+                position="left"
+                fields="{['djia']}"
+                title="Dow Jones Average"
+                label="{ {font: '11px Arial'} }"/>
+        <numericaxis
+                position="right"
+                grid="false"
+                fields="{['sp500']}"
+                title="S&amp;P 500"
+                label="{ {font: '11px Arial'} }"/>
+      </axes>
+      <series>
+        <lineseries
+                u:lineWidth="1"
+                showMarkers="false"
+                fill="true"
+                axis="left"
+                xField="name"
+                yField="djia"
+                style="{ {
+                  'stroke-width': 1,
+                  stroke: 'rgb(148, 174, 10)'
+                } }"/>
+        <lineseries
+                u:lineWidth="1"
+                showMarkers="false"
+                axis="right"
+                xField="name"
+                yField="sp500"
+                style="{ {
+                  'stroke-width': 1,
+                  stroke: 'rgb(17, 95, 166)'
+                } }"/>
+      </series>
+    </chart>
+  </items>
+
+</panel>

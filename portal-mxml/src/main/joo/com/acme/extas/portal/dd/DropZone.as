@@ -1,111 +1,136 @@
 package com.acme.extas.portal.dd {
 
-import com.acme.extas.portal.PortalBase;
+import com.acme.extas.portal.PortalPanel;
 
-import ext4.Component;
-import ext4.container.Container;
-import ext4.Ext;
-import ext4.SEventObject;
-import ext4.panel.Panel;
-import ext4.dd.DragSource;
-import ext4.dd.DropTarget;
-import ext4.panel.Proxy;
-import ext4.dd.ScrollManager;
+import ext.Component;
+import ext.Container;
+import ext.Ext;
+import ext.IEventObject;
+import ext.Panel;
+import ext.config.droptarget;
+import ext.dd.DragSource;
+import ext.dd.DropTarget;
+import ext.dd.IDDScrollConfig;
+import ext.dd.ScrollManager;
+import ext.dd.StatusProxy;
+import ext.panel.DD;
 
 import js.HTMLElement;
 
 /**
- * The drop zone of a Portal component.
- *
- * @see com.acme.extas.portal.PortalBase
+ * Internal class that manages drag/drop for {@link PortalPanel}.
  */
 public class DropZone extends DropTarget {
-  public function DropZone(portal:PortalBase, cfg:Object) {
+
+  public function DropZone(portal:PortalPanel, cfg:droptarget) {
     this.portal = portal;
-    ScrollManager.register(portal.getLayout());
-    var ddScrollConfig:Object = {};
-    ddScrollConfig.vthresh = 50;
-    ddScrollConfig.hthresh = -1;
-    ddScrollConfig.animate = true;
-    ddScrollConfig.increment = 200;
-    super(portal['bwrap'].dom, Ext.apply(cfg, { ddScrollConfig:ddScrollConfig }));
-    portal.getLayout()['ddScrollConfig'] = ddScrollConfig;
+    ScrollManager.register(portal.body);
+    super(portal.body, cfg);
+    portal.body.ddScrollConfig = ddScrollConfig;
   }
 
-  override public function notifyOver(dd:DragSource, e:SEventObject, data:Object):String {
-    var xy:Object = e.getXY();
-    var px:Proxy = Proxy(dd.getProxy());
+  private static var ddScrollConfig:IDDScrollConfig = IDDScrollConfig({});
+  ddScrollConfig.vthresh = 50;
+  ddScrollConfig.hthresh = -1;
+  ddScrollConfig.animate = true;
+  ddScrollConfig.increment = 200;
+
+  private function createEvent(dd:DragSource, e:IEventObject, data:Object, col:int, c:Container, pos:Number):DropEvent {
+      return new DropEvent(
+              this,
+              dd,
+              e,
+              data,
+              col,
+              c,
+              pos
+      );
+  }
+
+  override public function notifyOver(ds:DragSource, e:IEventObject, data:Object):String {
+    var dd:DD = DD(ds);
+    var xy:Object = e.getXY(),
+            portal:PortalPanel = this.portal,
+            proxy:StatusProxy = dd.getProxy();
 
     // case column widths
-    if (!grid) {
-      grid = getGrid();
+    if (!this.grid) {
+      this.grid = this.getGrid();
     }
 
     // handle case scroll where scrollbars appear during drag
-    var cw:Number = portal.getLayout()['dom'].clientWidth;
-    if (!lastCW) {
-      lastCW = cw;
-    } else if (lastCW != cw) {
-      lastCW = cw;
-      portal.doLayout();
-      grid = getGrid();
+    var cw:Number = portal.body.dom.clientWidth;
+    if (!this.lastCW) {
+      // set initial client width
+      this.lastCW = cw;
+    } else if (this.lastCW != cw) {
+      // client width has changed, so refresh layout & grid calcs
+      this.lastCW = cw;
+      //portal.doLayout();
+      this.grid = this.getGrid();
     }
 
     // determine column
-    var col:int = 0;
-    var xs:Array = grid.columnX;
-    var cmatch:Boolean = false;
-    for (var len:int = xs.length; col < len; col++) {
-      if (xy[0] < (xs[col].x + xs[col].w)) {
-        cmatch = true;
-        break;
-      }
-    }
-    // no match, fix last index
-    if (!cmatch) {
-      col--;
-    }
+        var colIndex:int = 0,
+            colRight:int = 0,
+            cols:Array = this.grid.columnX,
+            len:int = cols.length,
+            cmatch:Boolean = false;
 
-    // find insert position
-    var p:Component;
-    var match:Boolean = false;
-    var pos:Number = 0;
-    var c:Container = portal.items.get(col) as Container;
-    var items:Array = c.items.getRange();
-    var overSelf:Boolean = false;
+        for (len; colIndex < len; colIndex++) {
+            colRight = cols[colIndex].x + cols[colIndex].w;
+            if (xy[0] < colRight) {
+                cmatch = true;
+                break;
+            }
+        }
+        // no match, fix last index
+        if (!cmatch) {
+            colIndex--;
+        }
 
-    for (len = items.length; pos < len; pos++) {
-      p = items[pos];
-      var h:int = p.getEl().getHeight();
-      if (h === 0) {
-        overSelf = true;
-      }
-      else if ((p.getEl().getY(null) + (h / 2)) > xy[1]) {
-        match = true;
-        break;
-      }
-    }
+        // find insert position
+        var overPortlet:Component, pos:int = 0,
+            h:int = 0,
+            match:Boolean = false,
+            overColumn:Container = Container(portal.items.getAt(colIndex)),
+            portlets:Array = overColumn.items.getRange(),
+            overSelf:Boolean = false;
 
-    pos = (match && p ? pos : c.items.getCount()) + (overSelf ? -1 : 0);
-    var overEvent:DropEvent = new DropEvent(this, dd, e, data, col, c, pos);
+        len = portlets.length;
 
-    if (portal.fireEvent('validatedrop', overEvent) !== false &&
-            portal.fireEvent('beforedragover', overEvent) !== false) {
+        for (len; pos < len; pos++) {
+            overPortlet = portlets[pos];
+            h = overPortlet.el.getHeight();
+            if (h === 0) {
+                overSelf = true;
+            } else if ((overPortlet.el.getY() + (h / 2)) > xy[1]) {
+                match = true;
+                break;
+            }
+        }
 
-      // make sure proxy width is fluid
-      px.getProxy().setWidth('auto');
+        pos = (match && overPortlet ? pos : overColumn.items.getCount()) + (overSelf ? -1 : 0);
+        var overEvent:DropEvent = this.createEvent(dd, e, data, colIndex, overColumn, pos);
 
-      if (p) {
-        px.moveProxy(HTMLElement(p.getEl().dom['parentNode']), match ? p.getEl().dom : null);
-      } else {
-        px.moveProxy(c.getEl().dom, null);
-      }
+        if (portal.fireEvent('validatedrop', overEvent) !== false && portal.fireEvent('beforedragover', overEvent) !== false) {
 
-      this.lastPos = {c: c, col: col, p: overSelf || (match && p) ? pos : false};
-      this.scrollPos = portal.getLayout()['getScroll']();
+            // make sure proxy width is fluid in different width columns
+            proxy.getProxy().setWidth('auto');
+            if (overPortlet) {
+                dd.panelProxy.moveProxy(HTMLElement(overPortlet.el.dom.parentNode), match ? overPortlet.el.dom : null);
+            } else {
+                dd.panelProxy.moveProxy(overColumn.el.dom, null);
+            }
 
-      portal.fireEvent('dragover', overEvent);
+            this.lastPos = {
+                c: overColumn,
+                col: colIndex,
+                p: overSelf || (match && overPortlet) ? pos : false
+            };
+            this.scrollPos = portal.body.getScroll();
 
+            portal.fireEvent('dragover', overEvent);
       return overEvent.status;
     } else {
       return overEvent.status;
@@ -113,66 +138,77 @@ public class DropZone extends DropTarget {
 
   }
 
-  override public function notifyOut(source:DragSource, e:SEventObject, data:Object):void {
+  override public function notifyOut(source:DragSource, e:IEventObject, data:Object):void {
     this.grid = null;
   }
 
-  override public function notifyDrop(dd:DragSource, e:SEventObject, data:Object):Boolean {
+  override public function notifyDrop(ds:DragSource, e:IEventObject, data:Object):Boolean {
+    var dd:DD = DD(ds);
     this.grid = null;
     if (!this.lastPos) {
       return false;
     }
-    var c:Container = this.lastPos.c, col:int = this.lastPos.col, pos:* = this.lastPos.p;
-
-    var dropEvent:DropEvent = new DropEvent(this, dd, e, data, col, c,
-            pos !== false ? pos : c.items.getCount());
+    var c:Container = this.lastPos.c,
+            col:int = this.lastPos.col,
+            pos:* = this.lastPos.p,
+            panel:Panel = dd.panel,
+            dropEvent:DropEvent = this.createEvent(dd, e, data, col, c, pos !== false ? pos : c.items.getCount());
 
     if (this.portal.fireEvent('validatedrop', dropEvent) !== false &&
             this.portal.fireEvent('beforedrop', dropEvent) !== false) {
 
-      Proxy(dd.getProxy()).getProxy().remove();
-      var panel:Panel = dd['panel'];
-      panel.getEl().dom.parentNode.removeChild(panel.getEl().dom);
+            Ext.suspendLayouts();
+
+            // make sure panel is visible prior to inserting so that the layout doesn't ignore it
+            panel.el.dom.style.display = '';
+            dd.panelProxy.hide();
+            dd.getProxy().hide();
 
       if (pos !== false) {
-        if (c == panel.ownerCt && (c.items.indexOf(panel) <= pos)) {
-          pos++;
-        }
         c.insert(pos, panel);
       } else {
         c.add(panel);
       }
 
-      c.doLayout();
+            Ext.resumeLayouts(true);
 
       this.portal.fireEvent('drop', dropEvent);
 
       // scroll position is lost on drop, fix it
       var st:int = this.scrollPos.top;
       if (st) {
-        var d:HTMLElement = this.portal.getLayout()['dom'];
+        var d:HTMLElement = this.portal.body.dom;
         window.setTimeout(function():void {
           d.scrollTop = st;
         }, 10);
       }
 
     }
+
     this.lastPos = null;
     return true;
   }
 
-  // internal cache of body and column coordinates
+    // internal cache of body and column coords
   private function getGrid():Object {
-    var box:Object = this.portal.getEl().getBox();
+    var box:Object = this.portal.body['getBox']();
     box.columnX = [];
     this.portal.items.each(function (c:Component):void {
-      box.columnX.push({x: c.getEl().getX(null), w: c.getEl().getWidth()});
+      box.columnX.push({
+        x: c.el.getX(),
+        w: c.el.getWidth()
+      });
     });
     return box;
   }
 
+  // unregister the dropzone from ScrollManager
+  override public function unreg():void {
+    ScrollManager.unregister(this.portal.body);
+    super.unreg();
+  }
 
-  internal var portal:PortalBase;
+  internal var portal:PortalPanel;
   private var grid:Object;
   private var lastCW:Number;
   private var lastPos:Object;

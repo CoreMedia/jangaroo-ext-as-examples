@@ -9,14 +9,14 @@
     <relativePath>../ext-as-example-parent/pom.xml</relativePath>
   </parent>
 
-  <artifactId>hello-world-2-as3</artifactId>
+  <artifactId>hello-world-4-as3-mxml</artifactId>
   <packaging>jangaroo</packaging>
 
-  <name>hello-world-2-as3</name>
+  <name>hello-world-4-as3-mxml</name>
   <description>
-    Ext AS Example 2: Hello World in Object-Oriented ActionScript
-    A simple "Hello World!" example that uses only ExtJS standard components, has no server connection, and
-    is written in pure ActionScript (no MXML).
+    Ext AS Example 4: Hello World with AS3 and MXML
+    A simple "Hello World!" example that puts component logic in an ActionScript base class
+    and the declarative part in MXML.
   </description>
 
   <build>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Portal Layout Sample</title>
+  <link rel="stylesheet" type="text/css" href="portal.css">
+  <link rel="stylesheet" type="text/css" href="ext-js/4.2.0/resources/css/ext-all-neptune.css">
+</head>
+<body>
+<script type="text/javascript" src="requirejs/require-min.js"></script>
+<script type="text/javascript">
+  requirejs.config({ baseUrl: "amd"});
+  require(["new!com.acme.extas.portal.config.main"], function(appConfig) {
+    Ext.getBody().addCls(Ext.baseCSSPrefix + 'theme-neptune');
+    require(["../ext-js/4.2.0/ext-theme-neptune"], function() {
+      Ext.application(appConfig);
+    });
+  });
+</script>
+</body>
+</html>

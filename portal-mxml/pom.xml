@@ -14,7 +14,7 @@
 
   <name>portal-mxml</name>
   <description>
-    Ext AS Example 6: The Ext JS portal demo implemented with Jangaroo Ext AS and MXML.
+    Ext AS Example 6: The Ext JS portal demo implemented with MXML.
     Based on the original JavaScript code from
     http://dev.sencha.com/deploy/ext-3.4.0/examples/portal/portal.html
   </description>
@@ -22,27 +22,11 @@
   <build>
     <sourceDirectory>src/main/joo</sourceDirectory>
 
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-      <resource>
-        <directory>target/generated-resources</directory>
-      </resource>
-    </resources>
-
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>exml-maven-plugin</artifactId>
         <extensions>true</extensions>
-        <configuration>
-          <configClassPackage>com.acme.extas.portal.config</configClassPackage>
-        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -51,6 +35,12 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>joounit</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>

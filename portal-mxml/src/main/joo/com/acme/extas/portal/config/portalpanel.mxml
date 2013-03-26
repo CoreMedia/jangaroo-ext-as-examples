@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ext:panel xmlns:mxml="http://ns.adobe.com/mxml/2009"
+           xmlns:ext="ext.config.*"
+           cls="x-portal"
+           bodyCls="x-portal-body"
+           xtype="portalpanel"
+           autoScroll="true"
+           manageHeight="false"
+           layout="column">
+  <mxml:Script>
+    import com.acme.extas.portal.PortalPanel;
+    import ext.ComponentMgr;
+    ComponentMgr.registerType("portalpanel", PortalPanel);
+  </mxml:Script>
+</ext:panel>

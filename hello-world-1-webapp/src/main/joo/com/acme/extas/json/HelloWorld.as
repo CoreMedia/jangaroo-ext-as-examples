@@ -1,14 +1,12 @@
 package com.acme.extas.json {
 
 import ext.*;
-import ext.config.*;
 import ext.util.*;
 
 public class HelloWorld {
 
   public static function main(config):void {
-    new ext.Viewport(
-      viewport({
+    new ext.Viewport({
         items: {
           xtype: "panel",
           title: "Hello World!",
@@ -25,7 +23,7 @@ public class HelloWorld {
             }
           }
         }
-      })
+      }
     );
   }
 

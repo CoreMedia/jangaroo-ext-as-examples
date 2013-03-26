@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:helloWorldBase xmlns:mxml="http://ns.adobe.com/mxml/2009"
+                      xmlns="ext.config.*"
+                      xmlns:local="com.acme.extas.as3exml.config.*">
+  <local:items>
+    <panel title="Hello World">
+      <tbar>
+        <toolbar>
+          <items>
+            <button text="Click me!" onclick="onClick(event)"/>
+          </items>
+        </toolbar>
+      </tbar>
+    </panel>
+  </local:items>
+</local:helloWorldBase>
