@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<c:Application xmlns:mx="http://ns.adobe.com/mxml/2009"
+               xmlns:ex="*" xmlns:c="library://ns.adobe.com/flex/mx">
+
+  <mx:Declarations>
+    <ex:NavigationState id="navigationState" state="Dashboard"
+                        navigationChanged="trace('root: state changed to ' + navigationState.state)"/>
+  </mx:Declarations>
+
+  <ex:Sidebar navigationState="{navigationState}"/>
+</c:Application>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<c:VBox xmlns:mx="http://ns.adobe.com/mxml/2009" xmlns:ex="*"
+               xmlns:c="library://ns.adobe.com/flex/mx" creationComplete="onComplete()">
+
+  <!-- Creating the NavigationState in Declarations has the disadvantage, that a new instance will be instantiated
+       here first, then it will be overwritten by the one passed down from the parent -->
+  <mx:Declarations>
+    <ex:NavigationState id="navigationState"/>
+  </mx:Declarations>
+
+  <!-- Declaring the variable in Script does not automatically create an instance. The variable must be declared
+       as [Bindable], otherwise it will not be updated in time, and the other bindings using navigationState won't work. -->
+  <!--
+  <mx:Script><![CDATA[
+    [Bindable]
+    public var navigationState:NavigationState;
+    ]]></mx:Script>
+-->
+
+  <c:Button id="theState" label="{navigationState.state}"/>
+
+  <c:Button label="Set to Dashboard" click="navigationState.state = 'Dashboard'"/>
+  <c:Button label="Set to Preview" click="navigationState.state = 'Preview'"/>
+
+  <!-- Additional event listeners on the injected object must be added "manually" on creationComplete.
+       Setting the handler as an attribute on in the <mx:Declarations> does not work, because then the handler will be
+       on the temporary second instance of NavigationState, not the injected one.
+       Earlier than creationComplete does not work (initialize event), because the bindings have not been updated at that time.
+  -->
+  <mx:Script><![CDATA[
+    private function onComplete():void {
+      navigationState.addEventListener("navigationChanged", function():void {
+        trace("sidebar: navigation changed to " + navigationState.state);
+      })
+    }
+
+    ]]></mx:Script>
+</c:VBox>
