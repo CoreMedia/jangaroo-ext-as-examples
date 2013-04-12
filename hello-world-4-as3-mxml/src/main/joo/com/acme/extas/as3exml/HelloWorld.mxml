@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
+          xmlns="ext.*"
+          xmlns:form="ext.form.*">
+  <mxml:Declarations>
+    <mxml:String id="user">Joe</mxml:String>
+  </mxml:Declarations>
+  <Panel title="Hello World">
+    <tbar>
+      <Toolbar>
+        <Button text="Click me!" onclick="onClick(event)"/>
+        <Button text="clear name" onclick="firstNameField.setValue('');surNameField.setValue('');"/>
+      </Toolbar>
+    </tbar>
+    <form:Text id="firstNameField" value="{firstName}"/>
+    <form:Text id="surNameField" value="{surName}"/>
+    <form:Text id="fullNameField" readOnly="true" value="{firstNameField.value + ((firstNameField.value &amp;&amp; surNameField.value) ? ' ' : '')  + surNameField.value}"/>
+  </Panel>
+  <mxml:Script>
+  <![CDATA[
+    import ext.Button;
+    import ext.MessageBox;
+    import ext.events.ButtonClickEvent;
+    import ext.util.StringUtil;
+
+    [Accessor]
+    [Bindable]
+    public function get firstName():String {
+      return this['firstName'];
+    }
+
+    [Accessor]
+    [Bindable]
+    public function set firstName(value:String):void {
+      this['firstName'] = value;
+      fireEvent("firstnamechange");
+    }
+
+    [Accessor]
+    [Bindable]
+    public function get surName():String {
+      return this['surName'];
+    }
+
+    [Accessor]
+    [Bindable]
+    public function set surName(value:String):void {
+      this['surName'] = value;
+      fireEvent("surnamechange");
+    }
+
+    protected function onClick(event:ButtonClickEvent):void {
+      var button:Button = event.source;
+      MessageBox.alert(StringUtil.format('Hello {0}!', firstNameField.value),
+              StringUtil.format('{0} clicked on button \'{1}\'.', fullNameField.value, button.text));
+    }
+
+    ]]>
+  </mxml:Script>
+
+</Viewport>
