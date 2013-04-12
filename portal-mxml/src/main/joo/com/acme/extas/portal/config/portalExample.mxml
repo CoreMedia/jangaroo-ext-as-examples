@@ -3,6 +3,7 @@
           xmlns="ext.config.*"
           xmlns:u="mxml:untyped"
           xmlns:p="com.acme.extas.portal.config.*"
+          xmlns:portal="com.acme.extas.portal.*"
           u:id="app-viewport">
   <mxml:Declarations>
     <mxml:String id="shortBogusMarkup">
@@ -79,7 +80,7 @@
                 <p:portlet u:id="portlet-1"
                            title="Grid Portlet">
                   <p:items>
-                    <p:gridPortlet/>
+                    <portal:GridPortlet/>
                   </p:items>
                 </p:portlet>
                 <p:portlet u:id="portlet-2"

@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
-<grid xmlns:mx="http://ns.adobe.com/mxml/2009"
-      xmlns="ext.config.*"
+<ListView xmlns:mx="http://ns.adobe.com/mxml/2009"
+      xmlns="ext.*"
       xmlns:u="mxml:untyped"
-      xmlns:data="ext.data.*"
+      xmlns:grid="ext.grid.*"
       height="300"
       columnLines="true">
   <store>
-    <data:ArrayStore>
-      <data:fields>
-        <datafield name="company"/>
-        <datafield name="change" type="float"/>
-        <datafield name="pctChange" type="float"/>
-      </data:fields>
-      <data:data><![CDATA[{
+    <ArrayStore xmlns="ext.data.*">
+      <fields>
+        <Field name="company"/>
+        <Field name="change" type="float"/>
+        <Field name="pctChange" type="float"/>
+      </fields>
+      <data><![CDATA[{
         [
                 ['3m Co',                               71.72, 0.02,  0.03,  '9/1 12:00am'],
                 ['Alcoa Inc',                           29.01, 0.42,  1.47,  '9/1 12:00am'],
@@ -44,25 +44,25 @@
                 ['Verizon Communications',              35.57, 0.39,  1.11,  '9/1 12:00am'],
                 ['Wal-Mart Stores, Inc.',               45.45, 0.73,  1.63,  '9/1 12:00am']
             ] 
-      }]]></data:data>
-    </data:ArrayStore>
+      }]]></data>
+    </ArrayStore>
   </store>
   <columns>
-    <gridcolumn
+    <grid:Column
             u:id="company"
             text="Company"
             u:flex="1"
             sortable="true"
             dataIndex="company"
             />
-    <gridcolumn
+    <grid:Column
             text="Change"
             width="75"
             sortable="true"
             renderer="{change}"
             dataIndex="change"
             />
-    <gridcolumn
+    <grid:Column
             text="% Change"
             width="75"
             sortable="true"
@@ -71,7 +71,7 @@
             />
   </columns>
   <viewConfig>
-    <gridview stripeRows="true"/>
+    <grid:View stripeRows="true"/>
   </viewConfig>
   <mx:Script><![CDATA[
     /**
@@ -100,4 +100,4 @@
          return String(val);
      }
     ]]></mx:Script>
-</grid>
+</ListView>
