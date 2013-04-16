@@ -10,10 +10,10 @@
 <script type="text/javascript" src="requirejs/require-min.js"></script>
 <script type="text/javascript">
   requirejs.config({ baseUrl: "amd"});
-  require(["new!com.acme.extas.portal.config.main"], function(appConfig) {
+  require(["ext-js-4.module"], function(Ext) {
     Ext.getBody().addCls(Ext.baseCSSPrefix + 'theme-neptune');
     require(["../ext-js/4.2.0/ext-theme-neptune"], function() {
-      Ext.application(appConfig);
+      require(["new!com.acme.extas.portal.PortalExample"]);
     });
   });
 </script>

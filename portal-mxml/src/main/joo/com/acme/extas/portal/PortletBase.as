@@ -1,11 +1,11 @@
 package com.acme.extas.portal {
 import ext.Panel;
 
-public class Portlet extends Panel {
+public class PortletBase extends Panel {
 
   private var closing:Boolean;
 
-  public function Portlet(config:Object = null) {
+  public function PortletBase(config:Object = null) {
     super(config);
   }
 

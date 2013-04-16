@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<application xmlns:mx="http://ns.adobe.com/mxml/2009"
-             xmlns="ext.config.*"
-             xmlns:p="com.acme.extas.portal.config.*"
-             name="portal">
-  <mainView>
-    <p:portalExample/>
-  </mainView>
-</application>

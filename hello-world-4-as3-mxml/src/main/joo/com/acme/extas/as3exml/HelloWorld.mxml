@@ -8,13 +8,16 @@
   <Panel title="Hello World">
     <tbar>
       <Toolbar>
-        <Button text="Click me!" onclick="onClick(event)"/>
-        <Button text="clear name" onclick="firstNameField.setValue('');surNameField.setValue('');"/>
+        <Button disabled="{!firstNameField.value}"
+                text="{firstNameField.value + ', click me!'}"
+                onclick="onClick(event)"/>
+        <Button text="Clear name"
+                onclick="firstName = ''; surName = '';"/>
       </Toolbar>
     </tbar>
-    <form:Text id="firstNameField" value="{firstName}"/>
-    <form:Text id="surNameField" value="{surName}"/>
-    <form:Text id="fullNameField" readOnly="true" value="{firstNameField.value + ((firstNameField.value &amp;&amp; surNameField.value) ? ' ' : '')  + surNameField.value}"/>
+    <form:TextField id="firstNameField" value="{firstName}"/>
+    <form:TextField id="surNameField" value="{surName}"/>
+    <form:TextField id="fullNameField" readOnly="true" value="{firstNameField.value + ((firstNameField.value &amp;&amp; surNameField.value) ? ' ' : '')  + surNameField.value}"/>
   </Panel>
   <mxml:Script>
   <![CDATA[

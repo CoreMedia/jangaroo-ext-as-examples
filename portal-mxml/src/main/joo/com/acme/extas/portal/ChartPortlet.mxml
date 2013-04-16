@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<panel xmlns:mxml="http://ns.adobe.com/mxml/2009"
-       xmlns="ext.config.*"
+<Panel xmlns:mxml="http://ns.adobe.com/mxml/2009"
+       xmlns="ext.*"
        xmlns:u="mxml:untyped"
        xmlns:data="ext.data.*"
        layout="fit"
@@ -25,7 +25,8 @@
     ]]></mxml:Script>
 
   <items>
-    <chart animate="false"
+    <Chart xmlns="ext.chart.*"
+           animate="false"
            shadow="false">
       <store>
         <data:JsonStore fields="{['name', 'sp500', 'djia']}"
@@ -35,12 +36,12 @@
         <mxml:Object position="bottom"/>
       </legend>
       <axes>
-        <numericaxis
+        <NumericAxis
                 position="left"
                 fields="{['djia']}"
                 title="Dow Jones Average"
                 label="{ {font: '11px Arial'} }"/>
-        <numericaxis
+        <NumericAxis
                 position="right"
                 grid="false"
                 fields="{['sp500']}"
@@ -48,7 +49,7 @@
                 label="{ {font: '11px Arial'} }"/>
       </axes>
       <series>
-        <lineseries
+        <LineChart
                 u:lineWidth="1"
                 showMarkers="false"
                 fill="true"
@@ -59,7 +60,7 @@
                   'stroke-width': 1,
                   stroke: 'rgb(148, 174, 10)'
                 } }"/>
-        <lineseries
+        <LineChart
                 u:lineWidth="1"
                 showMarkers="false"
                 axis="right"
@@ -70,7 +71,7 @@
                   stroke: 'rgb(17, 95, 166)'
                 } }"/>
       </series>
-    </chart>
+    </Chart>
   </items>
 
-</panel>
+</Panel>

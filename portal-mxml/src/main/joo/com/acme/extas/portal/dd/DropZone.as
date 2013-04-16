@@ -1,6 +1,6 @@
 package com.acme.extas.portal.dd {
 
-import com.acme.extas.portal.PortalPanel;
+import com.acme.extas.portal.PortalPanelBase;
 
 import ext.Component;
 import ext.Container;
@@ -18,11 +18,11 @@ import ext.panel.DD;
 import js.HTMLElement;
 
 /**
- * Internal class that manages drag/drop for {@link PortalPanel}.
+ * Internal class that manages drag/drop for {@link PortalPanelBase}.
  */
 public class DropZone extends DropTarget {
 
-  public function DropZone(portal:PortalPanel, cfg:droptarget) {
+  public function DropZone(portal:PortalPanelBase, cfg:droptarget) {
     this.portal = portal;
     ScrollManager.register(portal.body);
     super(portal.body, cfg);
@@ -50,7 +50,7 @@ public class DropZone extends DropTarget {
   override public function notifyOver(ds:DragSource, e:IEventObject, data:Object):String {
     var dd:DD = DD(ds);
     var xy:Object = e.getXY(),
-            portal:PortalPanel = this.portal,
+            portal:PortalPanelBase = this.portal,
             proxy:StatusProxy = dd.getProxy();
 
     // case column widths
@@ -93,8 +93,8 @@ public class DropZone extends DropTarget {
         var overPortlet:Component, pos:int = 0,
             h:int = 0,
             match:Boolean = false,
-            overColumn:Container = Container(portal.items.getAt(colIndex)),
-            portlets:Array = overColumn.items.getRange(),
+            overColumn:Container = Container(portal.itemCollection.getAt(colIndex)),
+            portlets:Array = overColumn.itemCollection.getRange(),
             overSelf:Boolean = false;
 
         len = portlets.length;
@@ -110,7 +110,7 @@ public class DropZone extends DropTarget {
             }
         }
 
-        pos = (match && overPortlet ? pos : overColumn.items.getCount()) + (overSelf ? -1 : 0);
+        pos = (match && overPortlet ? pos : overColumn.itemCollection.getCount()) + (overSelf ? -1 : 0);
         var overEvent:DropEvent = this.createEvent(dd, e, data, colIndex, overColumn, pos);
 
         if (portal.fireEvent('validatedrop', overEvent) !== false && portal.fireEvent('beforedragover', overEvent) !== false) {
@@ -152,7 +152,7 @@ public class DropZone extends DropTarget {
             col:int = this.lastPos.col,
             pos:* = this.lastPos.p,
             panel:Panel = dd.panel,
-            dropEvent:DropEvent = this.createEvent(dd, e, data, col, c, pos !== false ? pos : c.items.getCount());
+            dropEvent:DropEvent = this.createEvent(dd, e, data, col, c, pos !== false ? pos : c.itemCollection.getCount());
 
     if (this.portal.fireEvent('validatedrop', dropEvent) !== false &&
             this.portal.fireEvent('beforedrop', dropEvent) !== false) {
@@ -193,7 +193,7 @@ public class DropZone extends DropTarget {
   private function getGrid():Object {
     var box:Object = this.portal.body['getBox']();
     box.columnX = [];
-    this.portal.items.each(function (c:Component):void {
+    this.portal.itemCollection.each(function (c:Component):void {
       box.columnX.push({
         x: c.el.getX(),
         w: c.el.getWidth()
@@ -208,7 +208,7 @@ public class DropZone extends DropTarget {
     super.unreg();
   }
 
-  internal var portal:PortalPanel;
+  internal var portal:PortalPanelBase;
   private var grid:Object;
   private var lastCW:Number;
   private var lastPos:Object;

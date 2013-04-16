@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ListView xmlns:mx="http://ns.adobe.com/mxml/2009"
-      xmlns="ext.*"
+<GridPanel xmlns:mx="http://ns.adobe.com/mxml/2009"
+      xmlns="ext.grid.*"
       xmlns:u="mxml:untyped"
       xmlns:grid="ext.grid.*"
       height="300"
@@ -100,4 +100,4 @@
          return String(val);
      }
     ]]></mx:Script>
-</ListView>
+</GridPanel>

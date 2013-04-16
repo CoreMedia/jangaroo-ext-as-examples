@@ -2,7 +2,7 @@
 <!---
   A portal column is placed in a portal and contains portlets.
 -->
-<ext:container xmlns:mxml="http://ns.adobe.com/mxml/2009"
-               xmlns:ext="ext.config.*"
+<ext:Container xmlns:mxml="http://ns.adobe.com/mxml/2009"
+               xmlns:ext="ext.*"
                layout="anchor"
                cls="x-portal-column"/>

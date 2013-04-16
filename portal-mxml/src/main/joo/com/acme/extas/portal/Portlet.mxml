@@ -4,17 +4,16 @@
  arbitrary content. By default, a portlet is collapsible, has a setting tool ("gear")
  and a close tool.
 -->
-<panel xmlns:mxml="http://ns.adobe.com/mxml/2009"
-             xmlns="ext.config.*"
-             xtype="portlet"
-             layout="fit"
-             anchor="100%"
-             frame="true"
-             closable="true"
-             collapsible="true"
-             animCollapse="true"
-             draggable="{ { moveOnDrag: false }}"
-             cls="x-portlet">
+<PortletBase xmlns:mxml="http://ns.adobe.com/mxml/2009"
+               xmlns="com.acme.extas.portal.*"
+               layout="fit"
+               anchor="100%"
+               frame="true"
+               closable="true"
+               collapsible="true"
+               animCollapse="true"
+               draggable="{ { moveOnDrag: false }}"
+               cls="x-portlet">
   <mxml:Script>
     import ext.Component;
     import ext.Ext;
@@ -30,9 +29,4 @@
                                  }, 2000);
                              }}"/>
   </tools>
-  <mxml:Script>
-    import com.acme.extas.portal.Portlet;
-    import ext.ComponentMgr;
-    ComponentMgr.registerType("portlet", Portlet);
-  </mxml:Script>
-</panel>
+</PortletBase>

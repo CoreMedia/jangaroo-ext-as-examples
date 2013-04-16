@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
-          xmlns="ext.config.*"
+<Viewport xmlns:mxml="http://ns.adobe.com/mxml/2009"
+          xmlns="ext.*"
+          xmlns:layout="ext.layout.*"
           xmlns:u="mxml:untyped"
-          xmlns:p="com.acme.extas.portal.config.*"
-          xmlns:portal="com.acme.extas.portal.*"
+          xmlns:p="com.acme.extas.portal.*"
           u:id="app-viewport">
   <mxml:Declarations>
     <mxml:String id="shortBogusMarkup">
@@ -36,17 +36,17 @@
   </mxml:Declarations>
 
   <layout>
-    <borderlayout padding="0 5 5 5"/>  <!-- pad the layout from the window edges -->
+    <layout:BorderLayout padding="0 5 5 5"/>  <!-- pad the layout from the window edges -->
   </layout>
   <items>
-    <component u:id="app-header"
+    <Component u:id="app-header"
                region="north"
                height="40"
                html="Ext Portal"/>
-    <container region="center"
+    <Container region="center"
                layout="border">
       <items>
-        <panel u:id="app-options"
+        <Panel u:id="app-options"
                title="Options"
                region="west"
                animCollapse="true"
@@ -56,61 +56,61 @@
                u:split="true"
                collapsible="true">
           <layout>
-            <accordionlayout animate="true"/>
+            <layout:AccordionLayout animate="true"/>
           </layout>
           <items>
-            <panel html="{shortBogusMarkup}"
+            <Panel html="{shortBogusMarkup}"
                    title="Navigation"
                    autoScroll="true"
                    border="false"
                    iconCls="nav"/>
-            <panel title="Settings"
+            <Panel title="Settings"
                    html="{shortBogusMarkup}"
                    border="false"
                    autoScroll="true"
                    iconCls="settings"/>
           </items>
-        </panel>
+        </Panel>
 
-        <p:portalpanel u:id="app-portal"
+        <p:PortalPanel u:id="app-portal"
                        region="center">
           <p:items>
-            <p:portalColumn u:id="col-1">
+            <p:PortalColumn u:id="col-1">
               <p:items>
-                <p:portlet u:id="portlet-1"
+                <p:Portlet u:id="portlet-1"
                            title="Grid Portlet">
                   <p:items>
-                    <portal:GridPortlet/>
+                    <p:gridPortlet/>
                   </p:items>
-                </p:portlet>
-                <p:portlet u:id="portlet-2"
+                </p:Portlet>
+                <p:Portlet u:id="portlet-2"
                            title="Portlet 2"
                            html="{shortBogusMarkup}"/>
               </p:items>
-            </p:portalColumn>
+            </p:PortalColumn>
 
-            <p:portalColumn u:id="col-2">
+            <p:PortalColumn u:id="col-2">
               <p:items>
-                <p:portlet u:id="portlet-3"
+                <p:Portlet u:id="portlet-3"
                            title="Portlet 3"
                            html="{bogusMarkup}"/>
               </p:items>
-            </p:portalColumn>
+            </p:PortalColumn>
 
-            <p:portalColumn u:id="col-3">
+            <p:PortalColumn u:id="col-3">
               <p:items>
-                <p:portlet u:id="portlet-4"
+                <p:Portlet u:id="portlet-4"
                            title="Stock Portlet">
                   <p:items>
-                  <p:chartPortlet/>
+                    <p:ChartPortlet/>
                   </p:items>
-                </p:portlet>
+                </p:Portlet>
               </p:items>
-            </p:portalColumn>
+            </p:PortalColumn>
 
           </p:items>
-        </p:portalpanel>
+        </p:PortalPanel>
       </items>
-    </container>
+    </Container>
   </items>
-</viewport>
+</Viewport>

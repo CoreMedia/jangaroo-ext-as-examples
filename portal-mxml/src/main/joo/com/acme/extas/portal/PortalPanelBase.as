@@ -1,6 +1,5 @@
 package com.acme.extas.portal {
 
-import com.acme.extas.portal.config.portalpanel;
 import com.acme.extas.portal.dd.DropZone;
 
 import ext.Component;
@@ -13,13 +12,13 @@ import ext.Panel;
  * The portal enables drap and drop of portlets between portal columns.
  *
  * @see PortalColumn
- * @see Portlet
+ * @see PortletBase
  */
-public class PortalPanel extends Panel {
+public class PortalPanelBase extends Panel {
 
   private var portalDropZone:DropZone;
 
-  public function PortalPanel(config:portalpanel = null) {
+  public function PortalPanelBase(config:Object = null) {
     super(config);
   }
 

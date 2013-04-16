@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:PortalPanelBase xmlns:mxml="http://ns.adobe.com/mxml/2009"
+           xmlns:p="com.acme.extas.portal.*"
+           cls="x-portal"
+           bodyCls="x-portal-body"
+           autoScroll="true"
+           manageHeight="false"
+           layout="column"/>
