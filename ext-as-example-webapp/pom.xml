@@ -102,11 +102,11 @@
       <version>${project.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>hello-world-5-localized</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>net.jangaroo.extas.examples</groupId>-->
+      <!--<artifactId>hello-world-5-localized</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>

@@ -11,7 +11,7 @@
   linkNative: false,
   preserveLicenseComments: false,
   out: "${project.build.directory}/${project.artifactId}-${project.version}/amd/application-min.js",
-  name: "as3/com/acme/extas/portal/config/main"
-  //include: ["as3/com/acme/extas/localized/Main"],
+  //name: "as3/com/acme/extas/portal/config/main"
+  include: ["as3/com/acme/extas/portal/PortalExample.js"]
   //localeChain: ['en_GB', 'en']
 })

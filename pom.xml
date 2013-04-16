@@ -17,7 +17,7 @@
     <module>hello-world-2-as3</module>
     <module>hello-world-3-mxml</module>
     <module>hello-world-4-as3-mxml</module>
-    <module>hello-world-5-localized</module>
+    <!--<module>hello-world-5-localized</module>-->
     <module>portal-mxml</module>
     <module>ext-as-example-webapp</module>
   </modules>
