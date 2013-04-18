@@ -9,7 +9,7 @@
     <tbar>
       <Toolbar>
         <Button disabled="{!firstNameField.value}"
-                text="{firstNameField.value + ', click me!'}"
+                text="{firstNameField.value}, please click me!"
                 onclick="onClick(event)"/>
         <Button text="Clear name"
                 onclick="firstName = ''; surName = '';"/>
