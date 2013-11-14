@@ -54,7 +54,13 @@
           <webAppConfig>
             <contextPath>/</contextPath>
             <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-              <resourcesAsCSV>target/jangaroo-output,src/main/webapp</resourcesAsCSV>
+              <resourcesAsCSV>
+                target/jangaroo-output,
+                src/main/webapp,
+                ../hello-world-2-as3/target/classes/META-INF/resources,
+                ../hello-world-3-exml/target/classes/META-INF/resources,
+                ../hello-world-4-as3-exml/target/classes/META-INF/resources
+              </resourcesAsCSV>
             </baseResource>
           </webAppConfig>
         </configuration>
