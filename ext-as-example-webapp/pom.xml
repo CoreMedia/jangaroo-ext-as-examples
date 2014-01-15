@@ -23,6 +23,7 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>${jangaroo-plugin.version}</version> <!-- repeated just for IDEA :-( -->
         <executions>
           <execution>
             <goals>
