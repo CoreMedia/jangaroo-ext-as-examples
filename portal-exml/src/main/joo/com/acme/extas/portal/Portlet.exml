@@ -16,14 +16,20 @@
          draggable="true"
          cls="x-portlet">
     <tools>
-      <exml:object id="gear"
-                   handler="{function():void {
-                               MessageBox.alert('Message', 'The Settings tool was clicked.');
-                             }}"/>
-      <exml:object id="close"
-                   handler="{function(e:*, target:*, panel:Panel):void {
-                               panel.ownerCt.remove(panel, true);
-                             }}"/>
+      <button id="gear">
+        <handler>{
+          function():void {
+            MessageBox.alert('Message', 'The Settings tool was clicked.');
+          }
+        }</handler>
+      </button>
+      <button id="close">
+        <handler>{
+          function(e:*, target:*, panel:Panel):void {
+            panel.ownerCt.remove(panel, true);
+          }
+        }</handler>
+      </button>
     </tools>
   </panel>
 </exml:component>

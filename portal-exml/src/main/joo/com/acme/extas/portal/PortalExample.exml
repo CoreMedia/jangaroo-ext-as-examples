@@ -9,14 +9,16 @@
     <items>
       <panel title="West"
              region="west"
-             u:split="true"
              collapsible="true"
              width="200"
              margins="35 0 5 5"
-             u:cmargins="35 5 5 5"
-             u:minSize="175"
-             u:maxSize="400"
              id="west">
+        <exml:mixins>
+          <splitregion split="true"
+                       cmargins="35 5 5 5"/>
+          <splitbar    minSize="175"
+                       maxSize="400"/>
+        </exml:mixins>
         <items>
           <panel title="Navigation"
                  autoScroll="true"
