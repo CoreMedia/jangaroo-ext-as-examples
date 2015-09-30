@@ -3,7 +3,8 @@
                 xmlns="exml:ext.config"
                 xmlns:u="exml:untyped"
                 xmlns:p="exml:com.acme.extas.portal.config">
-  <exml:constant name="shortBogusMarkup" value="&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh, sodales a, porta at, vulputate eget, dui. Pellentesque ut nisl. Maecenas tortor turpis, interdum non, sodales non, iaculis ac, lacus. Vestibulum auctor, tortor quis iaculis malesuada, libero lectus bibendum purus, sit amet tincidunt quam turpis vel lacus. In pellentesque nisl non sem. Suspendisse nunc sem, pretium eget, cursus a, fringilla vel, urna.&lt;/p>"/>
+  <exml:constant name="shortBogusMarkup"
+                 value="&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh, sodales a, porta at, vulputate eget, dui. Pellentesque ut nisl. Maecenas tortor turpis, interdum non, sodales non, iaculis ac, lacus. Vestibulum auctor, tortor quis iaculis malesuada, libero lectus bibendum purus, sit amet tincidunt quam turpis vel lacus. In pellentesque nisl non sem. Suspendisse nunc sem, pretium eget, cursus a, fringilla vel, urna.&lt;/p>"/>
 
   <viewport layout="border">
     <items>
@@ -16,8 +17,8 @@
         <exml:mixins>
           <splitregion split="true"
                        cmargins="35 5 5 5"/>
-          <splitbar    minSize="175"
-                       maxSize="400"/>
+          <splitbar minSize="175"
+                    maxSize="400"/>
         </exml:mixins>
         <items>
           <panel title="Navigation"
@@ -49,7 +50,7 @@
                 <items>
                   <textfield fieldLabel="Your Name" id="name"/>
                   <datefield fieldLabel="Date of birth" id="birthdate"/>
-                  <textarea fieldLabel="Description"  />
+                  <textarea fieldLabel="Description"/>
                 </items>
               </p:portlet>
               <p:portlet title="Another Panel 1" html="{shortBogusMarkup}" id="other-panel"/>

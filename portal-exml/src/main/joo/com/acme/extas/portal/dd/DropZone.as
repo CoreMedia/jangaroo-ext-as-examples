@@ -30,7 +30,7 @@ public class DropZone extends DropTarget {
     ddScrollConfig.hthresh = -1;
     ddScrollConfig.animate = true;
     ddScrollConfig.increment = 200;
-    super(portal.bwrap.dom, droptarget(Ext.apply(cfg, { ddScrollConfig: ddScrollConfig })));
+    super(portal.bwrap.dom, droptarget(Ext.apply(cfg, {ddScrollConfig: ddScrollConfig})));
     portal.getLayoutTarget().ddScrollConfig = ddScrollConfig;
   }
 
@@ -153,7 +153,7 @@ public class DropZone extends DropTarget {
       var st:int = this.scrollPos.top;
       if (st) {
         var d:HTMLElement = this.portal.getLayoutTarget().dom;
-        window.setTimeout(function():void {
+        window.setTimeout(function ():void {
           d.scrollTop = st;
         }, 10);
       }

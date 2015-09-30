@@ -24,11 +24,11 @@ public class PortalBase extends Panel {
   override protected function initComponent():void {
     super.initComponent();
     this.addEvents(
-      'validatedrop',
-      'beforedragover',
-      'dragover',
-      'beforedrop',
-      'drop'
+            'validatedrop',
+            'beforedragover',
+            'dragover',
+            'beforedrop',
+            'drop'
     );
 
   }
