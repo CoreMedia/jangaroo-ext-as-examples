@@ -25,13 +25,13 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>exml-maven-plugin</artifactId>
         <extensions>true</extensions>
         <configuration>
-          <configClassPackage>com.acme.extas.localized.config</configClassPackage>
+          <namespaces>
+            <namespace>
+              <uri>exml:com.acme.extas.localized.config</uri>
+            </namespace>
+          </namespaces>
         </configuration>
       </plugin>
     </plugins>

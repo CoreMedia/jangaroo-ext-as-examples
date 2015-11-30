@@ -30,12 +30,6 @@
         </plugin>
 
         <plugin>
-          <groupId>net.jangaroo</groupId>
-          <artifactId>exml-maven-plugin</artifactId>
-          <version>${jangaroo-plugin.version}</version>
-        </plugin>
-
-        <plugin>
           <groupId>org.mortbay.jetty</groupId>
           <artifactId>jetty-maven-plugin</artifactId>
           <version>${jetty.plugin.version}</version>

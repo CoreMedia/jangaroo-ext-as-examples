@@ -1,10 +1,24 @@
-<exml:component xmlns:exml="http://www.jangaroo.net/exml/0.8"
-                xmlns="exml:ext.config">
-  <exml:description>
+<?xml version="1.0" encoding="UTF-8"?>
+<!---
     A portal column is placed in a portal and contains portlets.
-  </exml:description>
+  -->
+<extends:Container
+                xmlns:fx="http://ns.adobe.com/mxml/2009"
+                xmlns:extends="ext.*"
+                xmlns:cfg="com.acme.extas.portal.config.*"
+                xmlns:exml="http://www.jangaroo.net/exml/0.8"
+                xmlns="exml:ext.config">
+  <fx:Script><![CDATA[
+    import com.acme.extas.portal.config.portalColumn;
+
+    public native function PortalColumn(config:com.acme.extas.portal.config.portalColumn = null);
+  ]]></fx:Script>
+  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
+  <fx:Declarations>
+    <cfg:portalColumn id="config"/>
+  </fx:Declarations>
 
   <container layout="anchor"
              defaultType="Portlet"
              cls="x-portal-column"/>
-</exml:component>
+</extends:Container>

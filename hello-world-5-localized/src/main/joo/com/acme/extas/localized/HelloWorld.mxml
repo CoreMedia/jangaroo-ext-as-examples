@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exml:component xmlns:exml="http://www.jangaroo.net/exml/0.8"
+<baseClass:HelloWorldBase
+                xmlns:fx="http://ns.adobe.com/mxml/2009"
+                xmlns:exml="http://www.jangaroo.net/exml/0.8"
                 xmlns="exml:ext.config"
                 xmlns:local="exml:com.acme.extas.localized.config"
-                baseClass="HelloWorldBase">
+                xmlns:baseClass="com.acme.extas.localized.*">
+  <fx:Script><![CDATA[
+    import com.acme.extas.localized.config.helloWorld;
 
-  <exml:cfg name="user" type="String">
-    <exml:description>
-      The name of the user to greet.
-    </exml:description>
-  </exml:cfg>
+    public native function HelloWorld(config:com.acme.extas.localized.config.helloWorld = null);
+  ]]></fx:Script>
+  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
+  <fx:Declarations>
+    <local:helloWorld id="config"/>
+  </fx:Declarations>
 
   <viewport>
     <items>
@@ -28,4 +33,10 @@
       </panel>
     </items>
   </viewport>
-</exml:component>
+
+  <fx:Script><![CDATA[
+    public static function main(config:helloWorld):void {
+      new HelloWorld(config);
+    }
+    ]]></fx:Script>
+</baseClass:HelloWorldBase>

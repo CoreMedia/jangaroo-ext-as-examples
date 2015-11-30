@@ -1,12 +1,23 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<exml:component xmlns:exml="http://www.jangaroo.net/exml/0.8"
-                xmlns="exml:ext.config"
-                xmlns:portal="exml:com.acme.extas.portal.config">
-  <exml:description>
+<?xml version="1.0" encoding="UTF-8"?>
+<!---
     A portlet is placed in a portlet column, has some controls ("tools"), and can show
     arbitrary content. By default, a portlet is collapsible, has a setting tool ("gear")
     and a close tool.
-  </exml:description>
+  -->
+<extends:Panel  xmlns:fx="http://ns.adobe.com/mxml/2009"
+                xmlns:extends="ext.*"
+                xmlns:exml="http://www.jangaroo.net/exml/0.8"
+                xmlns="exml:ext.config"
+                xmlns:portal="exml:com.acme.extas.portal.config">
+  <fx:Script><![CDATA[
+    import com.acme.extas.portal.config.portlet;
+
+    public native function Portlet(config:com.acme.extas.portal.config.portlet = null);
+  ]]></fx:Script>
+  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
+  <fx:Declarations>
+    <portal:portlet id="config"/>
+  </fx:Declarations>
 
   <panel anchor="100%"
          frame="true"
@@ -16,16 +27,16 @@
     <items>
       <button>
         <baseAction>
-          <portal:settingsAction/>
+          <portal:SettingsAction><portal:settingsAction/></portal:SettingsAction>
         </baseAction>
       </button>
     </items>
     <tools>
-      <button id="close">
+      <button id_="close">
         <handler>{function(e:*, target:*, panel:Panel):void {
           panel.ownerCt.remove(panel, true);
           }}</handler>
       </button>
     </tools>
   </panel>
-</exml:component>
+</extends:Panel>

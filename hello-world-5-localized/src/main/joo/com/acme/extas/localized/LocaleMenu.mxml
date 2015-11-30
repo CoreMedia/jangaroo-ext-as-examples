@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exml:component xmlns:exml="http://www.jangaroo.net/exml/0.8"
+<extends:Menu   xmlns:fx="http://ns.adobe.com/mxml/2009"
+                xmlns:extends="ext.menu.*"
+                xmlns:exml="http://www.jangaroo.net/exml/0.8"
                 xmlns="exml:ext.config"
                 xmlns:local="exml:com.acme.extas.localized.config">
+  <fx:Script><![CDATA[
+    import com.acme.extas.localized.config.localeMenu;
+
+    public native function LocaleMenu(config:com.acme.extas.localized.config.localeMenu = null);
+  ]]></fx:Script>
+  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
+  <fx:Declarations>
+    <local:localeMenu id="config"/>
+  </fx:Declarations>
   <menu>
     <items>
       <menuitem>
         <baseAction>
+         <local:ChangeLocaleAction>
           <local:changeLocaleAction locale="en" text="English"/>
+         </local:ChangeLocaleAction>
         </baseAction>
       </menuitem>
       <menuitem>
         <baseAction>
+         <local:ChangeLocaleAction>
           <local:changeLocaleAction locale="en_GB" text="English (GB)"/>
+         </local:ChangeLocaleAction>
         </baseAction>
       </menuitem>
       <menuitem>
         <baseAction>
+         <local:ChangeLocaleAction>
           <local:changeLocaleAction locale="de" text="Deutsch"/>
+         </local:ChangeLocaleAction>
         </baseAction>
       </menuitem>
     </items>
   </menu>
-</exml:component>
+</extends:Menu>

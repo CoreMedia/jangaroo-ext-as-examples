@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<exml:component xmlns:exml="http://www.jangaroo.net/exml/0.8"
+<extends:Viewport
+                xmlns:fx="http://ns.adobe.com/mxml/2009"
+                xmlns:extends="ext.*"
+                xmlns:exml="http://www.jangaroo.net/exml/0.8"
                 xmlns="exml:ext.config"
                 xmlns:u="exml:untyped"
                 xmlns:p="exml:com.acme.extas.portal.config">
-  <exml:constant name="shortBogusMarkup"
-                 value="&lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh, sodales a, porta at, vulputate eget, dui. Pellentesque ut nisl. Maecenas tortor turpis, interdum non, sodales non, iaculis ac, lacus. Vestibulum auctor, tortor quis iaculis malesuada, libero lectus bibendum purus, sit amet tincidunt quam turpis vel lacus. In pellentesque nisl non sem. Suspendisse nunc sem, pretium eget, cursus a, fringilla vel, urna.&lt;/p>"/>
+  <fx:Script><![CDATA[
+    import com.acme.extas.portal.config.portalExample;
+
+
+    public static const shortBogusMarkup:String = com.acme.extas.portal.config.portalExample.shortBogusMarkup;
+
+    public native function PortalExample(config:com.acme.extas.portal.config.portalExample = null);
+  ]]></fx:Script>
+  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
+  <fx:Declarations>
+    <p:portalExample id="config"/>
+  </fx:Declarations>
 
   <viewport layout="border">
     <items>
@@ -13,70 +26,76 @@
              collapsible="true"
              width="200"
              margins="35 0 5 5"
-             id="west">
-        <exml:mixins>
+             id_="west">
+        <mixins>
           <splitregion split="true"
                        cmargins="35 5 5 5"/>
           <splitbar minSize="175"
                     maxSize="400"/>
-        </exml:mixins>
+        </mixins>
         <items>
           <panel title="Navigation"
                  autoScroll="true"
                  border="false"
                  html="{shortBogusMarkup}"
                  iconCls="nav"
-                 id="navigation"/>
+                 id_="navigation"/>
           <panel title="Settings"
                  autoScroll="true"
                  border="false"
                  html="{shortBogusMarkup}"
                  iconCls="settings"
-                 id="settings"/>
+                 id_="settings"/>
         </items>
         <layout>
           <accordionlayout animate="true"/>
         </layout>
       </panel>
 
-      <p:portal region="center" margins="35 5 5 0" id="center">
-        <items>
+      <p:portal region="center" margins="35 5 5 0" id_="center">
+        <p:items>
 
-          <p:portalColumn id="portalColumn1"
+          <p:portalColumn id_="portalColumn1"
                           u:columnWidth=".33"
                           style="padding:10px 0 10px 10px">
-            <items>
-              <p:portlet title="Form in a Portlet" layout="form" id="form-panel">
-                <items>
-                  <textfield fieldLabel="Your Name" id="name"/>
-                  <datefield fieldLabel="Date of birth" id="birthdate"/>
+            <p:items>
+              <p:portlet title="Form in a Portlet" layout="form" id_="form-panel">
+                <p:items>
+                  <textfield fieldLabel="Your Name" id_="name"/>
+                  <datefield fieldLabel="Date of birth" id_="birthdate"/>
                   <textarea fieldLabel="Description"/>
-                </items>
+                </p:items>
               </p:portlet>
-              <p:portlet title="Another Panel 1" html="{shortBogusMarkup}" id="other-panel"/>
-            </items>
+              <p:portlet title="Another Panel 1" html="{shortBogusMarkup}" id_="other-panel"/>
+            </p:items>
           </p:portalColumn>
 
-          <p:portalColumn id="portalColumn2"
+          <p:portalColumn id_="portalColumn2"
                           u:columnWidth=".33"
                           style="padding:10px 0 10px 10px">
-            <items>
+            <p:items>
               <p:portlet title="Panel 2" html="{shortBogusMarkup}"/>
               <p:portlet title="Another Panel 2" html="{shortBogusMarkup}"/>
-            </items>
+            </p:items>
           </p:portalColumn>
 
-          <p:portalColumn id="portalColumn3"
+          <p:portalColumn id_="portalColumn3"
                           u:columnWidth=".33"
                           style="padding:10px 0 10px 10px">
-            <items>
-              <p:portlet id="somePortlet" title="Panel 3" html="{shortBogusMarkup}"/>
+            <p:items>
+              <p:portlet id_="somePortlet" title="Panel 3" html="{shortBogusMarkup}"/>
               <p:portlet title="Another Panel 3" html="{shortBogusMarkup}"/>
-            </items>
+            </p:items>
           </p:portalColumn>
 
-        </items>
+        </p:items>
       </p:portal>
     </items>
   </viewport>
-</exml:component>
+
+  <fx:Script><![CDATA[
+    public static function main(config:portalExample):void {
+      new PortalExample(config);
+    }
+    ]]></fx:Script>
+</extends:Viewport>
