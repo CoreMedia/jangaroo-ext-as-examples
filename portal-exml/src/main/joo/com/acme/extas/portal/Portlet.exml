@@ -19,11 +19,13 @@
           <portal:settingsAction/>
         </baseAction>
       </button>
+    </items>
+    <tools>
       <button id="close">
         <handler>{function(e:*, target:*, panel:Panel):void {
           panel.ownerCt.remove(panel, true);
           }}</handler>
       </button>
-    </items>
+    </tools>
   </panel>
 </exml:component>
