@@ -54,6 +54,16 @@
         <scope>import</scope>
         <type>pom</type>
       </dependency>
+      <dependency>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-ext-as</artifactId>
+        <version>6.0.1-1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jangaroo.com.sencha</groupId>
+        <artifactId>ext-js</artifactId>
+        <version>6.0.1-1-SNAPSHOT</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

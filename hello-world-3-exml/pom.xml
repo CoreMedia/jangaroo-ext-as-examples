@@ -27,6 +27,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
+        <version>${jangaroo-plugin.version}</version>
         <configuration>
           <namespaces>
             <namespace>

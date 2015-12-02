@@ -13,7 +13,7 @@ public class ChangeLocaleActionBase extends Action {
   /**
    * Change the current locale of the Jangaroo Ext AS application.
    */
-  public function ChangeLocaleActionBase(config:changeLocaleAction) {
+  public function ChangeLocaleActionBase(config:changeLocaleAction = null) {
     super(config);
   }
 

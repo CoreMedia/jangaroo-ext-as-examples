@@ -32,7 +32,7 @@
       </button>
     </items>
     <tools>
-      <button id_="close">
+      <button>
         <handler>{function(e:*, target:*, panel:Panel):void {
           panel.ownerCt.remove(panel, true);
           }}</handler>
