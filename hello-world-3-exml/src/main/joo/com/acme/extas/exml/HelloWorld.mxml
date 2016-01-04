@@ -1,44 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extends:Viewport
-                xmlns:fx="http://ns.adobe.com/mxml/2009"
-                xmlns:extends="ext.*"
-                xmlns:cfg="com.acme.extas.exml.config.*"
-                xmlns:exml="http://www.jangaroo.net/exml/0.8"
-                xmlns="exml:ext.config">
+<Viewport xmlns:fx="http://ns.adobe.com/mxml/2009"
+          xmlns="ext:widget"
+          xmlns:store="ext:store">
   <fx:Script><![CDATA[
-    import com.acme.extas.exml.config.helloWorld;
-    import ext.MessageBox;
     import ext.Button;
+    import ext.MessageBox;
     import ext.util.StringUtil;
+    ]]></fx:Script>
 
-    public native function HelloWorld(config:com.acme.extas.exml.config.helloWorld = null);
-  ]]></fx:Script>
-  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
   <fx:Declarations>
-    <cfg:helloWorld id="config"/>
+    <!---
+     The name of the user to greet.
+    -->
+    <fx:String id="user">Joe</fx:String>
   </fx:Declarations>
 
-  <viewport>
     <items>
-      <panel title="Hello World!">
+      <Panel title="Hello World!">
         <tbar>
-          <toolbar>
+          <Toolbar>
             <items>
-              <button text="Click me!" handler="{function(button:Button):void {
-                    MessageBox.alert(StringUtil.format('Hello {0}!', config.user),
-                      StringUtil.format('{0} clicked on button \'{1}\'.', config.user, button.getText()));
+              <Button text="Click me!">
+                <handler>{function(button:Button):void {
+                    MessageBox.alert(StringUtil.format('Hello {0}!', user),
+                      StringUtil.format('{0} clicked on button \'{1}\'.', user, button.getText()));
                   }
-                     }"/>
+                }</handler>
+              </Button>
             </items>
-          </toolbar>
+          </Toolbar>
         </tbar>
-      </panel>
+      </Panel>
+      <Box height="200"/>
+      <Grid>
+        <columns>
+          <WidgetColumn/>
+          <TemplateColumn/>
+        </columns>
+        <store>
+          <store:Array/>
+        </store>
+      </Grid>
     </items>
-  </viewport>
 
-  <fx:Script><![CDATA[
-    public static function main(config:helloWorld):void {
-      new HelloWorld(config);
-    }
-    ]]></fx:Script>
-</extends:Viewport>
+</Viewport>

@@ -2,12 +2,21 @@
 <head>
   <title>Hello World in Object-Oriented ActionScript</title>
 
-  <link rel="stylesheet" type="text/css" href="public/com/sencha/ext-js/3.4.1.1/resources/css/reset-min.css">
-  <link rel="stylesheet" type="text/css" href="public/com/sencha/ext-js/3.4.1.1/resources/css/ext-all.css">
+  <link rel="stylesheet" type="text/css" href="ext/classic/ext-all.css">
 
-  <script type="text/javascript" src="joo/jangaroo-application.js"></script>
+  <script type="text/javascript" src="ext/build/ext-all.js"></script>
+  <script type="text/javascript" src="joo/AS3.js"></script>
   <script type="text/javascript">
-    joo.classLoader.run("com.acme.extas.as3.HelloWorld", {user: "Joe"});
+    Ext.application({
+      requires: [
+        'AS3.com.acme.extas.as3.HelloWorld'
+      ],
+
+      mainView: "AS3.com.acme.extas.as3.HelloWorld",
+      config: {
+        user: "Joe"
+      }
+    });
   </script>
 </head>
 <body>

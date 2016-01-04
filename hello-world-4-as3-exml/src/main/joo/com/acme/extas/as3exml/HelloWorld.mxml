@@ -1,37 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<baseClass:HelloWorldBase
-                xmlns:fx="http://ns.adobe.com/mxml/2009"
-                xmlns:cfg="com.acme.extas.as3exml.config.*"
-                xmlns:exml="http://www.jangaroo.net/exml/0.8"
-                xmlns="exml:ext.config"
-                xmlns:baseClass="com.acme.extas.as3exml.*">
-  <fx:Script><![CDATA[
-    import com.acme.extas.as3exml.config.helloWorld;
+<local:HelloWorldBase
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:local="com.acme.extas.as3exml.*"
+        xmlns="ext:widget"
+>
+  <local:items>
+    <Panel title="Hello World">
+      <tbar>
+        <Toolbar>
+          <items>
+            <Button text="Click me!" handler="{onClick}"/>
+          </items>
+        </Toolbar>
+      </tbar>
+    </Panel>
+  </local:items>
 
-    public native function HelloWorld(config:com.acme.extas.as3exml.config.helloWorld = null);
-  ]]></fx:Script>
-  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
-  <fx:Declarations>
-    <cfg:helloWorld id="config"/>
-  </fx:Declarations>
-
-  <viewport>
-    <items>
-      <panel title="Hello World">
-        <tbar>
-          <toolbar>
-            <items>
-              <button text="Click me!" handler="{onClick}"/>
-            </items>
-          </toolbar>
-        </tbar>
-      </panel>
-    </items>
-  </viewport>
-
-  <fx:Script><![CDATA[
-    public static function main(config:helloWorld):void {
-      new HelloWorld(config);
-    }
-    ]]></fx:Script>
-</baseClass:HelloWorldBase>
+</local:HelloWorldBase>

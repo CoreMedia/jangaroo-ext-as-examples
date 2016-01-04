@@ -1,45 +1,44 @@
 package com.acme.extas.as3 {
 
 import ext.Button;
+import ext.Ext;
 import ext.MessageBox;
+import ext.Panel;
+import ext.Toolbar;
 import ext.Viewport;
-import ext.config.button;
-import ext.config.panel;
-import ext.config.toolbar;
-import ext.config.viewport;
 import ext.util.StringUtil;
 
+import net.jangaroo.ext.Exml;
+
+//noinspection JSUnusedGlobalSymbols
 public class HelloWorld extends Viewport {
 
+  [Bindable]
+  public var user:String = "Joe";
+
   //noinspection JSUnusedGlobalSymbols
-  public static function main(config:viewport):void {
-    new HelloWorld(config);
-  }
+  public function HelloWorld(config:HelloWorld = null) {
+    var superConfig:Viewport = Viewport({});
 
-  public function HelloWorld(config:viewport) {
-    super(config);
-  }
+    var button1:Button = Button({});
+    button1.text = "Click me!";
+    button1.handler = onClick;
 
-  public native function get user():String;
+    var button2:Button = Button({});
+    button2.text = "Push me!";
+    button2.handler = onClick;
 
-  override protected function initComponent():void {
-    super.initComponent();
+    var toolbar:Toolbar = Toolbar({});
+    toolbar.items = [button1, button2];
 
-    var buttonConfig:button = new button();
-    buttonConfig.text = "Click me!";
-    buttonConfig.handler = onClick;
+    var panel:Panel = Panel({});
+    panel.header = true;
+    panel.tbar = toolbar;
+    panel.title = "Hello World!";
 
-    var toolbarConfig:toolbar = new toolbar();
-    toolbarConfig.items = [buttonConfig];
+    superConfig.items = [panel];
 
-    var panelConfig:panel = new panel();
-    panelConfig.header = true;
-    panelConfig.tbar = toolbarConfig;
-    panelConfig.title = "Hello World!";
-
-    add(panelConfig); // add automatically creates the component sub-tree from the config objects!
-    // you could also explicitly build the component by using
-    //  add(new ext.Panel(panelConfig));
+    super(Viewport(Exml.apply(superConfig, config)));
   }
 
   private function onClick(button:Button):void {

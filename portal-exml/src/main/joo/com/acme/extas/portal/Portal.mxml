@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:Panel
-                xmlns:fx="http://ns.adobe.com/mxml/2009"
-                xmlns:cfg="com.acme.extas.portal.config.*"
-                xmlns:exml="http://www.jangaroo.net/exml/0.8"
-                xmlns="exml:ext.config"
-                xmlns:ext="ext.*">
-  <fx:Script><![CDATA[
-    import com.acme.extas.portal.config.portal;
-
-    public native function Portal(config:com.acme.extas.portal.config.portal = null);
-  ]]></fx:Script>
-  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
-  <fx:Declarations>
-    <cfg:portal id="config"/>
-  </fx:Declarations>
-  <panel layout="column"
-         autoScroll="true"
-         cls="x-portal"
-         defaultType="PortalColumn"/>
-</ext:Panel>
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:ext="ext:widget"
+        layout="column"
+        autoScroll="true"
+        cls="x-portal"
+        defaultType="PortalColumn"
+/>

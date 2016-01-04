@@ -21,6 +21,25 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeGroupIds>com.coremedia.sencha</includeGroupIds>
+              <includeArtifactIds>ext</includeArtifactIds>
+              <includes>**</includes>
+              <outputDirectory>${project.build.directory}/jangaroo-output/ext</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <version>${jangaroo-plugin.version}</version> <!-- repeated just for IDEA :-( -->
@@ -40,7 +59,7 @@
         <configuration>
           <webResources>
             <resource>
-              <directory>target/jangaroo-output</directory>
+              <directory>${project.build.directory}/jangaroo-output</directory>
             </resource>
           </webResources>
         </configuration>
@@ -67,6 +86,14 @@
   </build>
 
   <dependencies>
+    <dependency>
+      <groupId>com.coremedia.sencha</groupId>
+      <artifactId>ext</artifactId>
+      <type>zip</type>
+      <scope>test</scope>
+      <version>6.0.1.250</version>
+    </dependency>
+
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-2-as3</artifactId>

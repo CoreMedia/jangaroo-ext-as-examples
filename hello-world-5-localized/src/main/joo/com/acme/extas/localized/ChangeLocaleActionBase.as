@@ -1,24 +1,18 @@
 package com.acme.extas.localized {
 
-import com.acme.extas.localized.config.changeLocaleAction;
-
 import ext.Action;
 
 import joo.ResourceBundleAwareClassLoader;
 
+/**
+ * Change the current locale of the Jangaroo Ext AS application.
+ */
 public class ChangeLocaleActionBase extends Action {
 
   internal static const CURRENT_LOCALE:String = ResourceBundleAwareClassLoader.INSTANCE.getLocale();
 
-  /**
-   * Change the current locale of the Jangaroo Ext AS application.
-   */
-  public function ChangeLocaleActionBase(config:changeLocaleAction = null) {
-    super(config);
-  }
-
   internal function changeLocale():void {
-    ResourceBundleAwareClassLoader.INSTANCE.setLocale(changeLocaleAction(initialConfig).locale);
+    ResourceBundleAwareClassLoader.INSTANCE.setLocale(ChangeLocaleAction(initialConfig).locale);
     window.location.reload();
   }
 }

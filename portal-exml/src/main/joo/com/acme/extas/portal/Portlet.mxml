@@ -1,42 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---
-    A portlet is placed in a portlet column, has some controls ("tools"), and can show
-    arbitrary content. By default, a portlet is collapsible, has a setting tool ("gear")
-    and a close tool.
-  -->
-<extends:Panel  xmlns:fx="http://ns.adobe.com/mxml/2009"
-                xmlns:extends="ext.*"
-                xmlns:exml="http://www.jangaroo.net/exml/0.8"
-                xmlns="exml:ext.config"
-                xmlns:portal="exml:com.acme.extas.portal.config">
+ A portlet is placed in a portlet column, has some controls ("tools"), and can show
+ arbitrary content. By default, a portlet is collapsible, has a setting tool ("gear")
+ and a close tool.
+-->
+<Panel  xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns="ext:widget"
+        xmlns:portal="exml:com.acme.extas.portal.config"
+        anchor="100%"
+        frame="true"
+        collapsible="true"
+        draggable="true"
+        cls="x-portlet">
   <fx:Script><![CDATA[
-    import com.acme.extas.portal.config.portlet;
-
-    public native function Portlet(config:com.acme.extas.portal.config.portlet = null);
-  ]]></fx:Script>
-  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
-  <fx:Declarations>
-    <portal:portlet id="config"/>
-  </fx:Declarations>
-
-  <panel anchor="100%"
-         frame="true"
-         collapsible="true"
-         draggable="true"
-         cls="x-portlet">
-    <items>
-      <button>
-        <baseAction>
-          <portal:SettingsAction><portal:settingsAction/></portal:SettingsAction>
-        </baseAction>
-      </button>
-    </items>
-    <tools>
-      <button>
-        <handler>{function(e:*, target:*, panel:Panel):void {
-          panel.ownerCt.remove(panel, true);
-          }}</handler>
-      </button>
-    </tools>
-  </panel>
-</extends:Panel>
+    ]]></fx:Script>
+  <items>
+    <Button>
+      <baseAction>
+        <portal:SettingsAction/>
+      </baseAction>
+    </Button>
+  </items>
+  <tools>
+    <Button>
+      <handler>{function(e:*, target:*, panel:Panel):void {
+        panel.ownerCt.remove(panel, true);
+        }}</handler>
+    </Button>
+  </tools>
+</Panel>

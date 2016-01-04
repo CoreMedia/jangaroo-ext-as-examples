@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <componentPackage>
-  <component class="com.acme.extas.portal.config.settingsAction"/>
-  <component id="SettingsAction" class="com.acme.extas.portal.actions.SettingsAction"/>
-  <component class="com.acme.extas.portal.config.portal"/>
-  <component class="com.acme.extas.portal.config.portalColumn"/>
-  <component class="com.acme.extas.portal.config.portalExample"/>
-  <component class="com.acme.extas.portal.config.portlet"/>
+  <component class="com.acme.extas.portal.actions.SettingsAction"/>
+  <component class="com.acme.extas.portal.Portal"/>
+  <component class="com.acme.extas.portal.PortalColumn"/>
+  <component class="com.acme.extas.portal.PortalExample"/>
+  <component class="com.acme.extas.portal.Portlet"/>
 </componentPackage>

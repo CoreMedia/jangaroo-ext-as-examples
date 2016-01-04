@@ -33,6 +33,7 @@
               <uri>exml:com.acme.extas.localized.config</uri>
             </namespace>
           </namespaces>
+          <keepGeneratedActionScriptDirectory>${project.build.directory}/mxml</keepGeneratedActionScriptDirectory>
         </configuration>
       </plugin>
     </plugins>

@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <componentPackage>
-  <component class="com.acme.extas.as3exml.config.helloWorld"/>
+  <component class="com.acme.extas.as3exml.HelloWorld"/>
 </componentPackage>

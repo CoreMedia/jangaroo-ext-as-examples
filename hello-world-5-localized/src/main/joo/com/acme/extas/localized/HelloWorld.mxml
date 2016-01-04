@@ -1,42 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<baseClass:HelloWorldBase
-                xmlns:fx="http://ns.adobe.com/mxml/2009"
-                xmlns:exml="http://www.jangaroo.net/exml/0.8"
-                xmlns="exml:ext.config"
-                xmlns:local="exml:com.acme.extas.localized.config"
-                xmlns:baseClass="com.acme.extas.localized.*">
+<local:HelloWorldBase
+        xmlns:exml="http://www.jangaroo.net/exml/0.8"
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns="ext:widget"
+        xmlns:local="com.acme.extas.localized.*">
   <fx:Script><![CDATA[
-    import com.acme.extas.localized.config.helloWorld;
-
-    public native function HelloWorld(config:com.acme.extas.localized.config.helloWorld = null);
-  ]]></fx:Script>
-  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
-  <fx:Declarations>
-    <local:helloWorld id="config"/>
-  </fx:Declarations>
-
-  <viewport>
-    <items>
-      <panel title="{BUNDLE.panel_title}">
-        <tbar>
-          <toolbar>
-            <items>
-              <button text="{BUNDLE.button_label}" handler="{onClick}"/>
-              <button text="{BUNDLE.menu_label}">
-                <menu>
-                  <local:localeMenu/>
-                </menu>
-              </button>
-            </items>
-          </toolbar>
-        </tbar>
-      </panel>
-    </items>
-  </viewport>
-
-  <fx:Script><![CDATA[
-    public static function main(config:helloWorld):void {
-      new HelloWorld(config);
-    }
+    public native function HelloWorld(config:HelloWorld = null);
     ]]></fx:Script>
-</baseClass:HelloWorldBase>
+  <fx:Declarations>
+    <local:HelloWorld id="config"/>
+  </fx:Declarations>
+  <local:items>
+    <Panel title="{BUNDLE.panel_title}">
+      <tbar>
+        <Toolbar>
+          <items>
+            <Button text="{BUNDLE.button_label}" handler="{onClick}"/>
+            <Button text="{BUNDLE.menu_label}">
+              <menu>
+                <local:LocaleMenu/>
+              </menu>
+            </Button>
+          </items>
+        </Toolbar>
+      </tbar>
+    </Panel>
+  </local:items>
+</local:HelloWorldBase>

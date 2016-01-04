@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <componentPackage>
-  <component class="com.acme.extas.localized.config.changeLocaleAction"/>
-  <component id="ChangeLocaleAction" class="com.acme.extas.localized.ChangeLocaleAction"/>
-  <component class="com.acme.extas.localized.config.helloWorld"/>
-  <component class="com.acme.extas.localized.config.localeMenu"/>
+  <component class="com.acme.extas.localized.ChangeLocaleAction"/>
+  <component class="com.acme.extas.localized.HelloWorld"/>
+  <component class="com.acme.extas.localized.LocaleMenu"/>
 </componentPackage>

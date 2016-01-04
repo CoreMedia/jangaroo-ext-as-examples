@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---
-    Change the current locale of the Jangaroo Ext AS application.
-  -->
-<baseClass:ChangeLocaleActionBase
-            xmlns:fx="http://ns.adobe.com/mxml/2009"
-            xmlns:cfg="com.acme.extas.localized.config.*"
-            xmlns:exml="http://www.jangaroo.net/exml/0.8"
-            xmlns="exml:ext.config"
-            xmlns:baseClass="com.acme.extas.localized.*">
-  <fx:Script><![CDATA[
-    import com.acme.extas.localized.config.changeLocaleAction;
-
-    public native function ChangeLocaleAction(config:com.acme.extas.localized.config.changeLocaleAction = null);
-  ]]></fx:Script>
-  <fx:Metadata>[DefaultProperty("config")]</fx:Metadata>
+ Change the current locale of the Jangaroo Ext AS application.
+-->
+<local:ChangeLocaleActionBase
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns="ext.*"
+        xmlns:local="com.acme.extas.localized.*"
+        disabled="{locale === CURRENT_LOCALE}"
+        handler="{changeLocale}">
   <fx:Declarations>
-    <cfg:changeLocaleAction id="config"/>
+    <!---
+     The new locale to set.
+    -->
+    <fx:String id="locale"/>
   </fx:Declarations>
-
-  <action disabled="{config.locale === CURRENT_LOCALE}"
-          handler="{changeLocale}"/>
-
-</baseClass:ChangeLocaleActionBase>
+</local:ChangeLocaleActionBase>
