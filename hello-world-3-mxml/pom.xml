@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>net.jangaroo.extas.examples</groupId>
@@ -7,14 +9,14 @@
     <relativePath>../ext-as-example-parent/pom.xml</relativePath>
   </parent>
 
-  <artifactId>hello-world-2-as3</artifactId>
+  <artifactId>hello-world-3-mxml</artifactId>
   <packaging>jangaroo-pkg</packaging>
 
-  <name>hello-world-2-as3</name>
+  <name>hello-world-3-mxml</name>
   <description>
-    Ext AS Example 2: Hello World in Object-Oriented ActionScript
-    A simple "Hello World!" example that uses only ExtJS standard components, has no server connection, and
-    is written in pure ActionScript (no EXML).
+    Ext AS Example 3: Hello World in MXML
+    A simple "Hello, World!" example that uses only ExtJS standard components, has no server connection, is
+    defined with the declarative XML UI description.
   </description>
 
   <build>
@@ -33,14 +35,6 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>remote-packages</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>

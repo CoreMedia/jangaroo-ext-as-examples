@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:HelloWorldBase xmlns:fx="http://ns.adobe.com/mxml/2009"
+                      xmlns="exml:ext.config"
+                      xmlns:local="com.acme.extas.as3mxml.*">
+  <fx:Script><![CDATA[
+    public native function HelloWorld(config:HelloWorld = null);
+    ]]></fx:Script>
+
+    <local:items>
+      <Panel title="Hello World">
+        <tbar>
+          <Toolbar>
+            <items>
+              <Button text="Click me!" handler="{onClick}"/>
+            </items>
+          </Toolbar>
+        </tbar>
+      </Panel>
+    </local:items>
+
+</local:HelloWorldBase>

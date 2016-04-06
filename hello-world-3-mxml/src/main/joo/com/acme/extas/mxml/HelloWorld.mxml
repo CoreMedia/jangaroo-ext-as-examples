@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Viewport xmlns:fx="http://ns.adobe.com/mxml/2009" 
+          xmlns="exml:ext.config">
+    <fx:Script><![CDATA[
+      import ext.MessageBox;
+      import ext.StringUtil;
+      import ext.button.Button;
+  
+      private var config:HelloWorld;
+      public native function HelloWorld(config:HelloWorld = null);
+      ]]></fx:Script>
+  
+    <fx:Declarations>
+      <!--- The name of the user to greet. -->
+     <fx:String id="user"/>
+    </fx:Declarations>
+
+    <items>
+      <Panel title="Hello World!">
+        <tbar>
+          <Toolbar>
+            <items>
+              <Button text="Click me!" handler="{function(button:Button):void {
+                    MessageBox.alert(StringUtil.format('Hello {0}!', config.user),
+                      StringUtil.format('{0} clicked on button \'{1}\'.', config.user, button.getText()));
+                  }
+                     }"/>
+            </items>
+          </Toolbar>
+        </tbar>
+      </Panel>
+    </items>
+
+</Viewport>

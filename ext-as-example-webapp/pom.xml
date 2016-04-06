@@ -1,6 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -11,7 +9,7 @@
   </parent>
 
   <artifactId>ext-as-example-webapp</artifactId>
-  <packaging>war</packaging>
+  <packaging>jangaroo-app</packaging>
 
   <name>ext-as-example-webapp</name>
   <description>
@@ -24,43 +22,11 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <version>${jangaroo-plugin.version}</version> <!-- repeated just for IDEA :-( -->
-        <executions>
-          <execution>
-            <goals>
-              <goal>war-package</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.2</version>
+        <extensions>true</extensions>
         <configuration>
-          <webResources>
-            <resource>
-              <directory>target/jangaroo-output</directory>
-            </resource>
-          </webResources>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
-        <configuration>
-          <stopKey>STOPME</stopKey>
-          <stopPort>8081</stopPort>
-          <webAppConfig>
-            <contextPath>/</contextPath>
-            <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-              <resourcesAsCSV>
-                src/main/webapp,
-                target/${project.build.finalName}
-              </resourcesAsCSV>
-            </baseResource>
-          </webAppConfig>
+          <additionalJsBundle>
+            <value>resources/app.js</value>
+          </additionalJsBundle>
         </configuration>
       </plugin>
     </plugins>
@@ -73,28 +39,36 @@
       <version>${project.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>hello-world-3-exml</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>net.jangaroo.extas.examples</groupId>-->
+      <!--<artifactId>hello-world-3-exml</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>net.jangaroo.extas.examples</groupId>-->
+      <!--<artifactId>hello-world-4-as3-exml</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>net.jangaroo.extas.examples</groupId>-->
+      <!--<artifactId>hello-world-5-localized</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>net.jangaroo.extas.examples</groupId>-->
+      <!--<artifactId>portal-exml</artifactId>-->
+      <!--<version>${project.version}</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>hello-world-4-as3-exml</artifactId>
+      <artifactId>remote-packages</artifactId>
       <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>hello-world-5-localized</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>portal-exml</artifactId>
-      <version>${project.version}</version>
+      <type>pom</type>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
