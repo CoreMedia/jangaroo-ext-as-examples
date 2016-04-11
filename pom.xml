@@ -1,13 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>net.jangaroo.extas.examples</groupId>
-    <artifactId>ext-as-example-parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
-  </parent>
-
+  <groupId>net.jangaroo.extas.examples</groupId>
   <artifactId>jangaroo-ext-as-examples</artifactId>
+  <version>0.1-SNAPSHOT</version>
+
   <packaging>pom</packaging>
 
   <name>jangaroo-ext-as-examples</name>
@@ -32,6 +29,7 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>4.0.3</version>
         <configuration>
           <remotePackagesArtifact>net.jangaroo.extas.examples:remote-packages</remotePackagesArtifact>
         </configuration>

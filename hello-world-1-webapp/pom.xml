@@ -26,9 +26,7 @@
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
         <configuration>
-          <additionalJsBundle>
-            <value>resources/app.js</value>
-          </additionalJsBundle>
+          <applicationClass>com.acme.extas.json.HelloWorldApplication</applicationClass>
         </configuration>
       </plugin>
     </plugins>
@@ -45,7 +43,6 @@
       <artifactId>remote-packages</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>

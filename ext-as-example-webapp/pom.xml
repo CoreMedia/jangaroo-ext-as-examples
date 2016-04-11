@@ -24,9 +24,7 @@
         <version>${jangaroo-plugin.version}</version> <!-- repeated just for IDEA :-( -->
         <extensions>true</extensions>
         <configuration>
-          <additionalJsBundle>
-            <value>resources/app.js</value>
-          </additionalJsBundle>
+          <applicationClass>com.acme.extas.as3.HelloWorldApplication</applicationClass>
         </configuration>
       </plugin>
     </plugins>
