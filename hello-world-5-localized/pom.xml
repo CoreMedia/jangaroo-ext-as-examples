@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>hello-world-5-localized</artifactId>
-  <packaging>jangaroo</packaging>
+  <packaging>jangaroo-app</packaging>
 
   <name>hello-world-5-localized</name>
   <description>
@@ -25,13 +25,9 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>exml-maven-plugin</artifactId>
         <extensions>true</extensions>
         <configuration>
-          <configClassPackage>com.acme.extas.localized.config</configClassPackage>
+          <applicationClass>com.acme.extas.localized.HelloWorldApplication</applicationClass>
         </configuration>
       </plugin>
     </plugins>

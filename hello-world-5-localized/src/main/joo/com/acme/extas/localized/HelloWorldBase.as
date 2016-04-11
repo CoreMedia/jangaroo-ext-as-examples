@@ -1,17 +1,18 @@
 package com.acme.extas.localized {
-
-import com.acme.extas.localized.config.helloWorld;
-
-import ext.Button;
 import ext.MessageBox;
-import ext.Viewport;
-import ext.util.StringUtil;
+import ext.StringUtil;
+import ext.button.Button;
+import ext.container.Viewport;
+
+use namespace StringUtil;
+
+use namespace MessageBox;
 
 public class HelloWorldBase extends Viewport {
 
   internal static const BUNDLE:HelloWorld_properties = HelloWorld_properties.INSTANCE;
 
-  public function HelloWorldBase(config:helloWorld = null) {
+  public function HelloWorldBase(config:HelloWorld = null) {
     super(config);
   }
 
