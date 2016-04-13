@@ -2,9 +2,10 @@
 *.iml
 *.ipr
 *.iws
+.idea/
 # Backups
 *.*~
 # Maven target dirs
-target
-*/target/
-*/*/target/
+target/
+overlays/
+.m2/
