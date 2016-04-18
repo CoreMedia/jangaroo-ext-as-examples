@@ -1,14 +1,16 @@
 package com.acme.extas.localized {
 
 import ext.Action;
-import joo.ResourceBundleAwareClassLoader;
+import ext.Ext;
+
+import js.Location;
 
 /**
  * Change the current locale of the Jangaroo Ext AS application.
  */
 public class ChangeLocaleAction extends Action {
 
-  internal static const CURRENT_LOCALE:String = ResourceBundleAwareClassLoader.INSTANCE.getLocale();
+  internal static const CURRENT_LOCALE:String = Ext.manifest.locale;
 
   [ExtConfig]
   /**
@@ -21,15 +23,21 @@ public class ChangeLocaleAction extends Action {
    */
   public function ChangeLocaleAction(config:ChangeLocaleAction = null) {
     var superConfig:ChangeLocaleAction = {};
+    Ext.apply(superConfig, config);
     superConfig.disabled = config.locale === CURRENT_LOCALE;
     superConfig.handler = changeLocale;
-    superConfig.locale = config.locale;
     super(superConfig);
   }
 
+  private static const LOCALE_PATTERN:RegExp = /locale=[a-z_]+/g;
+
   internal function changeLocale():void {
-    ResourceBundleAwareClassLoader.INSTANCE.setLocale(ChangeLocaleAction(initialConfig).locale);
-    window.location.reload();
+    var newLocale:String = "locale=" + ChangeLocaleAction(initialConfig).locale;
+    var location:Location = window.location;
+    var href:String = location.href;
+    location.href = LOCALE_PATTERN.test(href)
+      ? href.replace(LOCALE_PATTERN, newLocale)
+      : href + "&" + newLocale;
   }
 }
 }
