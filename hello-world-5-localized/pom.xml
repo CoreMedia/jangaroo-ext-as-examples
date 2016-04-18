@@ -28,6 +28,11 @@
         <extensions>true</extensions>
         <configuration>
           <applicationClass>com.acme.extas.localized.HelloWorldApplication</applicationClass>
+          <locales>
+            <item>en</item>
+            <item>en_GB</item>
+            <item>de</item>
+          </locales>
         </configuration>
       </plugin>
     </plugins>
