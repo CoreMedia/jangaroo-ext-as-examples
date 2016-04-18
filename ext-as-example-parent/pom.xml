@@ -17,6 +17,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <jangaroo-plugin.version>4.0-SNAPSHOT</jangaroo-plugin.version>
     <jangaroo-libs.version>4.0-SNAPSHOT</jangaroo-libs.version>
+    <ext-as.version>6.0.1-SNAPSHOT</ext-as.version>
   </properties>
 
   <build>
@@ -63,13 +64,13 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-as</artifactId>
-        <version>6.0.1-SNAPSHOT</version>
+        <version>${ext-as.version}</version>
       </dependency>
 
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-as</artifactId>
-        <version>6.0.1-SNAPSHOT</version>
+        <version>${ext-as.version}</version>
         <type>pkg</type>
       </dependency>
     </dependencies>
