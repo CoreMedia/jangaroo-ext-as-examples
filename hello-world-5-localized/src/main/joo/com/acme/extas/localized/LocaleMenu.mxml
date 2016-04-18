@@ -3,7 +3,7 @@
       xmlns="exml:ext.config"
       xmlns:local="com.acme.extas.localized.*">
   <fx:Script><![CDATA[
-    public native function LocalesMenu(config:HelloWorld = null);
+    public native function LocaleMenu(config:LocaleMenu = null);
     ]]></fx:Script>
 
   <items>
