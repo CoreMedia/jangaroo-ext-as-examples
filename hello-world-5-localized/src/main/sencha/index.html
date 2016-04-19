@@ -16,16 +16,16 @@
         // filters in your manifest or by platformConfig expressions in your app.
         //
         Ext.beforeLoad = function (tags) {
-            var s = location.search,  // the query string (ex "?foo=1&bar")
-                    locale;
+            var s = location.search;  // the query string (ex "?foo=1&bar")
 
             // For testing look for "?classic" or "?modern" in the URL to override
             // device detection default.
             //
-            if (s.match(/\blocale=de\b/)) {
-                locale = 'de';
-            }
-            else {
+            var localePattern = /\blocale=([A-Za-z_]+)\b/;
+            var match = s.match(localePattern);
+            if (match) {
+                locale = match[1];
+            } else {
                 locale = 'en';
             }
 

@@ -29,15 +29,16 @@ public class ChangeLocaleAction extends Action {
     super(superConfig);
   }
 
-  private static const LOCALE_PATTERN:RegExp = /locale=[a-z_]+/g;
+  private static const LOCALE_PATTERN:RegExp = /locale=[A-Za-z_]+/g;
 
   internal function changeLocale():void {
     var newLocale:String = "locale=" + ChangeLocaleAction(initialConfig).locale;
     var location:Location = window.location;
     var href:String = location.href;
+    var separator:String = location.search ? '&' : '?';
     location.href = LOCALE_PATTERN.test(href)
       ? href.replace(LOCALE_PATTERN, newLocale)
-      : href + "&" + newLocale;
+      : href + separator + newLocale;
   }
 }
 }
