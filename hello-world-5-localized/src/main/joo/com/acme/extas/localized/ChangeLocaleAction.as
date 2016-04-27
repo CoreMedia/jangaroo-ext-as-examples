@@ -4,6 +4,7 @@ import ext.Action;
 import ext.Ext;
 
 import js.Location;
+import joo.localeSupport;
 
 /**
  * Change the current locale of the Jangaroo Ext AS application.
@@ -32,13 +33,11 @@ public class ChangeLocaleAction extends Action {
   private static const LOCALE_PATTERN:RegExp = /locale=[A-Za-z_]+/g;
 
   internal function changeLocale():void {
-    var newLocale:String = "locale=" + ChangeLocaleAction(initialConfig).locale;
+    var newLocale:String = ChangeLocaleAction(initialConfig).locale;
     var location:Location = window.location;
     var href:String = location.href;
-    var separator:String = location.search ? '&' : '?';
-    location.href = LOCALE_PATTERN.test(href)
-      ? href.replace(LOCALE_PATTERN, newLocale)
-      : href + separator + newLocale;
+    localeSupport.setLocale(newLocale);
+    location.reload();
   }
 }
 }

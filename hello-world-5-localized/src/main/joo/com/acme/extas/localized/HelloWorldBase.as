@@ -17,7 +17,7 @@ public class HelloWorldBase extends Viewport {
   internal native function get user():String;
 
   internal function onClick(button:Button):void {
-    MessageBox.alert(StringUtil.format(resourceManager.getString('com.acme.extas.localized.HelloWorld', 'dialog_title'), user),
+    MessageBox.confirm(StringUtil.format(resourceManager.getString('com.acme.extas.localized.HelloWorld', 'dialog_title'), user),
       StringUtil.format(resourceManager.getString('com.acme.extas.localized.HelloWorld', 'dialog_message'), user, button.getText()));
   }
 }
