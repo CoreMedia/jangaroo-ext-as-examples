@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+  Shows a list of available feeds. Also has the ability to add/remove and load feeds.
+-->
+<TabPanel xmlns:fx="http://ns.adobe.com/mxml/2009"
+          xmlns="exml:ext.config"
+          maxTabWidth="230"
+          border="false">
+  <fx:Script><![CDATA[
+    import ext.Component;
+    import ext.Ext;
+    import ext.data.Model;
+
+    /**
+     * Add a new feed
+     * @param {String} title The title of the feed
+     * @param {String} url The url of the feed
+     */
+    public function addFeed(title:String, url:String):void {
+      var active:FeedDetail = FeedDetail(itemCollection.first());
+      if (!active) {
+        var feedDetailCfg:FeedDetail = FeedDetail({});
+        feedDetailCfg.title = title;
+        feedDetailCfg.url = url;
+        feedDetailCfg.closable = false;
+        feedDetailCfg.listeners = {
+          opentab: onTabOpen,
+          openall: onOpenAll,
+          rowdblclick: onRowDblClick
+        };
+        active = add(feedDetailCfg);
+      } else {
+        active.loadFeed(url);
+        active['tab'].setText(title);
+      }
+      this.setActiveTab(active);
+    }
+
+    /**
+     * Listens for a new tab request
+     * @private
+     * @param post The post
+     * @param rec The model instance or model array
+     */
+    private function onTabOpen(post, rec:Object):void {
+      var items:Array = [],
+              item,
+              title;
+
+      if (Ext.isArray(rec)) {
+        Ext.each(rec, function (rec:Model):void {
+          title = rec.get('title');
+          if (!getTabByTitle(title)) {
+            items.push(FeedPost({
+              inTab: true,
+              title: title,
+              closable: true,
+              data: rec.data,
+              active: rec
+            }));
+          }
+        }, this);
+        this.add(items);
+      }
+      else if (rec) {
+        title = rec.get('title');
+        item = this.getTabByTitle(title);
+        if (!item) {
+          item = this.add(FeedPost({
+            inTab: true,
+            title: title,
+            closable: true,
+            data: rec.data,
+            active: rec
+          }));
+        }
+        this.setActiveTab(item);
+      }
+    }
+
+    /**
+     * Find a tab by title
+     * @param title The title of the tab
+     * @return The panel matching the title. null if not found.
+     */
+    public function getTabByTitle(title:String):Component {
+      var index = this.itemCollection.findIndex('title', title);
+      return (index < 0) ? null : this.getComponent(index);
+    }
+
+    /**
+     * Listens for a row dblclick
+     * @param info The detail
+     * @param rec The model instance
+     */
+    private function onRowDblClick(info:FeedDetail, rec:Model):void {
+      this.onTabOpen(null, rec);
+    }
+
+    /**
+     * Listens for the open all click
+     * @param detail
+     */
+    private function onOpenAll(detail:FeedDetail):void {
+      onTabOpen(null, detail.getFeedData());
+    }
+    ]]></fx:Script>
+  <tabBar>
+    <TabBar border="true"/>
+  </tabBar>
+  <items>
+  </items>
+</TabPanel>

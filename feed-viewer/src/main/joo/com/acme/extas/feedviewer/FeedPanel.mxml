@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<!--
+  Shows a list of available feeds. Also has the ability to add/remove and load feeds.
+-->
+<Panel xmlns:fx="http://ns.adobe.com/mxml/2009"
+       xmlns="exml:ext.config" xmlns:local="com.acme.extas.feedviewer.*"
+       animCollapse="true"
+       title="Feeds">
+  <fx:Metadata>
+    /**
+     * Fired when a feed is removed.
+     * @eventType com.acme.extas.feedviewer.FeedPanelEvent.FEED_REMOVED
+     */
+    [Event(name='onFeedRemoved', type='com.acme.extas.feedviewer.FeedPanelEvent')]
+
+    /**
+     * Fired when a feed is selected.
+     * @eventType com.acme.extas.feedviewer.FeedPanelEvent.FEED_SELECT
+     */
+    [Event(name='onFeedSelect', type='com.acme.extas.feedviewer.FeedPanelEvent')]
+  </fx:Metadata>
+  <fx:Script><![CDATA[
+    import ext.Ext;
+    import ext.data.Model;
+    import ext.event.Event;
+    import ext.fx.Anim;
+    import ext.fx.events.Anim_startTimeEvent;
+
+    import js.HTMLElement;
+
+    private var config:FeedPanel;
+    private var activeFeed:Model;
+
+    /**
+     * Create a new Feed Panel.
+     * @param config The config object
+     */
+    public native function FeedPanel(config:FeedPanel = null);
+
+    private function onViewReady():void {
+      Ext.suspendLayouts();
+      view.getSelectionModel().select(view.store.first());
+      Ext.resumeLayouts(true);
+    }
+
+    /**
+     * React to the load feed menu click.
+     */
+    private function onLoadClick():void {
+      loadFeed(activeFeed);
+    }
+
+    /**
+     * Loads a feed.
+     * @param rec The feed
+     */
+    private function loadFeed(rec:Model):void {
+      if (rec) {
+        fireEvent('feedselect', this, rec.get('title'), rec.get('url'));
+      }
+    }
+
+    /**
+     * Gets the currently selected record in the view.
+     * @return Returns the selected model. null if nothing is selected.
+     */
+    private function getSelectedItem():Model {
+      return view.getSelectionModel().getSelection()[0] || null;
+    }
+
+    /**
+     * Listens for the context menu event on the view
+     */
+    private function onContextMenu(view:DataView, index:int, event:Event):void {
+      event.stopEvent();
+      activeFeed = view.store.getAt(index);
+      menu.showAt(event.getXY());
+    }
+
+    /**
+     * React to a feed being removed
+     */
+    private function onRemoveFeedClick():void {
+      var active:Model = activeFeed || getSelectedItem();
+
+      if (active) {
+        view.getSelectionModel().deselectAll();
+        var animation:Anim = animateNode(view.getNode(active), 1, 0);
+        animation.addEventListener(Anim_startTimeEvent.AFTER_ANIMATE,
+                function (event:Anim_startTimeEvent):void {
+                  view.store.remove(active);
+                });
+        fireEvent('feedremove', this, active.get('title'), active.get('url'));
+      }
+    }
+
+    /**
+     * React to a feed attempting to be added
+     * @private
+     */
+    private function onAddFeedClick():void {
+      if (!addFeedWindow.isInstance) {
+        addFeedWindow = Ext.create(addFeedWindow);
+      }
+      addFeedWindow.form.getForm().reset();
+      addFeedWindow.show();
+    }
+
+    /**
+     * React to a validation on a feed passing
+     * @param event the event, containing the title and the url of the feed
+     */
+    private function onFeedValid(event:FeedWindowEvent):void {
+      var store:Store = view.store,
+              rec:Model;
+
+      rec = store.add({
+        url: event.url,
+        title: event.title
+      })[0];
+      animateNode(view.getNode(rec), 0, 1);
+    }
+
+    /**
+     * Animate a node in the view when it is added/removed.
+     *
+     * @param el The element to animate
+     * @param start The start opacity
+     * @param end The end opacity
+     */
+    private static function animateNode(el:HTMLElement, start:Number, end:Number):Anim {
+      var animConfig:Anim = Anim({});
+      animConfig.target = Ext.get(el);
+      animConfig.duration = 500;
+      animConfig.from = {
+        opacity: start
+      };
+      animConfig.to = {
+        opacity: end
+      };
+      return Ext.create(animConfig);
+    }
+
+    /**
+     * Used when view selection changes so we can disable toolbar buttons.
+     * @private
+     */
+    private function onSelectionChange():void {
+      var selected:Model = getSelectedItem();
+      toolbar.getComponent('remove').setDisabled(!selected);
+      if (selected) {
+        loadFeed(selected);
+      }
+    }
+    ]]></fx:Script>
+  <fx:Declarations>
+    <fx:Array id="feeds"/>
+    <local:FeedWindow id="addFeedWindow"
+                      onFeedValid="onFeedValid(event)"/>
+    <Menu id="menu" onHide="activeFeed = null;">
+      <items>
+        <MenuItem handler="{onLoadClick}"
+                  text="Load feed"
+                  iconCls="feed-load"/>
+        <MenuItem>
+          <baseAction>
+            <Action id="removeAction"
+                    handler="{onRemoveFeedClick}"
+                    text="Remove"
+                    iconCls="feed-remove"/>
+          </baseAction>
+        </MenuItem>
+        <MenuSeparator/>
+        <MenuItem>
+          <baseAction>
+            <Action id="addAction"
+                    handler="{onAddFeedClick}"
+                    text="Add"
+                    iconCls="feed-add"/>
+          </baseAction>
+        </MenuItem>
+      </items>
+    </Menu>
+  </fx:Declarations>
+  <items>
+    <DataView id="view"
+              scrollable="true"
+              trackOver="true"
+              cls="feed-list"
+              itemSelector=".feed-list-item"
+              overItemCls="feed-list-item-hover"
+              onViewReady="onViewReady()"
+              onItemContextMenu="onContextMenu(event.source, event.index, event.e)">
+      <store>
+        <store_Store model="Feed"
+                     data="{config.feeds}"/>
+      </store>
+      <selectionModel>
+        <selection_DataViewModel onSelectionChange="onSelectionChange()"/>
+      </selectionModel>
+      <tpl><![CDATA[<tpl for="."><div class="feed-list-item">\{title}</div></tpl>]]></tpl>
+    </DataView>
+  </items>
+  <dockedItems>
+    <Toolbar id="toolbar">
+      <items>
+        <Button baseAction="{addAction}"/>
+        <Button itemId="remove" baseAction="{removeAction}"/>
+      </items>
+    </Toolbar>
+  </dockedItems>
+  <layout>
+    <layout_Fit/>
+  </layout>
+</Panel>

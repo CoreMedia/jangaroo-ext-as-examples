@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+  The main FeedViewer application.
+-->
+<Viewport xmlns:fx="http://ns.adobe.com/mxml/2009"
+          xmlns="exml:ext.config" xmlns:local="com.acme.extas.feedviewer.*">
+  <fx:Script><![CDATA[
+    import ext.Ext;
+    import ext.StringUtil;
+    import ext.dom.DomQuery;
+
+    import js.HTMLElement;
+
+    Ext.define('Feed', {
+      extend: 'Ext.data.Model',
+      fields: ['title', 'url']
+    });
+
+    Ext.define('FeedItem', {
+      extend: 'Ext.data.Model',
+      fields: [{
+        name: 'title',
+        convert: StringUtil.htmlEncode
+      }, 'author', 'link', {
+        name: 'pubDate',
+        type: 'date'
+      }, {
+        // Some feeds return the description as the main content
+        // Others return description as a summary. Figure this out here
+        name: 'description',
+        mapping: function (raw:HTMLElement):String {
+          var content:HTMLElement = DomQuery.selectNode('content', raw),
+                  key:String;
+
+          if (content && DomQuery.getNodeValue(content)) {
+            key = 'description';
+          } else {
+            key = 'title';
+          }
+          return DomQuery.selectValue(key, raw);
+        }
+      }, {
+        name: 'content',
+        mapping: function (raw:HTMLElement):String {
+          var content:HTMLElement = DomQuery.selectNode('content', raw);
+
+          if (!content || !DomQuery.getNodeValue(content)) {
+            content = DomQuery.selectNode('description', raw);
+          }
+          return DomQuery.getNodeValue(content, '');
+        }
+      }]
+    });
+
+    /**
+     * Reacts to a feed being selected.
+     */
+    private function onFeedSelect(event:FeedPanelEvent):void {
+      feedInfo.addFeed(event.title, event.url);
+    }
+    ]]></fx:Script>
+  <items>
+    <local:FeedPanel id="feedPanel"
+                     region="west"
+                     collapsible="true"
+                     width="{225}"
+                     minWidth="175"
+                     onFeedSelect="onFeedSelect(event)">
+      <local:mixins>
+        <layout_Border split="true"/>
+      </local:mixins>
+      <local:feeds>
+        <fx:Object title="Sencha Blog"
+                   url="http://feeds.feedburner.com/sencha"/>
+        <fx:Object title="Sencha Forums"
+                   url="http://sencha.com/forum/external.php?type=RSS2"/>
+        <fx:Object title="Ajaxian"
+                   url="http://feeds.feedburner.com/ajaxian"/>
+      </local:feeds>
+    </local:FeedPanel>
+    <local:FeedInfo id="feedInfo"
+                    region="center"
+                    minWidth="300"/>
+  </items>
+  <layout>
+    <layout_Border padding="5"/>
+  </layout>
+</Viewport>

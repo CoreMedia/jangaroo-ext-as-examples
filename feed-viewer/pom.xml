@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.jangaroo.extas.examples</groupId>
+    <artifactId>ext-as-example-parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <relativePath>../ext-as-example-parent/pom.xml</relativePath>
+  </parent>
+
+  <artifactId>feed-viewer</artifactId>
+  <packaging>jangaroo-app</packaging>
+
+  <name>feed-viewer</name>
+  <description>
+    Ext AS Example 6: Feed Viewer
+    An MXML / ActionScript port of Sencha's Feed Viewer example of a bit more
+    complex app.
+  </description>
+
+  <build>
+    <sourceDirectory>src/main/joo</sourceDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>${jangaroo-plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <applicationClass>com.acme.extas.feedviewer.FeedViewerApplication</applicationClass>
+          <additionalCssNonBundle>
+            <item>Feed-Viewer.css</item>
+          </additionalCssNonBundle>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>ext-as</artifactId>
+    </dependency>
+  </dependencies>
+</project>

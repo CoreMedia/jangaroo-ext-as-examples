@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!--
+  Shows a dialog for creating and validating a new feed.
+-->
+<Window xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns="exml:ext.config"
+        xmlns:u="exml:untyped"
+        plain="true"
+        resizable="false"
+        modal="true"
+        closeAction="hide"
+        defaultFocus="#feed"
+        width="500"
+        title="Add Feed"
+        iconCls="feed">
+  <!---
+   Fired when ...
+   @eventType com.acme.extas.feedviewer.FeedWindowEvent.FEED_VALID
+  -->
+  <fx:Metadata>
+    [Event(name='onFeedValid', type='com.acme.extas.feedviewer.FeedWindowEvent')]
+  </fx:Metadata>
+  <fx:Script><![CDATA[
+    import ext.Ajax;
+    import ext.dom.DomQuery;
+    import ext.form.field.Field;
+
+    import js.Document;
+    import js.HTMLElement;
+    import js.XMLHttpRequest;
+
+    public var defaultFeeds:Array = [
+      ['http://rss.cnn.com/rss/edition.rss', 'CNN Top Stories'],
+      ['http://sports.espn.go.com/espn/rss/news', 'ESPN Top News'],
+      ['http://news.google.com/news?ned=us&topic=t&output=rss', 'Sci/Tech - Google News'],
+      ['http://rss.news.yahoo.com/rss/software', 'Yahoo Software News']
+    ];
+
+    private static function comboGetInnerTpl():String {
+      return '<div class="feed-picker-url">{field1}</div><div class="feed-picker-title">{field2}</div>';
+    }
+
+    private function doHide():void {
+      hide();
+    }
+
+    /**
+     * React to the add button being clicked.
+     */
+    private function onAddClick(addBtn:Button):void {
+      addBtn.disable();
+      var url:String = Field(form.getComponent('feed')).getValue();
+      form.setLoading({
+        msg: 'Validating feed...'
+      });
+      Ajax.request({
+        url: 'feed-proxy.xml',
+        params: {
+          feed: url
+        },
+        success: validateFeed,
+        failure: markInvalid
+      });
+    }
+
+    /**
+     * React to the feed validation passing
+     * @private
+     * @param {Object} response The response object
+     */
+    private function validateFeed(response:XMLHttpRequest):void {
+      form.setLoading(false);
+      down('button[text=Add Feed]').enable();
+
+      var url:String = Field(form.getComponent('feed')).getValue(),
+              xml:Document,
+              channel:HTMLElement,
+              title:String;
+
+      try {
+        xml = response.responseXML;
+        channel = xml.getElementsByTagName('channel')[0];
+        if (channel) {
+          title = DomQuery.selectValue('title', channel, url);
+          fireEvent('feedvalid', this, title, url);
+          hide();
+          return;
+        }
+      } catch (e:*) {
+      }
+      markInvalid();
+    }
+
+    /**
+     * React to the feed validation failing
+     * @private
+     */
+    private function markInvalid():void {
+      down('button[text=Add Feed]').enable();
+      form.setLoading(false);
+      Field(form.getComponent('feed')).markInvalid('The URL specified is not a valid RSS2 feed.');
+    }
+    ]]></fx:Script>
+  <items>
+    <Form id="form"
+          bodyPadding="12 10 10"
+          border="false"
+          u:unstyled="true">
+      <items>
+        <Combo anchor="100%"
+               itemId="feed"
+               fieldLabel="Enter the URL of the feed to add"
+               labelAlign="top"
+               msgTarget="under"
+               store="{defaultFeeds}"
+               u:getInnerTpl="{comboGetInnerTpl}"/>
+      </items>
+    </Form>
+  </items>
+  <buttons>
+    <Button text="Add Feed"
+            handler="{onAddClick}"/>
+    <Button text="Cancel"
+            handler="{doHide}"/>
+  </buttons>
+  <layout>
+    <layout_Fit/>
+  </layout>
+</Window>

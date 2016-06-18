@@ -16,8 +16,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <jangaroo-plugin.version>4.0-SNAPSHOT</jangaroo-plugin.version>
-    <jangaroo-libs.version>4.0-SNAPSHOT</jangaroo-libs.version>
-    <ext-as.version>6.0.1-SNAPSHOT</ext-as.version>
+    <jangaroo-libs.version>4.0.12</jangaroo-libs.version>
+    <ext-as.version>6.0.1-33</ext-as.version>
   </properties>
 
   <build>
@@ -27,6 +27,9 @@
           <groupId>net.jangaroo</groupId>
           <artifactId>jangaroo-maven-plugin</artifactId>
           <version>${jangaroo-plugin.version}</version>
+          <configuration>
+            <publicApiViolations>allow</publicApiViolations>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -56,7 +59,7 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-libs-bom</artifactId>
-        <version>${jangaroo-libs.version}</version>
+        <version>4.0.12</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
