@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!--
+  Shows the details of a particular feed
+-->
+<Panel xmlns:fx="http://ns.adobe.com/mxml/2009"
+       xmlns="exml:ext.config"
+       xmlns:local="com.acme.extas.feedviewer.*"
+       border="false"
+       layout="border">
+  <fx:Script><![CDATA[
+    import com.acme.extas.util.PreviewRowBodyFeature;
+
+    import ext.data.Model;
+
+    override protected function initComponent():void {
+      loadFeed(url);
+      relayEvents(display, ['opentab']);
+      relayEvents(grid, ['rowdblclick']);
+      super.initComponent();
+    }
+
+    /**
+     * Loads a feed.
+     * @param {String} url
+     */
+    public function loadFeed(url:String):void {
+      grid.loadFeed(url);
+    }
+
+    /**
+     * Fires when a grid row is selected
+     * @param rec
+     */
+    private function onSelect(rec:Model):void {
+      display.setActive(rec);
+    }
+
+    /**
+     * Reacts to the open all being clicked
+     */
+    private function onOpenAllClick():void {
+      fireEvent('openall', this);
+    }
+
+    /**
+     * Gets a list of titles/urls for each feed.
+     * @return {Array} The feed details
+     */
+    [ArrayElementType("ext.data.Model")]
+    public function getFeedData():Array {
+      return grid.getStore().getRange();
+    }
+
+    /**
+     * @param pressed Whether the button is pressed
+     */
+    private function onSummaryToggle(pressed:Boolean):void {
+      var previewRowBodyFeature:PreviewRowBodyFeature = PreviewRowBodyFeature.getInstance(grid);
+      previewRowBodyFeature.previewExpanded = pressed;
+    }
+
+    /**
+     * Handle the checked item being changed
+     * @param activeItem The checked item
+     */
+    private function readingPaneChange(activeItem:CheckItem):void {
+      switch (activeItem.text) {
+        case 'Bottom':
+          east.hide();
+          south.show();
+          south.add(display);
+          break;
+        case 'Right':
+          south.hide();
+          east.show();
+          east.add(display);
+          break;
+        default:
+          south.hide();
+          east.hide();
+          break;
+      }
+    }
+    ]]></fx:Script>
+  <fx:Declarations>
+    <fx:String id="url"/>
+  </fx:Declarations>
+
+  <items>
+    <local:FeedGrid id="grid"
+                    region="center"
+                    flex="2"
+                    minHeight="200"
+                    minWidth="150"
+                    onSelect="onSelect(event.record)">
+      <local:dockedItems>
+        <Toolbar cls='x-docked-noborder-top'>
+          <items>
+            <Button iconCls='open-all'
+                    text='Open All'
+                    onClick="onOpenAllClick()"/>
+            <TbSeparator/>
+            <Cycle text='Reading Pane'
+                   prependText="{'Preview: '}"
+                   showText="true"
+                   onChange="readingPaneChange(event.item)">
+              <menu>
+                <Menu id_='reading-menu'>
+                  <items>
+                    <MenuCheckItem text='Bottom'
+                                   checked="true"
+                                   iconCls='preview-bottom'/>
+                    <MenuCheckItem text='Right'
+                                   iconCls='preview-right'/>
+                    <MenuCheckItem text='Hide'
+                                   iconCls='preview-hide'/>
+                  </items>
+                </Menu>
+              </menu>
+            </Cycle>
+            <Button iconCls='summary'
+                    text='Summary'
+                    enableToggle="true"
+                    pressed="true"
+                    onToggle="onSummaryToggle(event.pressed)"/>
+          </items>
+        </Toolbar>
+      </local:dockedItems>
+    </local:FeedGrid>
+    <Panel id="south"
+           layout="fit"
+           region="south"
+           border="false"
+           flex="2"
+           minHeight="150">
+      <mixins>
+        <layout_Border split="true"/>
+      </mixins>
+      <items>
+        <local:FeedPost id="display"/>
+      </items>
+    </Panel>
+    <Panel id="east"
+           layout="fit"
+           region="east"
+           flex="1"
+           hidden="true"
+           minWidth="150"
+           border="false">
+      <mixins>
+        <layout_Border split="true"/>
+      </mixins>
+    </Panel>
+  </items>
+</Panel>

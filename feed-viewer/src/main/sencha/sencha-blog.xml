@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
+<rss
+        xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+        xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
+  <channel>
+    <title><![CDATA[Sencha]]></title>
+    <link><![CDATA[https://www.sencha.com]]></link>
+    <description/>
+    <lastBuildDate>Fri, 22 Apr 2016 21:16:04 +0000</lastBuildDate>
+    <language>
+      en-US
+    </language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml"
+                 href="http://feeds.feedburner.com/sencha"/>
+    <feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="sencha"/>
+    <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title><![CDATA[Performance Optimization for Layout Runs]]></title>
+      <link><![CDATA[https://www.sencha.com/blog/performance-optimization-for-layout-runs/]]></link>
+      <comments>https://www.sencha.com/blog/performance-optimization-for-layout-runs/#comments</comments>
+      <pubDate>Thu, 21 Apr 2016 14:55:58 +0000</pubDate>
+      <author><![CDATA[Shikhir Singh]]></author>
+      <category><![CDATA[Ext JS]]></category>
+      <category><![CDATA[Tutorials]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=14436</guid>
+      <description>
+        <![CDATA[If an Ext JS app starts to show performance issues, it's often network limitations (bandwidth and latency), device memory/storage limitations, or layout / rendering issues. In this article, you'll learn how to optimize the layout and rendering process of Ext JS Classic Toolkit applications, known as a Layout Run, by using Sencha Inspector or Google Chrome Console.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/performance-optimization-for-layout-runs/feed/</wfw:commentRss>
+      <slash:comments>1</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[Survey Results Drive 2016 GXT Roadmap]]></title>
+      <link><![CDATA[https://www.sencha.com/blog/survey-results-drive-2016-gxt-roadmap/]]></link>
+      <comments>https://www.sencha.com/blog/survey-results-drive-2016-gxt-roadmap/#comments</comments>
+      <pubDate>Thu, 14 Apr 2016 14:55:27 +0000</pubDate>
+      <author><![CDATA[David Chandler]]></author>
+      <category><![CDATA[GXT]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=14316</guid>
+      <description>
+        <![CDATA[We recently surveyed GXT customers to find out more about the GWT ecosystem and what they’d like to see in the next version of GXT. Thanks to the almost 100 customers who participated! Their thoughtful and detailed survey answers have directly shaped our GXT product roadmap for 2016.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/survey-results-drive-2016-gxt-roadmap/feed/</wfw:commentRss>
+      <slash:comments>2</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[Build a Completely Custom Ext JS Theme in Less Than 10 Minutes]]></title>
+      <link>
+        <![CDATA[https://www.sencha.com/blog/build-a-completely-custom-ext-js-theme-in-less-than-10-minutes/]]></link>
+      <comments>https://www.sencha.com/blog/build-a-completely-custom-ext-js-theme-in-less-than-10-minutes/#comments
+      </comments>
+      <pubDate>Thu, 07 Apr 2016 14:55:50 +0000</pubDate>
+      <author><![CDATA[Shikhir Singh]]></author>
+      <category><![CDATA[Ext JS]]></category>
+      <category><![CDATA[Theming]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=14167</guid>
+      <description>
+        <![CDATA[Do you need to quickly theme applications to match the branding identity and guidelines of your company? Ext JS has an extremely powerful theming system due to its massive integrated component library.  Try out the tips in this article and let us know how it goes.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/build-a-completely-custom-ext-js-theme-in-less-than-10-minutes/feed/
+      </wfw:commentRss>
+      <slash:comments>2</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[Sencha Roadshow 2016: USA Roundup]]></title>
+      <link><![CDATA[https://www.sencha.com/blog/sencha-roadshow-2016-usa-roundup/]]></link>
+      <comments>https://www.sencha.com/blog/sencha-roadshow-2016-usa-roundup/#respond</comments>
+      <pubDate>Thu, 31 Mar 2016 17:16:12 +0000</pubDate>
+      <author><![CDATA[Subu Baskaran]]></author>
+      <category><![CDATA[Events]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=14050</guid>
+      <description>
+        <![CDATA[The final leg of Roadshow 2016 ended Tuesday in Santa Clara, and the previous week we visited New York City and Chicago. These highly interactive sessions included presentations, not just from Sencha folks, but also customers who are building enterprise web applications to solve complex business problems.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/sencha-roadshow-2016-usa-roundup/feed/</wfw:commentRss>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[How to Upgrade Your Ext JS 3.4 Apps to Ext JS 6]]></title>
+      <link><![CDATA[https://www.sencha.com/blog/how-to-upgrade-your-ext-js-3-4-apps-to-ext-js-6/]]></link>
+      <comments>https://www.sencha.com/blog/how-to-upgrade-your-ext-js-3-4-apps-to-ext-js-6/#comments</comments>
+      <pubDate>Wed, 30 Mar 2016 14:55:10 +0000</pubDate>
+      <author><![CDATA[Olga Petrova]]></author>
+      <category><![CDATA[Ext JS]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=13973</guid>
+      <description>
+        <![CDATA[In this article, Olga shows you a simple example of a migration. As a proof of concept, she has an Ext JS 3.4 grid example that she migrated to Ext JS 6. Learn how to migrate your apps and take advantage of all of the new features in Ext JS 6.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/how-to-upgrade-your-ext-js-3-4-apps-to-ext-js-6/feed/</wfw:commentRss>
+      <slash:comments>7</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[Sencha Roadshow 2016: Europe Roundup – Join Us in Milan &amp; Stockholm]]></title>
+      <link>
+        <![CDATA[https://www.sencha.com/blog/sencha-roadshow-2016-europe-roundup-join-us-in-milan-stockholm/]]></link>
+      <comments>https://www.sencha.com/blog/sencha-roadshow-2016-europe-roundup-join-us-in-milan-stockholm/#respond
+      </comments>
+      <pubDate>Thu, 24 Mar 2016 14:55:34 +0000</pubDate>
+      <author><![CDATA[Lee Boonstra]]></author>
+      <category><![CDATA[Events]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=13822</guid>
+      <description>
+        <![CDATA[Last week, we held Sencha Roadshow 2016 in London, Paris, and Munich. These were really great shows, and it was a lot of fun seeing familiar faces back again. Check out all of the details and join us in Milan and Stockholm in April.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/sencha-roadshow-2016-europe-roundup-join-us-in-milan-stockholm/feed/
+      </wfw:commentRss>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[Customizing GXT Grid for Data Centric Applications]]></title>
+      <link><![CDATA[https://www.sencha.com/blog/customizing-gxt-grid-for-data-centric-applications/]]></link>
+      <comments>https://www.sencha.com/blog/customizing-gxt-grid-for-data-centric-applications/#respond</comments>
+      <pubDate>Wed, 23 Mar 2016 14:55:45 +0000</pubDate>
+      <author><![CDATA[David Chandler]]></author>
+      <category><![CDATA[GXT]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=13323</guid>
+      <description>
+        <![CDATA[The GXT Grid is very popular in enterprise apps. Extending the powerful GridEditing and GridView classes, you can further customize the functionality to create rich web applications with powerful UIs.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/customizing-gxt-grid-for-data-centric-applications/feed/
+      </wfw:commentRss>
+      <slash:comments>0</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[Sencha Roadshow 2016: APAC Roundup with Sneak Peak at Ext JS Roadmap]]></title>
+      <link>
+        <![CDATA[https://www.sencha.com/blog/sencha-roadshow-2016-apac-roundup-with-sneak-peak-at-ext-js-roadmap/]]></link>
+      <comments>
+        https://www.sencha.com/blog/sencha-roadshow-2016-apac-roundup-with-sneak-peak-at-ext-js-roadmap/#comments
+      </comments>
+      <pubDate>Fri, 18 Mar 2016 14:55:22 +0000</pubDate>
+      <author><![CDATA[Shikhir Singh]]></author>
+      <category><![CDATA[Events]]></category>
+      <category><![CDATA[News]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=13697</guid>
+      <description>
+        <![CDATA[We were on the road again in APAC last week to show off Sencha Test, Architect 3.5, theming, and share a sneak peek at our Ext JS Roadmap. Check it out and sign up for one of our upcoming Roadshow events in the US and Europe.]]></description>
+      <wfw:commentRss>
+        https://www.sencha.com/blog/sencha-roadshow-2016-apac-roundup-with-sneak-peak-at-ext-js-roadmap/feed/
+      </wfw:commentRss>
+      <slash:comments>3</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[Asynchronous JavaScript: Promises]]></title>
+      <link><![CDATA[https://www.sencha.com/blog/asynchronous-javascript-promises/]]></link>
+      <comments>https://www.sencha.com/blog/asynchronous-javascript-promises/#comments</comments>
+      <pubDate>Wed, 16 Mar 2016 15:00:09 +0000</pubDate>
+      <author><![CDATA[Lee Boonstra]]></author>
+      <category><![CDATA[Ext JS]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=13317</guid>
+      <description>
+        <![CDATA[JavaScript Promises is a new way of writing code that’s more readable and understandable. A promise is an object or function with a then method that can be chained endlessly.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/asynchronous-javascript-promises/feed/</wfw:commentRss>
+      <slash:comments>4</slash:comments>
+    </item>
+    <item>
+      <title><![CDATA[Architect 3.5 is Generally Available]]></title>
+      <link><![CDATA[https://www.sencha.com/blog/architect-3-5-is-generally-available/]]></link>
+      <comments>https://www.sencha.com/blog/architect-3-5-is-generally-available/#comments</comments>
+      <pubDate>Thu, 10 Mar 2016 15:55:37 +0000</pubDate>
+      <author><![CDATA[Sandeep Adwankar]]></author>
+      <category><![CDATA[Architect]]></category>
+      <guid isPermaLink="false">https://www.sencha.com/?p=13415</guid>
+      <description>
+        <![CDATA[Sencha Architect 3.5 is now generally available as part of Ext JS Pro and Premium. Architect 3.5 empowers your team to build HTML5 applications with the Ext JS 6 Classic toolkit. Try it out and share your feedback in the forums.]]></description>
+      <wfw:commentRss>https://www.sencha.com/blog/architect-3-5-is-generally-available/feed/</wfw:commentRss>
+      <slash:comments>6</slash:comments>
+    </item>
+  </channel>
+</rss>

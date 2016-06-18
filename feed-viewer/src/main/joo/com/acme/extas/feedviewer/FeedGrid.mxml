@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!--
+  Created by fwienber on 23.04.2016.
+-->
+<GridPanel xmlns:fx="http://ns.adobe.com/mxml/2009"
+           xmlns="exml:ext.config"
+           xmlns:util="com.acme.extas.util.*"
+           cls="feed-grid">
+  <fx:Script><![CDATA[
+    import ext.DateUtil;
+    import ext.MessageBox;
+    import ext.StringUtil;
+    import ext.data.Model;
+    import ext.data.Store;
+    import ext.data.operation.Operation;
+
+    /**
+     * Reacts to a double click The view The row index
+     */
+    private function onRowDblClick(record:Model):void {
+      fireEvent('rowdblclick', this, record);
+    }
+
+
+    /**
+     * React to a grid item being selected The selection model
+     * @param selections An array of selections
+     */
+    private function onSelect(selections:Array):void {
+      var selected:String = selections[0];
+      if (selected) {
+        fireEvent('select', this, selected);
+      }
+    }
+
+    /**
+     * Listens for the store loading
+     */
+    private function onLoad(store:Store, records:Array, success:Boolean):void {
+      if (success && records.length && store.getCount()) {
+        getSelectionModel().select(0);
+      }
+    }
+
+    /**
+     * Listen for proxy errors.
+     */
+    public function onProxyException(operation:Operation):void {
+      MessageBox.alert("Error with data from server", operation.getError());
+      view.el.setHtml("");
+
+      // Update the detail view with a dummy empty record
+      fireEvent('select', this, {data: {}});
+    }
+
+    /**
+     * Instructs the grid to load a new feed.
+     * @param {String} url The url to load
+     */
+    public function loadFeed(url:String):void {
+      Store(store).getProxy().setExtraParam('feed', url);
+      Store(store).load();
+    }
+
+    /**
+     * Title renderer.
+     */
+    private static function formatTitle(value:String, metaData:Object, record:Model):String {
+      return StringUtil.format('<div class="topic"><b>{0}</b><span class="author">{1}</span></div>', value, record.get('author') || "Unknown");
+    }
+
+    /**
+     * Date renderer
+     */
+    private static function formatDate(date:Date):String {
+      if (!date) {
+        return '';
+      }
+
+      var now:Date = new Date(), d:Date = DateUtil.clearTime(now, true), notime:Number = DateUtil.clearTime(date, true).getTime();
+
+      if (notime === d.getTime()) {
+        return 'Today ' + DateUtil.format(date, 'g:i a');
+      }
+
+      d = DateUtil.add(d, 'd', -6);
+      if (d.getTime() <= notime) {
+        return DateUtil.format(date, 'D g:i a');
+      }
+      return DateUtil.format(date, 'Y/m/d g:i a');
+    }
+    ]]></fx:Script>
+
+  <store>
+    <store_Store model="FeedItem"
+                 sorters="{[{
+                   property: 'pubDate',
+                   direction: 'DESC'
+                 }]}"
+                 onLoad="onLoad(event.source, event.records, event.successful)">
+      <proxy>
+        <proxy_Ajax url="feed-proxy.php"
+                    onException="onProxyException(event.operation)">
+          <reader>
+            <reader_Xml record="item"/>
+          </reader>
+        </proxy_Ajax>
+      </proxy>
+    </store_Store>
+  </store>
+  <view>
+    <GridView itemId="view"
+              onItemDblclick="onRowDblClick(event.record)"/>
+  </view>
+  <features>
+    <util:PreviewRowBodyFeature bodyField="description"
+                                previewExpanded="true"/>
+  </features>
+  <columns>
+    <GridColumn
+            text='Title'
+            dataIndex='title'
+            flex="1"
+            renderer="{formatTitle}"
+    />
+    <GridColumn
+            text='Author'
+            dataIndex='author'
+            hidden="true"
+            width="200"
+    />
+    <GridColumn
+            text='Date'
+            dataIndex='pubDate'
+            renderer="{formatDate}"
+            width="200"
+    />
+  </columns>
+  <onSelectionChange><![CDATA[
+      onSelect(event.selected);
+    ]]></onSelectionChange>
+</GridPanel>
