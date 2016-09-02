@@ -2,10 +2,6 @@
 <Menu xmlns:fx="http://ns.adobe.com/mxml/2009"
       xmlns="exml:ext.config"
       xmlns:local="com.acme.extas.localized.*">
-  <fx:Script><![CDATA[
-    public native function LocaleMenu(config:LocaleMenu = null);
-    ]]></fx:Script>
-
   <items>
     <MenuItem>
       <baseAction>

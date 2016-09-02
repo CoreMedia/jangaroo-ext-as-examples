@@ -17,10 +17,6 @@
             '</div>' +
             '<div class="post-body">{content:stripScripts}</div>';
 
-    private var config:FeedPost;
-
-    public native function FeedPost(config:FeedPost = null);
-
     private var active:Model;
     /**
      * Set the active post.
@@ -51,19 +47,19 @@
     ]]></fx:Script>
 
   <fx:Declarations>
-    <fx:Boolean id="inTab"/>
+    <fx:Boolean id="inTab">false</fx:Boolean>
   </fx:Declarations>
 
   <tpl>{TPL}</tpl>
   <dockedItems>
-    <Toolbar cls="{config.inTab ? 'x-docked-noborder-top' : ''}">
+    <Toolbar cls="{inTab ? 'x-docked-noborder-top' : ''}">
       <items>
         <Button onClick="openTab()"
                 text="View in new tab"
                 iconCls="tab-new"
-                hidden="{config.inTab}"/>
+                hidden="{inTab}"/>
         <TbSeparator
-                hidden="{config.inTab}"/>
+                hidden="{inTab}"/>
         <Button href="#"
                 hrefTarget="_blank"
                 text="Go to post"

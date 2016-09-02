@@ -28,14 +28,7 @@
 
     import js.HTMLElement;
 
-    private var config:FeedPanel;
     private var activeFeed:Model;
-
-    /**
-     * Create a new Feed Panel.
-     * @param config The config object
-     */
-    public native function FeedPanel(config:FeedPanel = null);
 
     private function onViewReady():void {
       Ext.suspendLayouts();
@@ -193,7 +186,7 @@
               onItemContextMenu="onContextMenu(event.source, event.index, event.e)">
       <store>
         <store_Store model="Feed"
-                     data="{config.feeds}"/>
+                     data="{feeds}"/>
       </store>
       <selectionModel>
         <selection_DataViewModel onSelectionChange="onSelectionChange()"/>

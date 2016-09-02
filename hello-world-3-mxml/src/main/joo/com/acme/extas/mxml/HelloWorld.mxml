@@ -7,7 +7,6 @@
       import ext.button.Button;
   
       private var config:HelloWorld;
-      public native function HelloWorld(config:HelloWorld = null);
       ]]></fx:Script>
   
     <fx:Declarations>

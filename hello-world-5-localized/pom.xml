@@ -25,6 +25,7 @@
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>${jangaroo-plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
           <applicationClass>com.acme.extas.localized.HelloWorldApplication</applicationClass>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!---
+  The Application that bootstraps HelloWorld start.
+  Essentially, it delegates to HelloWorld.main().
+-->
+<app:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+                 xmlns="exml:ext.config"
+                 xmlns:local="com.acme.extas.localized.*"
+                 xmlns:app="ext.app.*"
+                 name="HelloWorld">
+  <app:mainView>
+    <local:HelloWorld/>
+  </app:mainView>
+</app:Application>
