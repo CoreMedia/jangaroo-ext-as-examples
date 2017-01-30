@@ -12,6 +12,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>net.jangaroo.com.sencha</groupId>
+      <artifactId>ext-js-pkg-gpl</artifactId>
+      <version>6.2.0</version>
+      <type>pkg</type>
+    </dependency>
+    <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
       <type>pkg</type>

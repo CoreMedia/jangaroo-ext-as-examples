@@ -15,9 +15,10 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo-plugin.version>4.0-SNAPSHOT</jangaroo-plugin.version>
-    <jangaroo-libs.version>4.0.12</jangaroo-libs.version>
-    <ext-as.version>6.0.1-33</ext-as.version>
+    <jangaroo-plugin.version>4.0.44</jangaroo-plugin.version>
+    <jangaroo-libs.version>4.0.38</jangaroo-libs.version>
+    <ext-as.version>6.2.0-7</ext-as.version>
+    <ext-js.version>6.2.0</ext-js.version>
   </properties>
 
   <build>
@@ -47,21 +48,28 @@
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
-        <version>${jangaroo-plugin.version}</version>
+        <version>${jangaroo-libs.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
         <type>pkg</type>
-        <version>${jangaroo-plugin.version}</version>
+        <version>${jangaroo-libs.version}</version>
       </dependency>
 
       <dependency>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-libs-bom</artifactId>
-        <version>4.0.12</version>
+        <version>${jangaroo-libs.version}</version>
         <scope>import</scope>
         <type>pom</type>
+      </dependency>
+
+      <dependency>
+        <groupId>net.jangaroo.com.sencha</groupId>
+        <artifactId>ext-js-pkg-gpl</artifactId>
+        <version>${ext-js.version}</version>
+        <type>pkg</type>
       </dependency>
 
       <dependency>
