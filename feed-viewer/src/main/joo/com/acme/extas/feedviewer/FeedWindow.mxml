@@ -56,7 +56,7 @@
         msg: 'Validating feed...'
       });
       Ajax.request({
-        url: 'feed-proxy.xml',
+        url: 'feed-proxy.php',
         params: {
           feed: url
         },
