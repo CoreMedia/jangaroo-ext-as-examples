@@ -12,6 +12,8 @@
 
     import ext.data.Model;
 
+    public native function FeedDetail(config:FeedDetail = null);
+
     override protected function initComponent():void {
       loadFeed(url);
       relayEvents(display, ['opentab']);

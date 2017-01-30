@@ -11,6 +11,8 @@
     import ext.Ext;
     import ext.data.Model;
 
+    public native function FeedInfo(config:FeedInfo = null);
+
     /**
      * Add a new feed
      * @param {String} title The title of the feed

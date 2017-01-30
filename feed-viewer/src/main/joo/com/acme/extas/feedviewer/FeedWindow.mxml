@@ -29,7 +29,7 @@
     import js.HTMLElement;
     import js.XMLHttpRequest;
 
-    public var defaultFeeds:Array = [
+    private static var defaultFeeds:Array = [
       ['http://rss.cnn.com/rss/edition.rss', 'CNN Top Stories'],
       ['http://sports.espn.go.com/espn/rss/news', 'ESPN Top News'],
       ['http://news.google.com/news?ned=us&topic=t&output=rss', 'Sci/Tech - Google News'],
@@ -39,6 +39,8 @@
     private static function comboGetInnerTpl():String {
       return '<div class="feed-picker-url">{field1}</div><div class="feed-picker-title">{field2}</div>';
     }
+
+    public native function FeedWindow(config:FeedWindow = null);
 
     private function doHide():void {
       hide();

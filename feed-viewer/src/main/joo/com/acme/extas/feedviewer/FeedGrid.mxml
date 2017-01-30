@@ -14,6 +14,8 @@
     import ext.data.Store;
     import ext.data.operation.Operation;
 
+    public native function FeedGrid(config:FeedGrid = null);
+
     /**
      * Reacts to a double click The view The row index
      */

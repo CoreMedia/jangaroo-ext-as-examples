@@ -11,6 +11,8 @@
 
     import js.HTMLElement;
 
+    public native function FeedViewer(config:FeedViewer = null);
+
     Ext.define('Feed', {
       extend: 'Ext.data.Model',
       fields: ['title', 'url']
