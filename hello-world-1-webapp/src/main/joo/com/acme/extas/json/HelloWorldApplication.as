@@ -10,7 +10,7 @@ public class HelloWorldApplication extends Application {
 
   //noinspection JSUnusedGlobalSymbols
   public function HelloWorldApplication() {
-    var config:Application = {};
+    var config:Application = Application({});
     config.name = "HelloWorld";
     super(config);
   }

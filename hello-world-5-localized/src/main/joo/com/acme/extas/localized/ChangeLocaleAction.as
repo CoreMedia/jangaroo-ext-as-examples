@@ -23,7 +23,7 @@ public class ChangeLocaleAction extends Action {
    * Change the current locale of the Jangaroo Ext AS application.
    */
   public function ChangeLocaleAction(config:ChangeLocaleAction = null) {
-    var superConfig:ChangeLocaleAction = {};
+    var superConfig:ChangeLocaleAction = ChangeLocaleAction({});
     Ext.apply(superConfig, config);
     superConfig.disabled = config.locale === CURRENT_LOCALE;
     superConfig.handler = changeLocale;
