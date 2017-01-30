@@ -119,22 +119,26 @@
                                 previewExpanded="true"/>
   </features>
   <columns>
+    <!-- TODO: align="left" in each GridColumn is only necessary due to Ext JS 6.2.0 bug -->
     <GridColumn
             text='Title'
             dataIndex='title'
             flex="1"
+            align="left"
             renderer="{formatTitle}"
     />
     <GridColumn
             text='Author'
             dataIndex='author'
             hidden="true"
+            align="left"
             width="200"
     />
     <GridColumn
             text='Date'
             dataIndex='pubDate'
             renderer="{formatDate}"
+            align="left"
             width="200"
     />
   </columns>
