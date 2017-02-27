@@ -11,7 +11,7 @@ import joo.localeSupport;
  */
 public class ChangeLocaleAction extends Action {
 
-  internal static const CURRENT_LOCALE:String = Ext.manifest.locale;
+  internal static const CURRENT_LOCALE:String = localeSupport.getLocale();
 
   [ExtConfig]
   /**

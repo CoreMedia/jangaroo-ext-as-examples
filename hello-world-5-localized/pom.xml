@@ -19,20 +19,24 @@
   </description>
 
   <build>
-    <sourceDirectory>src/main/joo</sourceDirectory>
-
+    <resources>
+      <resource>
+        <directory>src/main/sencha</directory>
+        <targetPath>../app</targetPath>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-maven-plugin</artifactId>
         <extensions>true</extensions>
+        <version>${jangaroo-plugin.version}</version>
         <configuration>
           <applicationClass>com.acme.extas.localized.HelloWorldApplication</applicationClass>
-          <locales>
-            <item>en</item>
+          <additionalLocales>
             <item>en_GB</item>
             <item>de</item>
-          </locales>
+          </additionalLocales>
         </configuration>
       </plugin>
     </plugins>
