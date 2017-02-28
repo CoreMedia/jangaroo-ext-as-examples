@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <jangaroo-plugin.version>4.0.47</jangaroo-plugin.version>
-    <jangaroo-libs.version>4.0.39</jangaroo-libs.version>
+    <jangaroo-libs.version>4.0.40</jangaroo-libs.version>
     <ext-as.version>6.2.0-8</ext-as.version>
     <ext-js.version>6.2.0</ext-js.version>
   </properties>
