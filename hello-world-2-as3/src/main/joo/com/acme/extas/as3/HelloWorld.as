@@ -1,48 +1,41 @@
 package com.acme.extas.as3 {
 
+import ext.Ext;
 import ext.MessageBox;
 import ext.StringUtil;
 import ext.button.Button;
-import ext.container.Viewport;
+import ext.button.events.Button_eEvent;
 import ext.panel.Panel;
+import ext.panel.PanelHeader;
 import ext.toolbar.Toolbar;
 
-public class HelloWorld extends Viewport {
+public class HelloWorld extends Panel {
 
-  //noinspection JSUnusedGlobalSymbols
-  public static function main(config:Viewport):void {
-    new HelloWorld(config);
-  }
+  [Bindable]
+  public var user:String;
 
-  public function HelloWorld(config:Viewport) {
-    super(config);
-  }
-
-  public native function get user():String;
-
-  override protected function initComponent():void {
-    super.initComponent();
+  public function HelloWorld(config:Panel) {
+    var superConfig:Panel = Panel({});
+    superConfig.header = PanelHeader({});
+    superConfig.header.title = "Hello ActionScript World!";
 
     var buttonConfig:Button = Button({});
-    buttonConfig.text = "Click me, Dude!";
-    buttonConfig.handler = onClick;
+    buttonConfig.text = "Click me!";
+    buttonConfig.addEventListener(Button_eEvent.CLICK, onClick);
 
     var toolbarConfig:Toolbar = Toolbar({});
+    toolbarConfig.dock = "top";
     toolbarConfig.items = [buttonConfig];
 
-    var panelConfig:Panel = Panel({});
-    panelConfig['header'] = true;
-    panelConfig.tbar = toolbarConfig;
-    panelConfig.title = "Hello World!";
+    superConfig.dockedItems = [toolbarConfig];
 
-    add(panelConfig); // add automatically creates the component sub-tree from the config objects!
-    // you could also explicitly build the component by using
-    //  add(new ext.Panel(panelConfig));
+    Ext.apply(superConfig, config);
+    super(superConfig);
   }
 
-  private function onClick(button:Button):void {
+  private function onClick(event:Button_eEvent):void {
     MessageBox.alert(StringUtil.format("Hello {0}!", user),
-      StringUtil.format("{0} clicked on button '{1}'.", user, button.getText()));
+      StringUtil.format("{0} clicked on button '{1}'.", user, event.source.text));
   }
 }
 }

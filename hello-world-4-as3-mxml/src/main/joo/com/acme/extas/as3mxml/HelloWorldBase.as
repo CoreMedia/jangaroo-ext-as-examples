@@ -3,13 +3,9 @@ package com.acme.extas.as3mxml {
 import ext.MessageBox;
 import ext.StringUtil;
 import ext.button.Button;
-import ext.container.Viewport;
+import ext.panel.Panel;
 
-public class HelloWorldBase extends Viewport {
-
-  public function HelloWorldBase(config:HelloWorld = null) {
-    super(config);
-  }
+public class HelloWorldBase extends Panel {
 
   [Bindable]
   /**
@@ -17,9 +13,13 @@ public class HelloWorldBase extends Viewport {
    */
   public var user:String;
 
+  public function HelloWorldBase(config:HelloWorld = null) {
+    super(config);
+  }
+
   internal function onClick(button:Button):void {
     MessageBox.alert(StringUtil.format('Hello {0}!', user),
-            StringUtil.format('{0} clicked on button \'{1}\'.', user, button.getText()));
+            StringUtil.format('{0} clicked on button \'{1}\'.', user, button.text));
   }
 }
 }

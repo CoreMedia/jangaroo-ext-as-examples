@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>feed-viewer</artifactId>
-  <packaging>jangaroo-app</packaging>
+  <packaging>jangaroo-pkg</packaging>
 
   <name>feed-viewer</name>
   <description>
@@ -20,8 +20,6 @@
   </description>
 
   <build>
-    <sourceDirectory>src/main/joo</sourceDirectory>
-
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
@@ -29,7 +27,6 @@
         <version>${jangaroo-plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
-          <applicationClass>com.acme.extas.feedviewer.FeedViewerApplication</applicationClass>
           <additionalCssNonBundle>
             <item>Feed-Viewer.css</item>
           </additionalCssNonBundle>
@@ -42,6 +39,13 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo.extas.examples</groupId>
+      <artifactId>remote-packages</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
     </dependency>
   </dependencies>
 </project>

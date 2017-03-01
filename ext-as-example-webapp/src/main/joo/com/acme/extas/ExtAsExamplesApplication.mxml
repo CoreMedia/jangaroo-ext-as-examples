@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--- 
+ Created by fwienber on 27.02.2017.
+-->
+<Application
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns="exml:ext.config"
+        xmlns:local="com.acme.extas.*"
+        name="Ext AS Examples">
+  <fx:Script><![CDATA[
+    private var config:ExtAsExamplesApplication;
+
+    public native function ExtAsExamplesApplication(config:ExtAsExamplesApplication = null);
+
+
+    override public function launch(profile:String):Boolean {
+      window.document.title = name;
+      return super.launch(profile);
+    }
+    ]]></fx:Script>
+
+  <mainView>
+    <local:ExtAsExamplesOverview/>
+  </mainView>
+</Application>

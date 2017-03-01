@@ -7,11 +7,11 @@
     ]]></fx:Script>
 
     <local:items>
-      <Panel title="Hello World">
+      <Panel title="Hello AS &amp; MXML World!">
         <tbar>
           <Toolbar>
             <items>
-              <Button text="Click me!" handler="{onClick}"/>
+              <Button text="Click me!" onClick="onClick(event.source)"/>
             </items>
           </Toolbar>
         </tbar>

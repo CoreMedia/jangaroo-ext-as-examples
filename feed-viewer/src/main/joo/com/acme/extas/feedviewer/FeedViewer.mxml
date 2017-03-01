@@ -2,8 +2,8 @@
 <!--
   The main FeedViewer application.
 -->
-<Viewport xmlns:fx="http://ns.adobe.com/mxml/2009"
-          xmlns="exml:ext.config" xmlns:local="com.acme.extas.feedviewer.*">
+<Panel xmlns:fx="http://ns.adobe.com/mxml/2009"
+       xmlns="exml:ext.config" xmlns:local="com.acme.extas.feedviewer.*">
   <fx:Script><![CDATA[
     import ext.Ext;
     import ext.StringUtil;
@@ -87,4 +87,4 @@
   <layout>
     <layout_Border padding="5"/>
   </layout>
-</Viewport>
+</Panel>
