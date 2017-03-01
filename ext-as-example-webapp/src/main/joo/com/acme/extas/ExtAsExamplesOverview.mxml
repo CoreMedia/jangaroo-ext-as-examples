@@ -7,22 +7,22 @@
         xmlns="exml:ext.config"
         layout="fit">
   <fx:Script><![CDATA[
-    import joo.DynamicClassLoader;
+    import ext.Ext;
 
     private var config:ExtAsExamplesOverview;
 
     public native function ExtAsExamplesOverview(config:ExtAsExamplesOverview = null);
 
     private static function activate(exampleMainView:String, tabCard:Panel):Function {
-      DynamicClassLoader.INSTANCE.import_(exampleMainView);
-      DynamicClassLoader.INSTANCE.complete(function ():void {
-        if (!tabCard.child()) {
+      if (!tabCard.child()) {
+        Ext.require(exampleMainView);
+        Ext.onReady(function ():void {
           tabCard.add({
             xclass: exampleMainView,
             user: "Joe"
           });
-        }
-      });
+        });
+      }
     }
     ]]></fx:Script>
 
