@@ -9,8 +9,6 @@
   <fx:Script><![CDATA[
     import ext.Ext;
 
-    private var config:ExtAsExamplesOverview;
-
     public native function ExtAsExamplesOverview(config:ExtAsExamplesOverview = null);
 
     private static function activate(exampleMainView:String, tabCard:Panel):Function {

@@ -8,8 +8,6 @@
         xmlns:local="com.acme.extas.*"
         name="Ext AS Examples">
   <fx:Script><![CDATA[
-    private var config:ExtAsExamplesApplication;
-
     public native function ExtAsExamplesApplication(config:ExtAsExamplesApplication = null);
 
 
