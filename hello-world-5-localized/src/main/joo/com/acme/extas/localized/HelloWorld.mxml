@@ -14,7 +14,7 @@
       <tbar>
         <Toolbar>
           <items>
-            <Button text="{resourceManager.getString('com.acme.extas.localized.HelloWorld', 'button_label')}" handler="{onClick}"/>
+            <Button text="{resourceManager.getString('com.acme.extas.localized.HelloWorld', 'button_label')}" onClick="{onClick(event.source)}"/>
             <Button text="{resourceManager.getString('com.acme.extas.localized.HelloWorld', 'menu_label')}">
               <menu>
                 <local:LocaleMenu/>
