@@ -45,6 +45,11 @@
   <dependencies>
     <dependency>
       <groupId>net.jangaroo</groupId>
+      <artifactId>jangaroo-browser</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
     </dependency>
 
