@@ -14,7 +14,7 @@ public class HelloWorld extends Panel {
   [Bindable]
   public var user:String;
 
-  public function HelloWorld(config:Panel) {
+  public function HelloWorld(config:HelloWorld) {
     var superConfig:Panel = Panel({});
     superConfig.header = PanelHeader({});
     superConfig.header.title = "Hello ActionScript World!";
