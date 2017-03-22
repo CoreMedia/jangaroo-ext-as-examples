@@ -9,3 +9,5 @@
 target/
 overlays/
 .m2/
+# Jangaroo dir for Sencha remote packages
+.remote-packages/

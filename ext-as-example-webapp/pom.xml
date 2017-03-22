@@ -32,6 +32,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>net.jangaroo.com.sencha</groupId>
+      <artifactId>ext-js-pkg</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
     </dependency>
@@ -58,13 +63,6 @@
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>feed-viewer</artifactId>
       <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>remote-packages</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
     </dependency>
   </dependencies>
 

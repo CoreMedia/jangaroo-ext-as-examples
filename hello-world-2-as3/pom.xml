@@ -34,12 +34,5 @@
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>remote-packages</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-    </dependency>
   </dependencies>
 </project>

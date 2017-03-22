@@ -34,15 +34,13 @@
 
   <dependencies>
     <dependency>
-      <groupId>net.jangaroo</groupId>
-      <artifactId>ext-as</artifactId>
+      <groupId>net.jangaroo.com.sencha</groupId>
+      <artifactId>ext-js-pkg</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>net.jangaroo.extas.examples</groupId>
-      <artifactId>remote-packages</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>net.jangaroo</groupId>
+      <artifactId>ext-as</artifactId>
     </dependency>
   </dependencies>
 </project>

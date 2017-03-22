@@ -15,10 +15,10 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo-plugin.version>4.0.47</jangaroo-plugin.version>
-    <jangaroo-libs.version>4.0.40</jangaroo-libs.version>
-    <ext-as.version>6.2.0-10</ext-as.version>
-    <ext-js.version>6.2.0</ext-js.version>
+    <jangaroo-plugin.version>4.0.48</jangaroo-plugin.version>
+    <jangaroo-libs.version>4.0.41</jangaroo-libs.version>
+    <ext-as.version>6.2.0-11</ext-as.version>
+    <ext-js.version>6.2.0-gpl-1</ext-js.version>
   </properties>
 
   <build>
@@ -50,12 +50,6 @@
         <artifactId>jangaroo-runtime</artifactId>
         <version>${jangaroo-libs.version}</version>
       </dependency>
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>jangaroo-runtime</artifactId>
-        <type>pkg</type>
-        <version>${jangaroo-libs.version}</version>
-      </dependency>
 
       <dependency>
         <groupId>net.jangaroo</groupId>
@@ -67,9 +61,8 @@
 
       <dependency>
         <groupId>net.jangaroo.com.sencha</groupId>
-        <artifactId>ext-js-pkg-gpl</artifactId>
+        <artifactId>ext-js-pkg</artifactId>
         <version>${ext-js.version}</version>
-        <type>pkg</type>
       </dependency>
 
       <dependency>
@@ -78,12 +71,6 @@
         <version>${ext-as.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>net.jangaroo</groupId>
-        <artifactId>ext-as</artifactId>
-        <version>${ext-as.version}</version>
-        <type>pkg</type>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
