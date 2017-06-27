@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>hello-world-2-as3</artifactId>
-  <packaging>jangaroo-pkg</packaging>
+  <packaging>swc</packaging>
 
   <name>hello-world-2-as3</name>
   <description>
@@ -33,6 +33,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+      <type>swc</type>
     </dependency>
   </dependencies>
 </project>

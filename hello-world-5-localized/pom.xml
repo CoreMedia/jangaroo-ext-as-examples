@@ -46,6 +46,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>jangaroo-browser</artifactId>
+      <type>swc</type>
     </dependency>
 
     <dependency>
@@ -56,6 +57,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+      <type>swc</type>
     </dependency>
   </dependencies>
 </project>

@@ -15,9 +15,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo-plugin.version>4.0.48</jangaroo-plugin.version>
-    <jangaroo-libs.version>4.0.41</jangaroo-libs.version>
-    <ext-as.version>6.2.0-11</ext-as.version>
+    <jangaroo-plugin.version>4.0.50</jangaroo-plugin.version>
+    <jangaroo-libs.version>4.0.42</jangaroo-libs.version>
+    <ext-as.version>6.2.0-13</ext-as.version>
     <ext-js.version>6.2.0-gpl-1</ext-js.version>
   </properties>
 
@@ -49,6 +49,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>jangaroo-runtime</artifactId>
         <version>${jangaroo-libs.version}</version>
+        <type>swc</type>
       </dependency>
 
       <dependency>
@@ -69,6 +70,7 @@
         <groupId>net.jangaroo</groupId>
         <artifactId>ext-as</artifactId>
         <version>${ext-as.version}</version>
+        <type>swc</type>
       </dependency>
 
     </dependencies>

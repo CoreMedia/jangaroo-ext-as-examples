@@ -39,30 +39,35 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+      <type>swc</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-2-as3</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-3-mxml</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>hello-world-4-as3-mxml</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
 
     <dependency>
       <groupId>net.jangaroo.extas.examples</groupId>
       <artifactId>feed-viewer</artifactId>
       <version>${project.version}</version>
+      <type>swc</type>
     </dependency>
   </dependencies>
 

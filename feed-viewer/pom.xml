@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>feed-viewer</artifactId>
-  <packaging>jangaroo-pkg</packaging>
+  <packaging>swc</packaging>
 
   <name>feed-viewer</name>
   <description>
@@ -20,6 +20,13 @@
   </description>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/sencha</directory>
+        <targetPath>../packages/${project.groupId}__${project.artifactId}</targetPath>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>net.jangaroo</groupId>
@@ -39,6 +46,7 @@
     <dependency>
       <groupId>net.jangaroo</groupId>
       <artifactId>ext-as</artifactId>
+      <type>swc</type>
     </dependency>
   </dependencies>
 </project>
