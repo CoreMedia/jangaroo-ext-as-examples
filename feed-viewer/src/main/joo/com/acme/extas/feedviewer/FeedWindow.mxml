@@ -102,6 +102,10 @@
       form.setLoading(false);
       Field(form.getComponent('feed')).markInvalid('The URL specified is not a valid RSS2 feed.');
     }
+
+    internal function resetForm():void {
+      form.reset();
+    }
     ]]></fx:Script>
   <items>
     <Form id="form"

@@ -102,7 +102,7 @@
       if (!addFeedWindow.isInstance) {
         addFeedWindow = Ext.create(addFeedWindow);
       }
-      addFeedWindow.form.getForm().reset();
+      addFeedWindow.resetForm();
       addFeedWindow.show();
     }
 
