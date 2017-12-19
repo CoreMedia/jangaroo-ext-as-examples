@@ -72,8 +72,8 @@
         <layout_Border split="true"/>
       </local:mixins>
       <local:feeds>
-        <fx:Object title="Sencha Blog"
-                   url="http://feeds.feedburner.com/sencha"/>
+        <fx:Object title="Jangaroo Users"
+                   url="https://groups.google.com/forum/feed/jangaroo-users/msgs/rss.xml"/>
         <fx:Object title="Sencha Forums"
                    url="http://sencha.com/forum/external.php?type=RSS2"/>
         <fx:Object title="Ajaxian"
