@@ -101,7 +101,7 @@
                  }]}"
                  onLoad="onLoad(event.source, event.records, event.successful)">
       <proxy>
-        <proxy_Ajax url="feed-proxy.php"
+        <proxy_Ajax url="proxy/feed-proxy.php"
                     onException="onProxyException(event.operation)">
           <reader>
             <reader_Xml record="item"/>

@@ -15,9 +15,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jangaroo-plugin.version>4.0.50</jangaroo-plugin.version>
+    <jangaroo-plugin.version>4.0.55</jangaroo-plugin.version>
     <jangaroo-libs.version>4.0.42</jangaroo-libs.version>
-    <ext-as.version>6.2.0-13</ext-as.version>
+    <ext-as.version>6.2.0-14</ext-as.version>
     <ext-js.version>6.2.0-gpl-1</ext-js.version>
   </properties>
 
@@ -30,6 +30,8 @@
           <version>${jangaroo-plugin.version}</version>
           <configuration>
             <publicApiViolations>allow</publicApiViolations>
+            <jooProxyPathSpec>/ext-as-example-webapp/target/app/proxy/*</jooProxyPathSpec>
+            <jooProxyTargetUri>http://examples.sencha.com/extjs/6.0.0/examples/classic/feed-viewer</jooProxyTargetUri>
           </configuration>
         </plugin>
       </plugins>
