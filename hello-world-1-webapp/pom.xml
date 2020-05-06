@@ -34,8 +34,10 @@
 
   <dependencies>
     <dependency>
-      <groupId>net.jangaroo.com.sencha</groupId>
+      <groupId>com.coremedia.sencha</groupId>
       <artifactId>ext-js-pkg</artifactId>
+      <scope>runtime</scope>
+      <type>pkg</type>
     </dependency>
 
     <dependency>
