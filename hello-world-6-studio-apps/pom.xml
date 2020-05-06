@@ -35,5 +35,12 @@
       <artifactId>ext-as</artifactId>
       <type>swc</type>
     </dependency>
+
+    <dependency>
+      <groupId>com.coremedia.ui</groupId>
+      <artifactId>service-agent</artifactId>
+      <version>2004.1</version>
+      <type>swc</type>
+    </dependency>
   </dependencies>
 </project>
