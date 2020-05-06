@@ -41,6 +41,8 @@
                onActivate="activate('com.acme.extas.as3mxml.HelloWorld', Panel(event.source))"/>
         <Panel title="Sencha Feed Viewer"
                onActivate="activate('com.acme.extas.feedviewer.FeedViewer', Panel(event.source))"/>
+        <Panel title="Hello World as Studio App"
+               onActivate="activate('com.acme.extas.studioapps.HelloWorld', Panel(event.source))"/>
       </items>
     </TabPanel>
   </items>

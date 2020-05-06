@@ -71,6 +71,13 @@
       <version>${project.version}</version>
       <type>swc</type>
     </dependency>
+
+    <dependency>
+      <groupId>net.jangaroo.extas.examples</groupId>
+      <artifactId>hello-world-6-studio-apps</artifactId>
+      <version>${project.version}</version>
+      <type>swc</type>
+    </dependency>
   </dependencies>
 
 </project>
