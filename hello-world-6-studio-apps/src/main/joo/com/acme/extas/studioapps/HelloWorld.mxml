@@ -11,7 +11,8 @@
         <tbar>
           <Toolbar>
             <items>
-              <Button text="Click me!" onClick="onClick(event.source)"/>
+              <TextField emptyText="Search..." itemId="{SEARCH_TEXT_FIELD_ITEM_ID}"/>
+              <Button text="Search in Studio Library!" onClick="onClick(event.source)"/>
             </items>
           </Toolbar>
         </tbar>

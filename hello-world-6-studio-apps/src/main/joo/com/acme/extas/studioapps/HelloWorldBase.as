@@ -2,28 +2,22 @@ package com.acme.extas.studioapps {
 
 import com.coremedia.ui.apps.global.serviceAgent;
 
+import ext.ComponentQuery;
+
 import ext.MessageBox;
 import ext.StringUtil;
 import ext.button.Button;
+import ext.form.field.TextField;
 import ext.panel.Panel;
 
 public class HelloWorldBase extends Panel {
-
-  [Bindable]
-  /**
-   * The name of the user to greet.
-   */
-  public var user:String;
+  public static const SEARCH_TEXT_FIELD_ITEM_ID:String = "searchTextField";
 
   public function HelloWorldBase(config:HelloWorld = null) {
     super(config);
   }
 
   internal function onClick(button:Button):void {
-
-    var search:SearchState = new SearchState();
-    search.searchText = "About";
-
     if (serviceAgent == null) {
       joo.getOrCreatePackage("com.coremedia.ui.apps.global").serviceAgent = window["cmApps"].serviceAgent;
     }
@@ -31,14 +25,19 @@ public class HelloWorldBase extends Panel {
     var libraryService:Object = serviceAgent.getService("libraryService");
 
     if (libraryService) {
-
+      var search:SearchState = new SearchState();
+      var searchTextField:TextField = ComponentQuery.query("#" + SEARCH_TEXT_FIELD_ITEM_ID)[0] as TextField;
+      var searchValue:String = searchTextField.getValue();
+      search.searchText = searchValue;
       libraryService.openSearchResult(search);
+      MessageBox.alert("Search performed successfully!",StringUtil.format('Search term: {0}' +
+              '<br/>Switch to the Studio window to see the results.', searchValue));
     } else {
-      trace("[WARN]", "Library Service not available.")
+      MessageBox.alert("ERROR",
+              "Library Service not available.<br/>Have you logged in to Studio?");
     }
 
-    MessageBox.alert(StringUtil.format('Hello {0}!', user),
-            StringUtil.format('{0} clicked on button \'{1}\'.', user, button.text));
   }
+
 }
 }
