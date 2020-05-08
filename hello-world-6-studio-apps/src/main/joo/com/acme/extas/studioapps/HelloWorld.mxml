@@ -17,7 +17,7 @@
           </Toolbar>
           <Toolbar>
             <items>
-              <Button text="Button 2!"/>
+              <Button text="Show opened content items!"/>
             </items>
           </Toolbar>
         </items>
