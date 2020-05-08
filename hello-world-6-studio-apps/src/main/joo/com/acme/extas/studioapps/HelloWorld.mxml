@@ -8,14 +8,20 @@
 
     <local:items>
       <Panel title="Hello Studio App World!">
-        <tbar>
+        <items>
           <Toolbar>
             <items>
               <TextField emptyText="Search..." itemId="{SEARCH_TEXT_FIELD_ITEM_ID}"/>
               <Button text="Search in Studio Library!" onClick="onClick(event.source)"/>
             </items>
           </Toolbar>
-        </tbar>
+          <Toolbar>
+            <items>
+              <Button text="Button 2!"/>
+            </items>
+          </Toolbar>
+        </items>
+
       </Panel>
     </local:items>
 
