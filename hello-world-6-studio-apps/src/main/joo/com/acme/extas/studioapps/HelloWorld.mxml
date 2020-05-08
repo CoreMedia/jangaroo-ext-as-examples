@@ -12,7 +12,7 @@
           <Toolbar>
             <items>
               <TextField emptyText="Search..." itemId="{SEARCH_TEXT_FIELD_ITEM_ID}"/>
-              <Button text="Search in Studio Library!" onClick="onClick(event.source)"/>
+              <Button text="Search in Studio Library!" onClick="search(event.source)"/>
             </items>
           </Toolbar>
           <Toolbar>

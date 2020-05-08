@@ -17,7 +17,7 @@ public class HelloWorldBase extends Panel {
     super(config);
   }
 
-  internal function onClick(button:Button):void {
+  internal function search(button:Button):void {
     if (serviceAgent == null) {
       joo.getOrCreatePackage("com.coremedia.ui.apps.global").serviceAgent = window["cmApps"].serviceAgent;
     }
