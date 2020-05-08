@@ -7,6 +7,7 @@ import ext.ComponentQuery;
 import ext.MessageBox;
 import ext.StringUtil;
 import ext.button.Button;
+import ext.form.Label;
 import ext.form.field.TextField;
 import ext.panel.Panel;
 
@@ -36,6 +37,13 @@ public class HelloWorldBase extends Panel {
       MessageBox.alert("ERROR",
               "Library Service not available.<br/>Have you logged in to Studio?");
     }
+
+  }
+
+  internal function showItems(button:Button):void {
+
+    var showItemsLabel:Label = ComponentQuery.query("#showItemsLabel")[0] as Label;
+    showItemsLabel.html="hello";
 
   }
 

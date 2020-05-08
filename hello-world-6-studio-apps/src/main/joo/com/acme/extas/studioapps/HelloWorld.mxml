@@ -16,8 +16,12 @@
             </items>
           </Toolbar>
           <Toolbar>
-            <items>
-              <Button text="Show opened content items!"/>
+            <layout>
+              <layout_VBox align="begin"/>
+            </layout>
+            <items >
+              <Button text="Show opened content items!" onClick="showItems(event.source)"/>
+              <Label html="testing<br/>testing2" itemId="showItemsLabel"/>
             </items>
           </Toolbar>
         </items>
