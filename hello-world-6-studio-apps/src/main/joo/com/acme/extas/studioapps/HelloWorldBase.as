@@ -21,6 +21,9 @@ public class HelloWorldBase extends Panel {
 
   internal function onClick(button:Button):void {
 
+    var search:SearchState = new SearchState();
+    search.searchText = "About";
+
     if (serviceAgent == null) {
       joo.getOrCreatePackage("com.coremedia.ui.apps.global").serviceAgent = window["cmApps"].serviceAgent;
     }
@@ -28,7 +31,8 @@ public class HelloWorldBase extends Panel {
     var libraryService:Object = serviceAgent.getService("libraryService");
 
     if (libraryService) {
-      libraryService.openSearchResult("home");
+
+      libraryService.openSearchResult(search);
     } else {
       trace("[WARN]", "Library Service not available.")
     }
