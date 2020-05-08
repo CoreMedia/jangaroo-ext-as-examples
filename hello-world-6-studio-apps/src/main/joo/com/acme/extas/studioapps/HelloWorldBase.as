@@ -3,6 +3,7 @@ package com.acme.extas.studioapps {
 import com.coremedia.ui.apps.global.serviceAgent;
 
 import ext.ComponentQuery;
+import ext.IPromise;
 
 import ext.MessageBox;
 import ext.StringUtil;
@@ -41,9 +42,29 @@ public class HelloWorldBase extends Panel {
   }
 
   internal function showItems(button:Button):void {
+    if (serviceAgent == null) {
+      joo.getOrCreatePackage("com.coremedia.ui.apps.global").serviceAgent = window["cmApps"].serviceAgent;
+    }
 
-    var showItemsLabel:Label = ComponentQuery.query("#showItemsLabel")[0] as Label;
-    showItemsLabel.html="hello";
+    var workAreaService:Object = serviceAgent.getService("workAreaService");
+
+    if (workAreaService) {
+      var openedEntities:IPromise = workAreaService.getOpenedEntities();
+      openedEntities.then(function(result:Array){
+        var showItemsLabel:Label = ComponentQuery.query("#showItemsLabel")[0] as Label;
+        var contentItemsList:String = "<b>Content items opened in Studio:</b>";
+
+        for each (var contentItem:String in result) {
+          contentItemsList = contentItemsList.concat("<br/>", contentItem);
+        }
+
+        showItemsLabel.html=contentItemsList;
+      });
+      MessageBox.alert("Successful operation","Showing content items opened in Studio");
+    } else {
+      MessageBox.alert("ERROR",
+              "Work Area Service not available.<br/>Have you logged in to Studio?");
+    }
 
   }
 

@@ -21,7 +21,7 @@
             </layout>
             <items >
               <Button text="Show opened content items!" onClick="showItems(event.source)"/>
-              <Label html="testing<br/>testing2" itemId="showItemsLabel"/>
+              <Label itemId="showItemsLabel"/>
             </items>
           </Toolbar>
         </items>
