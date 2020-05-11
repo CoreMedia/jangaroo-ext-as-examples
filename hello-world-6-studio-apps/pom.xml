@@ -15,6 +15,12 @@
   <name>hello-world-6-studio-apps</name>
   <description>
     Ext AS Example 6: Hello World as Studio App
+    It contains so far 2 basic features: 'Studio Library search' and 'Opened content items retrieval'.
+
+    Please note that it is necessary to run Studio Client and this app in the same context (same host and port) in
+    order to have a successful connection between Studio and this app. This would be possible using a proxy in front
+    of both applications to redirect the requests or directly setting jooProxyServletConfig in the Jangaroo build
+    configuration of Studio Client.
   </description>
 
   <build>
