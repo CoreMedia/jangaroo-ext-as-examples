@@ -14,6 +14,7 @@ import ext.panel.Panel;
 
 public class HelloWorldBase extends Panel {
   public static const SEARCH_TEXT_FIELD_ITEM_ID:String = "searchTextField";
+  public static const SHOW_ITEMS_LABEL_ITEM_ID:String = "showItemsLabel";
 
   public function HelloWorldBase(config:HelloWorld = null) {
     super(config);
@@ -51,7 +52,7 @@ public class HelloWorldBase extends Panel {
     if (workAreaService) {
       var openedEntities:IPromise = workAreaService.getOpenedEntities();
       openedEntities.then(function(result:Array){
-        var showItemsLabel:Label = ComponentQuery.query("#showItemsLabel")[0] as Label;
+        var showItemsLabel:Label = ComponentQuery.query("#" + SHOW_ITEMS_LABEL_ITEM_ID)[0] as Label;
         var contentItemsList:String = "<b>Content items opened in Studio:</b>";
 
         for each (var contentItem:String in result) {
