@@ -22,7 +22,7 @@ public class HelloWorldBase extends Panel {
 
   internal function search(button:Button):void {
     if (serviceAgent == null) {
-      joo.getOrCreatePackage("com.coremedia.ui.apps.global").serviceAgent = window["cmApps"].serviceAgent;
+      initializeServiceAgent();
     }
 
     var libraryService:Object = serviceAgent.getService("libraryService");
@@ -44,7 +44,7 @@ public class HelloWorldBase extends Panel {
 
   internal function showItems(button:Button):void {
     if (serviceAgent == null) {
-      joo.getOrCreatePackage("com.coremedia.ui.apps.global").serviceAgent = window["cmApps"].serviceAgent;
+      initializeServiceAgent();
     }
 
     var workAreaService:Object = serviceAgent.getService("workAreaService");
@@ -67,6 +67,10 @@ public class HelloWorldBase extends Panel {
               "Work Area Service not available.<br/>Have you logged in to Studio?");
     }
 
+  }
+
+  function initializeServiceAgent():void {
+    joo.getOrCreatePackage("com.coremedia.ui.apps.global").serviceAgent = window["cmApps"].serviceAgent;
   }
 
 }
